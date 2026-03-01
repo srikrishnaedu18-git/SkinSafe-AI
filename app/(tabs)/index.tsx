@@ -1,98 +1,170 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { router } from 'expo-router';
+import { useState } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+import { AppButton } from '@/components/ui/app-button';
+import { AppCard } from '@/components/ui/app-card';
+import { FadeIn } from '@/components/ui/fade-in';
+import { AppInput } from '@/components/ui/app-input';
+import { AppScreen } from '@/components/ui/app-screen';
+import { ErrorBanner } from '@/components/ui/error-banner';
+import { ScreenHeader } from '@/components/ui/screen-header';
+import { StatusChip } from '@/components/ui/status-chip';
+import { Palette, Radius, Spacing, Type } from '@/constants/design';
+import { useAppState } from '@/context/app-state';
+import { SkinType } from '@/types/models';
 
-export default function HomeScreen() {
+const skinTypes: SkinType[] = ['sensitive', 'normal', 'oily', 'dry', 'combination'];
+
+function toList(value: string) {
+  return value
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+export default function ProfileScreen() {
+  const { hydrated, profile, busy, error, clearError, saveProfile, resetAllData } = useAppState();
+  const [skinType, setSkinType] = useState<SkinType>(profile?.skinType ?? 'sensitive');
+  const [allergies, setAllergies] = useState(profile?.allergies.join(', ') ?? '');
+  const [conditions, setConditions] = useState(profile?.conditions.join(', ') ?? '');
+  const [preferences, setPreferences] = useState(profile?.preferences.join(', ') ?? '');
+
+  const onSave = async () => {
+    await saveProfile({
+      skinType,
+      allergies: toList(allergies),
+      conditions: toList(conditions),
+      preferences: toList(preferences),
+    });
+  };
+
+  if (!hydrated) {
+    return (
+      <AppScreen>
+        <AppCard>
+          <StatusChip label="Loading" tone="neutral" />
+          <Text style={styles.body}>Restoring saved app state...</Text>
+        </AppCard>
+      </AppScreen>
+    );
+  }
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+    <AppScreen>
+      <FadeIn>
+        <ScreenHeader
+          title="Profile Setup"
+          subtitle="Create your skin profile for personalized compatibility checks."
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+      </FadeIn>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      {error ? (
+        <FadeIn delay={40}>
+          <ErrorBanner message={error} />
+        </FadeIn>
+      ) : null}
+
+      <FadeIn delay={80}>
+        <AppCard tone="accent">
+          <Text style={styles.sectionTitle}>Skin Type</Text>
+          <View style={styles.skinRow}>
+            {skinTypes.map((type) => {
+              const active = skinType === type;
+              return (
+                <Pressable
+                  key={type}
+                  onPress={() => {
+                    if (error) clearError();
+                    setSkinType(type);
+                  }}
+                  style={[styles.skinChip, active && styles.skinChipActive]}>
+                  <Text style={[styles.skinChipText, active && styles.skinChipTextActive]}>{type}</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+
+          <AppInput
+            label="Allergies (comma separated)"
+            value={allergies}
+            onChangeText={setAllergies}
+            placeholder="fragrance, parabens"
+          />
+          <AppInput
+            label="Conditions (comma separated)"
+            value={conditions}
+            onChangeText={setConditions}
+            placeholder="acne-prone, eczema"
+          />
+          <AppInput
+            label="Preferences (comma separated)"
+            value={preferences}
+            onChangeText={setPreferences}
+            placeholder="fragrance-free, low-comedogenic"
+          />
+
+          <AppButton
+            label={busy.savingProfile ? 'Saving Profile...' : 'Save Profile'}
+            onPress={onSave}
+            variant="primary"
+            disabled={busy.savingProfile}
+          />
+        </AppCard>
+      </FadeIn>
+
+      {profile ? (
+        <FadeIn delay={120}>
+          <AppCard>
+            <StatusChip label="Profile Saved" tone="success" />
+            <Text style={styles.body}>Skin Type: {profile.skinType}</Text>
+            <Text style={styles.body}>Allergies: {profile.allergies.join(', ') || 'None'}</Text>
+            <Text style={styles.body}>Conditions: {profile.conditions.join(', ') || 'None'}</Text>
+            <Text style={styles.body}>Preferences: {profile.preferences.join(', ') || 'None'}</Text>
+            <AppButton label="Continue To Product" onPress={() => router.push('/(tabs)/product')} />
+            <AppButton label="Reset All Data" variant="secondary" onPress={resetAllData} />
+          </AppCard>
+        </FadeIn>
+      ) : null}
+    </AppScreen>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
+  sectionTitle: {
+    fontSize: Type.heading,
+    fontWeight: '700',
+    color: Palette.textPrimary,
+  },
+  body: {
+    fontSize: Type.body,
+    color: Palette.textSecondary,
+    lineHeight: 22,
+  },
+  skinRow: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+    flexWrap: 'wrap',
+    gap: Spacing.sm,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  skinChip: {
+    borderRadius: Radius.xl,
+    borderWidth: 1,
+    borderColor: Palette.border,
+    paddingHorizontal: Spacing.md,
+    paddingVertical: Spacing.sm,
+    backgroundColor: Palette.surface,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  skinChipActive: {
+    borderColor: Palette.primary,
+    backgroundColor: Palette.primarySoft,
+  },
+  skinChipText: {
+    color: Palette.textSecondary,
+    fontSize: Type.caption,
+    fontWeight: '700',
+    textTransform: 'capitalize',
+  },
+  skinChipTextActive: {
+    color: Palette.primaryStrong,
   },
 });

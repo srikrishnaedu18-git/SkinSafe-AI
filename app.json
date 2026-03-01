@@ -38,6 +38,12 @@
             "backgroundColor": "#000000"
           }
         }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow BC Patent app to scan product barcodes and QR codes."
+        }
       ]
     ],
     "experiments": {

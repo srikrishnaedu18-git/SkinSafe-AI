@@ -1,76 +1,61 @@
-# BC Patent Project Frontend (Expo React Native)
+# BC Patent Project
 
-This app is the frontend prototype for the explainable, blockchain-verified cosmetic compatibility system.
+Project is now split into:
 
-## Run
+- `frontend/` -> Expo React Native app
+- `backend/` -> AI + XAI compatibility API service
+
+## 1) Frontend setup and run
 
 ```bash
+cd "/home/krishna/Desktop/code/BC - Patent project/bc-patent-project/frontend"
 npm install
+```
+
+Edit `.env` in `frontend/` and set your machine IP:
+
+```env
+EXPO_PUBLIC_API_BASE_URL=http://<YOUR_MACHINE_IP>:8080
+EXPO_PUBLIC_USE_MOCK_API=false
+```
+
+Run frontend:
+
+```bash
+cd "/home/krishna/Desktop/code/BC - Patent project/bc-patent-project/frontend"
 npm run start
 ```
 
-## Environment Configuration
-
-Copy `.env.example` to `.env` and update values:
+Optional:
 
 ```bash
-cp .env.example .env
-```
-
-Variables:
-
-- `EXPO_PUBLIC_API_BASE_URL`: Backend API base URL (example: `http://localhost:8000`)
-- `EXPO_PUBLIC_USE_MOCK_API`: `true` or `false`
-
-Behavior:
-
-- `EXPO_PUBLIC_USE_MOCK_API=true`: app uses API first and falls back to mock responses if API fails.
-- `EXPO_PUBLIC_USE_MOCK_API=false`: app uses only real API and surfaces backend errors.
-
-## Current Frontend Modules
-
-- Profile setup and save
-- Product resolve and verification gate
-- Camera barcode/QR scanner (`/scan`)
-- Assessment scoring/explanation view
-- Assessment history feed
-- Feedback submission screen
-- Detailed report screen (`/report/[assessmentId]`)
-- JSON report sharing from mobile/desktop share sheet
-- PDF report export and share
-- Local persistence for profile/product/assessment/history state
-- Deferred-module status panel (Blockchain/AI/XAI marked deferred)
-
-## Viewing Output
-
-### On Mobile (Expo Go)
-
-1. Install `Expo Go` on your phone.
-2. Ensure laptop and phone are on the same Wi-Fi.
-3. Run:
-
-```bash
-npm run start
-```
-
-4. Scan the QR code shown in terminal:
-- Android: scan directly in Expo Go
-- iOS: scan with Camera and open in Expo Go
-5. Grant camera permission when opening scanner for the first time.
-
-### On Localhost (Web)
-
-```bash
+npm run android
+npm run ios
 npm run web
 ```
 
-Open the localhost URL shown in terminal (commonly `http://localhost:8081`).
-
-## Notes
-
-- For mobile backend calls, `localhost` points to the phone itself. Use your laptop LAN IP instead (example: `http://192.168.1.20:8000`).
-- If local network discovery fails, run Expo with tunnel mode:
+## 2) Backend setup and run
 
 ```bash
-npx expo start --tunnel
+cd "/home/krishna/Desktop/code/BC - Patent project/bc-patent-project/backend"
+npm install
+```
+
+Run backend service:
+
+```bash
+cd "/home/krishna/Desktop/code/BC - Patent project/bc-patent-project/backend"
+npm run start
+```
+
+Backend API endpoints:
+
+- `GET /health`
+- `POST /compatibility/check`
+
+## 3) Backend checks
+
+```bash
+cd "/home/krishna/Desktop/code/BC - Patent project/bc-patent-project/backend"
+npm run test
 ```

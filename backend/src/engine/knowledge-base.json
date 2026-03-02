@@ -1,0 +1,205 @@
+{
+  "ingredients": {
+    "fragrance": {
+      "irritant_level": 3,
+      "allergen_tags": ["fragrance"],
+      "comedogenic": 1,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Dermatology consensus: fragrance common sensitizer"
+    },
+    "niacinamide": {
+      "irritant_level": 0,
+      "allergen_tags": [],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Common barrier-support active"
+    },
+    "glycerin": {
+      "irritant_level": 0,
+      "allergen_tags": [],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Humectant, low-risk"
+    },
+    "aloe vera": {
+      "irritant_level": 0,
+      "allergen_tags": [],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Generally soothing botanical"
+    },
+    "retinol": {
+      "irritant_level": 3,
+      "allergen_tags": ["active"],
+      "comedogenic": 1,
+      "pregnancy_risk": true,
+      "interacts_with": ["benzoyl peroxide", "aha", "bha"],
+      "evidence": "Retinoid irritation and pregnancy caution"
+    },
+    "salicylic acid": {
+      "irritant_level": 2,
+      "allergen_tags": ["active"],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": ["retinoid", "benzoyl peroxide"],
+      "evidence": "BHA active, irritation possible"
+    },
+    "glycolic acid": {
+      "irritant_level": 3,
+      "allergen_tags": ["active"],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": ["retinoid", "benzoyl peroxide"],
+      "evidence": "AHA active, strong exfoliant"
+    },
+    "lactic acid": {
+      "irritant_level": 2,
+      "allergen_tags": ["active"],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": ["retinoid", "benzoyl peroxide"],
+      "evidence": "AHA active"
+    },
+    "benzoyl peroxide": {
+      "irritant_level": 3,
+      "allergen_tags": ["active"],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": ["retinoid", "vitamin c"],
+      "evidence": "Oxidative acne active"
+    },
+    "vitamin c": {
+      "irritant_level": 1,
+      "allergen_tags": ["active"],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": ["benzoyl peroxide"],
+      "evidence": "Ascorbic acid derivatives can sting"
+    },
+    "tocopherol": {
+      "irritant_level": 0,
+      "allergen_tags": [],
+      "comedogenic": 2,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Vitamin E antioxidant"
+    },
+    "isopropyl myristate": {
+      "irritant_level": 1,
+      "allergen_tags": [],
+      "comedogenic": 5,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "High comedogenic score"
+    },
+    "coconut oil": {
+      "irritant_level": 0,
+      "allergen_tags": [],
+      "comedogenic": 4,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Frequently rated highly comedogenic"
+    },
+    "shea butter": {
+      "irritant_level": 0,
+      "allergen_tags": [],
+      "comedogenic": 2,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Emollient with moderate pore-clogging potential"
+    },
+    "zinc oxide": {
+      "irritant_level": 0,
+      "allergen_tags": [],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Mineral UV filter"
+    },
+    "titanium dioxide": {
+      "irritant_level": 0,
+      "allergen_tags": [],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Mineral UV filter"
+    },
+    "tea tree oil": {
+      "irritant_level": 2,
+      "allergen_tags": ["essential_oil"],
+      "comedogenic": 1,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Essential oil sensitization risk"
+    },
+    "witch hazel": {
+      "irritant_level": 2,
+      "allergen_tags": ["astringent"],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Can irritate compromised barrier"
+    },
+    "hyaluronic acid": {
+      "irritant_level": 0,
+      "allergen_tags": [],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Humectant, low risk"
+    },
+    "ceramides": {
+      "irritant_level": 0,
+      "allergen_tags": [],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Barrier support lipids"
+    },
+    "panthenol": {
+      "irritant_level": 0,
+      "allergen_tags": [],
+      "comedogenic": 0,
+      "pregnancy_risk": false,
+      "interacts_with": [],
+      "evidence": "Soothing humectant"
+    }
+  },
+  "synonyms": {
+    "parfum": "fragrance",
+    "perfume": "fragrance",
+    "fragrance": "fragrance",
+    "tocopherol": "tocopherol",
+    "vitamin e": "tocopherol",
+    "retinoid": "retinol",
+    "ascorbic acid": "vitamin c",
+    "sodium ascorbyl phosphate": "vitamin c",
+    "bha": "salicylic acid",
+    "aha": "glycolic acid",
+    "hyaluronate": "hyaluronic acid",
+    "aloe barbadensis leaf juice": "aloe vera"
+  },
+  "positive_ingredients": {
+    "niacinamide": 6,
+    "glycerin": 6,
+    "hyaluronic acid": 7,
+    "ceramides": 7,
+    "aloe vera": 4,
+    "panthenol": 5,
+    "zinc oxide": 3
+  },
+  "weights": {
+    "allergyPenalty": 35,
+    "irritantSensitivePenalty": 8,
+    "comedogenicAcnePenalty": 6,
+    "activeConflictPenalty": 10,
+    "pregnancyPenalty": 14,
+    "sensitivityTagPenalty": 5,
+    "positiveBoostScale": 0.9,
+    "baseScore": 100
+  }
+}

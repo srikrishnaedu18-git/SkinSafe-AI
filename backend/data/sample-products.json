@@ -1,0 +1,50 @@
+[
+  {
+    "productId": "P001",
+    "name": "Glow Cleanser",
+    "category": "Cleanser",
+    "ingredients": ["Water", "Glycerin", "Niacinamide", "Parfum"]
+  },
+  {
+    "productId": "P002",
+    "name": "Acne Focus Gel",
+    "category": "Gel",
+    "ingredients": ["Salicylic Acid", "Tea Tree Oil", "Aloe Vera"]
+  },
+  {
+    "productId": "P003",
+    "name": "Rich Night Cream",
+    "category": "Cream",
+    "ingredients": ["Shea Butter", "Coconut Oil", "Tocopherol"]
+  },
+  {
+    "productId": "P004",
+    "name": "Retinol Repair",
+    "category": "Serum",
+    "ingredients": ["Retinol", "Ceramides", "Panthenol"]
+  },
+  {
+    "productId": "P005",
+    "name": "Daily Hydration",
+    "category": "Moisturizer",
+    "ingredients": ["Glycerin", "Hyaluronic Acid", "Ceramides"]
+  },
+  {
+    "productId": "P006",
+    "name": "Bright C",
+    "category": "Serum",
+    "ingredients": ["Vitamin C", "Niacinamide", "Fragrance"]
+  },
+  {
+    "productId": "P007",
+    "name": "Mineral Sun Shield",
+    "category": "Sunscreen",
+    "ingredients": ["Zinc Oxide", "Titanium Dioxide", "Panthenol"]
+  },
+  {
+    "productId": "P008",
+    "name": "Exfoliating Toner",
+    "category": "Toner",
+    "ingredients": ["Glycolic Acid", "Witch Hazel", "Rose Water"]
+  }
+]

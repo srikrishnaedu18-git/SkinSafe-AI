@@ -1,0 +1,49 @@
+[
+  {
+    "skinType": "sensitive",
+    "concerns": ["redness"],
+    "allergies": ["fragrance"],
+    "sensitivities": ["fragrance"],
+    "acneProne": false,
+    "fragrancePreference": "fragrance-free",
+    "pregnancy": false,
+    "activeRoutine": ["niacinamide"]
+  },
+  {
+    "skinType": "oily",
+    "concerns": ["acne", "pores"],
+    "allergies": [],
+    "sensitivities": [],
+    "acneProne": true,
+    "fragrancePreference": "fragrance-ok",
+    "activeRoutine": ["salicylic acid"]
+  },
+  {
+    "skinType": "dry",
+    "concerns": ["barrier"],
+    "allergies": [],
+    "sensitivities": ["essential_oil"],
+    "acneProne": false,
+    "fragrancePreference": "fragrance-free",
+    "activeRoutine": []
+  },
+  {
+    "skinType": "normal",
+    "concerns": ["brightening"],
+    "allergies": [],
+    "sensitivities": [],
+    "acneProne": false,
+    "fragrancePreference": "fragrance-ok",
+    "pregnancy": true,
+    "activeRoutine": ["vitamin c"]
+  },
+  {
+    "skinType": "combination",
+    "concerns": ["texture"],
+    "allergies": ["tea tree oil"],
+    "sensitivities": [],
+    "acneProne": true,
+    "fragrancePreference": "fragrance-ok",
+    "activeRoutine": ["retinol"]
+  }
+]

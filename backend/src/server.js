@@ -1,0 +1,47 @@
+import 'dotenv/config';
+import { createServer } from 'node:http';
+import { handleCompatibilityCheck } from './routes/compatibility.js';
+import { handleFeedback, handleProductResolve, handleProductVerify, handleProfile, } from './routes/prototype.js';
+const PORT = Number(process.env.PORT ?? 8080);
+const server = createServer(async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    if (req.method === 'OPTIONS') {
+        res.statusCode = 204;
+        res.end();
+        return;
+    }
+    if (req.method === 'POST' && req.url === '/compatibility/check') {
+        await handleCompatibilityCheck(req, res);
+        return;
+    }
+    if (req.method === 'POST' && req.url === '/profile') {
+        await handleProfile(req, res);
+        return;
+    }
+    if (req.method === 'POST' && req.url === '/product/resolve') {
+        await handleProductResolve(req, res);
+        return;
+    }
+    if (req.method === 'POST' && req.url === '/product/verify') {
+        await handleProductVerify(req, res);
+        return;
+    }
+    if (req.method === 'POST' && req.url === '/feedback') {
+        await handleFeedback(req, res);
+        return;
+    }
+    if (req.method === 'GET' && req.url === '/health') {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ ok: true }));
+        return;
+    }
+    res.statusCode = 404;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ error: 'Not found' }));
+});
+server.listen(PORT, () => {
+    console.log(`Compatibility service listening on http://localhost:${PORT}`);
+});

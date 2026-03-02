@@ -1,0 +1,30 @@
+export const ingredientKb = {
+    'aloe vera': { ingredient: 'Aloe Vera', baseRisk: -6, tags: ['soothing', 'hydration'], notes: 'Often soothing and hydrating.' },
+    glycerin: { ingredient: 'Glycerin', baseRisk: -5, tags: ['hydration', 'barrier_support'], notes: 'Humectant with low irritation risk.' },
+    niacinamide: { ingredient: 'Niacinamide', baseRisk: -4, tags: ['barrier_support', 'brightening', 'acne_support'], notes: 'Supports barrier and tone.' },
+    ceramides: { ingredient: 'Ceramides', baseRisk: -6, tags: ['barrier_support', 'repair'], notes: 'Supports skin barrier function.' },
+    'shea butter': { ingredient: 'Shea Butter', baseRisk: -2, tags: ['emollient'], notes: 'Can feel heavy for oily users.' },
+    'vitamin e': { ingredient: 'Vitamin E', baseRisk: -1, tags: ['antioxidant', 'emollient'], notes: 'Generally supportive.' },
+    'vitamin c': { ingredient: 'Vitamin C', baseRisk: 1, tags: ['active', 'brightening'], notes: 'Can irritate very sensitive skin.' },
+    'hyaluronic acid': { ingredient: 'Hyaluronic Acid', baseRisk: -4, tags: ['hydration'], notes: 'Hydrating ingredient with low irritation profile.' },
+    'zinc oxide': { ingredient: 'Zinc Oxide', baseRisk: -2, tags: ['uv_filter'], notes: 'Physical UV filter, usually gentle.' },
+    'titanium dioxide': { ingredient: 'Titanium Dioxide', baseRisk: -1, tags: ['uv_filter'], notes: 'Physical UV filter.' },
+    'rose water': { ingredient: 'Rose Water', baseRisk: 1, tags: ['fragrance_like'], notes: 'Can trigger sensitivity in some users.' },
+    'witch hazel': { ingredient: 'Witch Hazel', baseRisk: 4, tags: ['astringent', 'irritant_potential'], notes: 'May irritate sensitive or dry skin.' },
+    'salicylic acid': { ingredient: 'Salicylic Acid', baseRisk: 3, tags: ['active', 'acne_support'], notes: 'Useful for acne; may dry/irritate.' },
+    'tea tree oil': { ingredient: 'Tea Tree Oil', baseRisk: 5, tags: ['essential_oil', 'irritant_potential'], notes: 'Irritation risk for sensitive users.' },
+    retinol: { ingredient: 'Retinol', baseRisk: 6, tags: ['active', 'photosensitive'], notes: 'High irritation potential for sensitive users.' },
+    peptides: { ingredient: 'Peptides', baseRisk: -2, tags: ['repair_support'], notes: 'Generally low risk and supportive.' },
+    'alpha arbutin': { ingredient: 'Alpha Arbutin', baseRisk: 1, tags: ['active', 'brightening'], notes: 'Mild active ingredient.' },
+    caffeine: { ingredient: 'Caffeine', baseRisk: 0, tags: ['de-puffing'], notes: 'Usually low risk topically.' },
+    panthenol: { ingredient: 'Panthenol', baseRisk: -4, tags: ['soothing', 'barrier_support'], notes: 'Soothing and barrier supportive.' },
+    'activated charcoal': { ingredient: 'Activated Charcoal', baseRisk: 2, tags: ['oil_absorbent'], notes: 'Can be drying for dry/sensitive skin.' },
+    neem: { ingredient: 'Neem', baseRisk: 1, tags: ['herbal_extract'], notes: 'Can be sensitizing for some users.' },
+    turmeric: { ingredient: 'Turmeric', baseRisk: 0, tags: ['herbal_extract'], notes: 'Usually low-moderate risk depending on formulation.' },
+    'multani mitti': { ingredient: 'Multani Mitti', baseRisk: 3, tags: ['clay', 'drying'], notes: 'Can over-dry sensitive/dry skin.' },
+    beeswax: { ingredient: 'Beeswax', baseRisk: -1, tags: ['occlusive'], notes: 'Low risk, can feel heavy for some.' },
+    menthol: { ingredient: 'Menthol', baseRisk: 7, tags: ['cooling_agent', 'irritant_potential'], notes: 'Common irritant trigger.' },
+};
+export function normalizeIngredientName(value) {
+    return value.trim().toLowerCase();
+}

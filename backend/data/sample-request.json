@@ -1,0 +1,16 @@
+{
+  "userProfile": {
+    "skinType": "sensitive",
+    "allergies": ["fragrance"],
+    "sensitivities": ["fragrance"],
+    "acneProne": true,
+    "fragrancePreference": "fragrance-free",
+    "activeRoutine": ["benzoyl peroxide"]
+  },
+  "product": {
+    "productId": "P006",
+    "name": "Bright C",
+    "category": "Serum",
+    "ingredients": ["Vitamin C", "Niacinamide", "Parfum"]
+  }
+}

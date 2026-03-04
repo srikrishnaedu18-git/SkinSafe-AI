@@ -1,0 +1,24 @@
+{
+  "model_version": "ai-v1",
+  "feature_schema_version": "fs-v1",
+  "rows": 6000,
+  "num_features": 25,
+  "targets": [
+    "y_irritation",
+    "y_acne"
+  ],
+  "metrics": {
+    "irritation": {
+      "accuracy": 1.0,
+      "roc_auc": 1.0,
+      "test_size": 1200,
+      "positive_rate_test": 0.2075
+    },
+    "acne": {
+      "accuracy": 1.0,
+      "roc_auc": 1.0,
+      "test_size": 1200,
+      "positive_rate_test": 0.0575
+    }
+  }
+}

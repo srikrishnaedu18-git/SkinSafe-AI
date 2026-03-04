@@ -109,6 +109,32 @@ Output:
 - `ai/dataset/train.csv`
 - default sample count: `6000` (`200 users x 30 products`)
 
+## A3 Model Training (Python on Ubuntu)
+
+Files:
+
+- `ml/requirements.txt`
+- `ml/train_models.py`
+- output directory `ml/models/`
+
+Run:
+
+```bash
+cd backend/ml
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+python train_models.py
+```
+
+Expected outputs in `backend/ml/models`:
+
+- `irritation_model.joblib`
+- `acne_model.joblib`
+- `feature_columns.json`
+- `model_meta.json`
+
 ## Run
 
 From backend directory:

@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "required": [
+    "p_irritation",
+    "suitability_score",
+    "confidence",
+    "model_version",
+    "feature_schema_version"
+  ],
+  "properties": {
+    "p_irritation": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "p_acne": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "suitability_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "model_version": { "type": "string" },
+    "feature_schema_version": { "type": "string" }
+  }
+}

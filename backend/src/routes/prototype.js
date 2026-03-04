@@ -1,6 +1,8 @@
 import { isBlockchainEnabled, isZeroHash, readChainHash } from '../blockchain/client.js';
 import { canonicalizeRecord, sha256Hex } from '../blockchain/hashing.js';
 import { getRawLedgerRecordByQr, resolveByQr } from '../data/product-records.js';
+import { normalizeProfile } from '../ai/normalizer.js';
+import { saveUserProfile } from '../db/mongo.js';
 async function readJson(req) {
     const chunks = [];
     for await (const chunk of req) {
@@ -27,7 +29,20 @@ export async function handleProfile(req, res) {
         if (!body || typeof body !== 'object') {
             throw new Error('Invalid profile payload');
         }
-        sendJson(res, 200, body);
+        const normalized = normalizeProfile(body);
+        const storage = await saveUserProfile(normalized).catch((error) => ({
+            stored: false,
+            reason: error instanceof Error ? error.message : 'mongodb_error',
+        }));
+        sendJson(res, 200, {
+            userId: normalized.user_id,
+            skinType: normalized.skin_type,
+            allergies: normalized.allergies,
+            conditions: normalized.conditions,
+            preferences: normalized.preferences,
+            ai_profile: normalized,
+            storage,
+        });
     }
     catch (error) {
         sendJson(res, 400, { error: error instanceof Error ? error.message : 'Profile request failed' });

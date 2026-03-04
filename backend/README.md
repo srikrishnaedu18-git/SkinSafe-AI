@@ -5,6 +5,8 @@ Node.js backend module for personalized cosmetic compatibility.
 ## Endpoint
 
 - `POST /compatibility/check`
+- `POST /profile` (normalizes profile fields for AI contract)
+- `POST /ai/predict` (A0 AI contract endpoint)
 
 Input:
 
@@ -29,6 +31,42 @@ Output includes:
 - `guidance`
 - `alternatives`
 
+## A0 AI Contract
+
+`POST /ai/predict` expects:
+
+```json
+{
+  "user_profile": {
+    "user_id": "U123",
+    "skin_type": "sensitive",
+    "allergies": ["fragrance", "parabens"],
+    "conditions": ["acne-prone", "eczema"],
+    "preferences": ["fragrance-free", "low-comedogenic"]
+  },
+  "product": {
+    "qr_id": "PROD004_BATCH01",
+    "type": "Serum",
+    "ingredients": ["Alcohol Denat", "Panthenol", "Fragrance", "Vitamin C"]
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "p_irritation": 0.0,
+  "p_acne": null,
+  "suitability_score": 0,
+  "confidence": 0.0,
+  "model_version": "ai-v1",
+  "feature_schema_version": "fs-v1"
+}
+```
+
+`POST /profile` also normalizes comma-separated inputs and stores profiles in MongoDB when configured.
+
 ## Run
 
 From backend directory:
@@ -49,6 +87,8 @@ BLOCKCHAIN_ENABLED=false
 RPC_URL=http://127.0.0.1:8545
 CONTRACT_ADDRESS=0xYourContractAddress
 ISSUER_ID=issuer.blockchain
+MONGODB_URI=mongodb://127.0.0.1:27017
+MONGODB_DB=bc_patent_project
 ```
 
 Behavior:

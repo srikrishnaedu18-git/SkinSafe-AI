@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required": ["skin_type", "allergies", "conditions", "preferences"],
+  "properties": {
+    "skin_type": {
+      "type": "string",
+      "enum": ["sensitive", "normal", "oily", "dry", "combination"]
+    },
+    "allergies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "conditions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "preferences": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

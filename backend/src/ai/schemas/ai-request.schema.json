@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "required": ["user_profile", "product"],
+  "properties": {
+    "user_profile": {
+      "$ref": "./user-profile.schema.json"
+    },
+    "product": {
+      "type": "object",
+      "required": ["qr_id", "type", "ingredients"],
+      "properties": {
+        "qr_id": { "type": "string" },
+        "type": { "type": "string" },
+        "ingredients": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

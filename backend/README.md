@@ -89,6 +89,26 @@ This prints:
 - ordered `columns`
 - `vector length` (25)
 
+## A2 Dataset Generation
+
+Create synthetic training data (`train.csv`) from:
+
+- `data/products.json`
+- A1 feature builder
+- silver-label logic (`y_irritation`, `y_acne`)
+
+Run:
+
+```bash
+cd backend
+npm run ai:dataset:generate
+```
+
+Output:
+
+- `ai/dataset/train.csv`
+- default sample count: `6000` (`200 users x 30 products`)
+
 ## Run
 
 From backend directory:

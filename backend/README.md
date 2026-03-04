@@ -67,6 +67,28 @@ Response:
 
 `POST /profile` also normalizes comma-separated inputs and stores profiles in MongoDB when configured.
 
+## A1 Feature Builder
+
+Implemented under `backend/ai`:
+
+- `ai/kb/ingredient_kb_v1.json`
+- `ai/feature_schema.js`
+- `ai/feature_builder.js`
+- `ai/test_feature_builder.js`
+
+Run A1 check:
+
+```bash
+cd backend
+npm run ai:test:features
+```
+
+This prints:
+
+- `feature_schema: fs-v1`
+- ordered `columns`
+- `vector length` (25)
+
 ## Run
 
 From backend directory:

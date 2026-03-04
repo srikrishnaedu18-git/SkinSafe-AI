@@ -1,0 +1,14 @@
+{
+  "fragrance": { "tags": ["fragrance", "allergen"], "irritant_severity": 3, "comedogenic_severity": 1 },
+  "alcohol denat": { "tags": ["drying", "irritant"], "irritant_severity": 2, "comedogenic_severity": 0 },
+  "salicylic acid": { "tags": ["acid", "exfoliant"], "irritant_severity": 2, "comedogenic_severity": 0 },
+  "vitamin c": { "tags": ["active"], "irritant_severity": 1, "comedogenic_severity": 0 },
+  "zinc oxide": { "tags": ["mineral", "soothing"], "irritant_severity": 0, "comedogenic_severity": 0 },
+  "hyaluronic acid": { "tags": ["humectant", "hydrating"], "irritant_severity": 0, "comedogenic_severity": 0 },
+  "glycerin": { "tags": ["humectant", "hydrating"], "irritant_severity": 0, "comedogenic_severity": 0 },
+  "niacinamide": { "tags": ["barrier", "soothing"], "irritant_severity": 0, "comedogenic_severity": 0 },
+  "panthenol": { "tags": ["soothing", "barrier"], "irritant_severity": 0, "comedogenic_severity": 0 },
+  "aloe vera": { "tags": ["soothing"], "irritant_severity": 0, "comedogenic_severity": 0 },
+  "shea butter": { "tags": ["emollient"], "irritant_severity": 0, "comedogenic_severity": 2 },
+  "ceramides": { "tags": ["barrier"], "irritant_severity": 0, "comedogenic_severity": 0 }
+}

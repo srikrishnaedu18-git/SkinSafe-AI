@@ -1,7 +1,11 @@
-import { normalizeCommaList } from './normalizer.js';
+import { createRequire } from 'node:module';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const IRRITANT_INGREDIENTS = new Set(['fragrance', 'alcohol denat', 'salicylic acid', 'retinol']);
-const COMEDOGENIC_INGREDIENTS = new Set(['coconut oil', 'isopropyl myristate']);
+const require = createRequire(import.meta.url);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const { buildFeatures } = require(path.join(__dirname, '../../ai/feature_builder.js'));
 
 function clamp01(value) {
   return Math.max(0, Math.min(1, value));
@@ -12,19 +16,22 @@ function round2(value) {
 }
 
 export function runA0Predict(userProfile, product) {
-  const ingredients = normalizeCommaList(product.ingredients);
-  const allergies = new Set(userProfile.allergies);
-  const conditions = new Set(userProfile.conditions);
+  const engineered = buildFeatures(userProfile, product.ingredients);
+  const f = engineered.features;
 
-  let pIrritation = 0.08;
-  let pAcne = conditions.has('acne-prone') ? 0.1 : null;
+  let pIrritation =
+    0.05 +
+    0.06 * f.ing_count_fragrance +
+    0.05 * f.ing_count_drying_irritants +
+    0.035 * f.ing_count_acids +
+    0.02 * f.ing_irritant_severity_sum +
+    0.025 * f.x_sensitive__irritant_sum +
+    0.06 * f.x_pref_ff__has_fragrance +
+    0.04 * f.x_eczema__drying_count;
 
-  for (const ingredient of ingredients) {
-    if (allergies.has(ingredient)) pIrritation += 0.35;
-    if (IRRITANT_INGREDIENTS.has(ingredient) && userProfile.skin_type === 'sensitive') pIrritation += 0.18;
-    if (ingredient === 'fragrance' && userProfile.preferences.includes('fragrance-free')) pIrritation += 0.2;
-    if (pAcne !== null && COMEDOGENIC_INGREDIENTS.has(ingredient)) pAcne += 0.3;
-  }
+  let pAcne = f.u_has_acne_prone
+    ? 0.07 + 0.03 * f.ing_count_emollients + 0.03 * f.ing_comedogenic_severity_sum + 0.04 * f.x_acneprone__comedogenic_sum
+    : null;
 
   pIrritation = clamp01(pIrritation);
   if (pAcne !== null) pAcne = clamp01(pAcne);
@@ -33,7 +40,10 @@ export function runA0Predict(userProfile, product) {
   const suitability = Math.round(Math.max(0, Math.min(100, (1 - pIrritation * 0.75 - acnePenalty) * 100)));
 
   let confidence = 0.9;
-  if (ingredients.length < 2) confidence -= 0.15;
+  if (f.ing_count_total < 2) confidence -= 0.15;
+  if (f.ing_count_total > 0 && f.ing_count_total >= 2 && f.ing_irritant_severity_sum === 0 && f.ing_comedogenic_severity_sum === 0) {
+    confidence -= 0.1;
+  }
   if (pAcne === null) confidence -= 0.05;
   confidence = clamp01(confidence);
 
@@ -43,7 +53,6 @@ export function runA0Predict(userProfile, product) {
     suitability_score: suitability,
     confidence: round2(confidence),
     model_version: 'ai-v1',
-    feature_schema_version: 'fs-v1',
+    feature_schema_version: engineered.feature_schema_version,
   };
 }
-

@@ -3,7 +3,7 @@ import { runtimeConfig } from '../constants/runtime-config';
 import { assessCompatibility } from './ai/compatibility-engine';
 const API_BASE = runtimeConfig.apiBaseUrl;
 const USE_MOCK_FALLBACK = runtimeConfig.useMockApi;
-const REQUEST_TIMEOUT_MS = 8000;
+const REQUEST_TIMEOUT_MS = 12000;
 const MAX_RETRIES = 2;
 function wait(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -70,6 +70,65 @@ function mapSyntheticToProduct(qrId) {
     };
 }
 function normalizeCompatibilityResponse(raw, productId) {
+    const ai = raw?.ai;
+    const xai = raw?.xai;
+    if (ai && xai) {
+        const reasons = Array.isArray(xai.reasons) ? xai.reasons : [];
+        const rulesFired = xai?.meta?.evidence?.rules_fired ?? [];
+        const precautions = Array.isArray(xai.precautions) ? xai.precautions : [];
+        const alternatives = xai?.alternatives?.results ?? [];
+        const confidenceReason = ai?.uncertainty
+            ? `ensemble uncertainty avg std ${Number(ai.uncertainty.avg_std ?? 0).toFixed(4)}`
+            : `risk level ${String(xai?.summary?.risk_level ?? 'UNKNOWN').toLowerCase()}`;
+        return {
+            assessmentId: `asm-${raw.product_id ?? productId}-${Date.now()}`,
+            suitabilityScore: Number(ai.suitability_score ?? 0),
+            confidence: {
+                value: Number(ai.confidence ?? 0),
+                reason: confidenceReason,
+            },
+            riskFlags: (xai.risk_flags ?? []).map((flag) => ({
+                code: flag.code,
+                severity: String(flag.severity ?? 'low').toLowerCase(),
+                ingredients: flag?.evidence?.ingredients ?? [],
+            })),
+            explanations: {
+                summary: xai?.summary?.headline ?? 'Explanation unavailable.',
+                topNegativeDrivers: reasons.map((reason) => ({
+                    ingredient: reason.item ?? 'Unknown',
+                    reason: reason.why ?? reason.message ?? 'No description.',
+                    penalty: Number((Number(reason.impact ?? 0) * 100).toFixed(2)),
+                })),
+                topPositiveDrivers: [],
+                triggeredRules: rulesFired.map((ruleId) => ({
+                    ruleId,
+                    description: `Rule ${ruleId} triggered by current profile and ingredients.`,
+                })),
+                ingredientContributions: reasons.flatMap((reason) => (reason?.evidence?.ingredients ?? []).map((ingredient) => ({
+                    ingredient,
+                    scoreImpact: Number((-Number(reason.impact ?? 0) * 100).toFixed(2)),
+                    tags: [reason.risk_target ?? 'OVERALL', reason.severity ?? 'LOW'],
+                }))),
+            },
+            guidance: {
+                patchTest: precautions
+                    .filter((item) => String(item.code ?? '').includes('PATCH_TEST'))
+                    .map((item) => item.text),
+                usage: precautions
+                    .filter((item) => /START_|MONITOR_|INTRODUCE_/.test(String(item.code ?? '')))
+                    .map((item) => item.text),
+                avoidIf: precautions
+                    .filter((item) => !/PATCH_TEST|START_|MONITOR_|INTRODUCE_/.test(String(item.code ?? '')))
+                    .map((item) => item.text),
+            },
+            alternatives: alternatives.map((alt) => ({
+                productId: alt.qr_id,
+                name: alt.product_name,
+                whyBetter: `Higher suitability score (${alt.suitability_score}/100) in same category.`,
+            })),
+            xai: raw.xai,
+        };
+    }
     return {
         assessmentId: raw.assessmentId ?? `asm-${productId}-${Date.now()}`,
         suitabilityScore: raw.suitabilityScore,
@@ -199,26 +258,20 @@ export const api = {
         body: JSON.stringify({ product_id: productId }),
     }), () => mockVerify(productId)),
     assess: (profile, product) => withFallback(async () => {
-        const response = await request('/compatibility/check', {
+        const response = await request('/ai/predict', {
             method: 'POST',
             body: JSON.stringify({
-                userProfile: {
-                    skinType: profile.skinType,
-                    concerns: profile.conditions,
+                user_profile: {
+                    user_id: profile.userId,
+                    skin_type: profile.skinType,
                     allergies: profile.allergies,
-                    sensitivities: profile.preferences,
-                    acneProne: profile.conditions.some((c) => c.toLowerCase() === 'acne-prone'),
-                    fragrancePreference: profile.preferences.some((p) => p.toLowerCase() === 'fragrance-free')
-                        ? 'fragrance-free'
-                        : 'fragrance-ok',
+                    conditions: profile.conditions,
+                    preferences: profile.preferences,
                 },
                 product: {
-                    productId: product.productId,
-                    name: product.name,
-                    category: product.category,
+                    qr_id: product.qrId ?? product.productId,
+                    type: product.category,
                     ingredients: product.inciList ?? [],
-                    concentrationsAvailable: false,
-                    warnings: product.isExpired ? ['product marked expired in record'] : [],
                 },
             }),
         });

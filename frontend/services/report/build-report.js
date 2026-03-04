@@ -9,6 +9,7 @@ export function buildReportPayload(item, profile) {
         explanations: item.assessment.explanations,
         guidance: item.assessment.guidance,
         alternatives: item.assessment.alternatives,
+        xai: item.assessment.xai ?? null,
         user_profile: profile
             ? {
                 skin_type: profile.skinType,

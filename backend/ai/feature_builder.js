@@ -12,6 +12,10 @@ function normalizeText(s) {
     .replace(/\s+/g, " ");
 }
 
+function titleCaseLikeOriginal(raw) {
+  return typeof raw === "string" && raw.trim() ? raw.trim() : String(raw ?? "");
+}
+
 // Converts comma-separated string or array into normalized array
 function normalizeList(input) {
   if (!input) return [];
@@ -38,6 +42,21 @@ function oneHotSkinType(features, skinTypeRaw) {
 
 function buildFeatures(userProfile, ingredients) {
   const f = initFeatureDict();
+  const attr = {
+    feature_to_ingredients: {},
+    ingredient_contributions: {
+      irritant: [],
+      comedogenic: [],
+    },
+  };
+
+  function addAttr(featureName, ingredientDisplay) {
+    if (!ingredientDisplay) return;
+    if (!attr.feature_to_ingredients[featureName]) attr.feature_to_ingredients[featureName] = [];
+    if (!attr.feature_to_ingredients[featureName].includes(ingredientDisplay)) {
+      attr.feature_to_ingredients[featureName].push(ingredientDisplay);
+    }
+  }
 
   // --- Normalize user fields ---
   const skin_type = normalizeText(userProfile?.skin_type);
@@ -78,28 +97,70 @@ function buildFeatures(userProfile, ingredients) {
 
   for (const rawIng of ingList) {
     const ing = normalizeText(rawIng);
+    const display = titleCaseLikeOriginal(rawIng);
     const meta = ING_KB[ing] || { tags: [], irritant_severity: 0, comedogenic_severity: 0 };
     const tags = meta.tags || [];
+    const irrit = Number(meta.irritant_severity || 0);
+    const comed = Number(meta.comedogenic_severity || 0);
 
     // severity sums
-    irritSum += Number(meta.irritant_severity || 0);
-    comedSum += Number(meta.comedogenic_severity || 0);
+    irritSum += irrit;
+    comedSum += comed;
+
+    if (irrit > 0) attr.ingredient_contributions.irritant.push({ ingredient: display, severity: irrit });
+    if (comed > 0) attr.ingredient_contributions.comedogenic.push({ ingredient: display, severity: comed });
 
     // counts by tags
-    if (tags.includes("fragrance")) f.ing_count_fragrance += 1;
-    if (tags.includes("acid")) f.ing_count_acids += 1;
-    if (tags.includes("drying") || ing === "alcohol denat") f.ing_count_drying_irritants += 1;
-    if (tags.includes("emollient")) f.ing_count_emollients += 1;
+    if (tags.includes("fragrance")) {
+      f.ing_count_fragrance += 1;
+      addAttr("ing_count_fragrance", display);
+    }
+    if (tags.includes("acid")) {
+      f.ing_count_acids += 1;
+      addAttr("ing_count_acids", display);
+    }
+    if (tags.includes("drying") || ing === "alcohol denat") {
+      f.ing_count_drying_irritants += 1;
+      addAttr("ing_count_drying_irritants", display);
+    }
+    if (tags.includes("emollient")) {
+      f.ing_count_emollients += 1;
+      addAttr("ing_count_emollients", display);
+    }
 
     // presence flags (specific)
-    if (ing === "fragrance") f.ing_has_fragrance = 1;
-    if (ing === "salicylic acid") f.ing_has_salicylic_acid = 1;
-    if (ing === "alcohol denat") f.ing_has_alcohol_denat = 1;
-    if (ing === "shea butter") f.ing_has_shea_butter = 1;
+    if (ing === "fragrance") {
+      f.ing_has_fragrance = 1;
+      addAttr("ing_has_fragrance", display);
+    }
+    if (ing === "salicylic acid") {
+      f.ing_has_salicylic_acid = 1;
+      addAttr("ing_has_salicylic_acid", display);
+    }
+    if (ing === "alcohol denat") {
+      f.ing_has_alcohol_denat = 1;
+      addAttr("ing_has_alcohol_denat", display);
+    }
+    if (ing === "shea butter") {
+      f.ing_has_shea_butter = 1;
+      addAttr("ing_has_shea_butter", display);
+    }
   }
 
   f.ing_irritant_severity_sum = irritSum;
   f.ing_comedogenic_severity_sum = comedSum;
+
+  const topIrr = [...attr.ingredient_contributions.irritant]
+    .sort((a, b) => b.severity - a.severity)
+    .slice(0, 5)
+    .map((x) => x.ingredient);
+  const topComed = [...attr.ingredient_contributions.comedogenic]
+    .sort((a, b) => b.severity - a.severity)
+    .slice(0, 5)
+    .map((x) => x.ingredient);
+
+  topIrr.forEach((name) => addAttr("ing_irritant_severity_sum", name));
+  topComed.forEach((name) => addAttr("ing_comedogenic_severity_sum", name));
 
   // --- Interaction features ---
   f.x_sensitive__irritant_sum = f.u_skin_sensitive * f.ing_irritant_severity_sum;
@@ -118,7 +179,8 @@ function buildFeatures(userProfile, ingredients) {
     feature_schema_version: FEATURE_SCHEMA_VERSION,
     features: f,
     vector,
-    columns: FEATURE_COLUMNS
+    columns: FEATURE_COLUMNS,
+    attributions: attr,
   };
 }
 
@@ -127,4 +189,3 @@ module.exports = {
   normalizeText,
   normalizeList
 };
-

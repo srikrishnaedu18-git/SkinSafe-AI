@@ -6,12 +6,12 @@ import { fileURLToPath } from 'node:url';
 
 import { validateAiRequest, validateAiResponse } from '../ai/contracts.js';
 import { normalizeProduct, normalizeProfile } from '../ai/normalizer.js';
-import { buildXaiSkeleton } from '../ai/xai/xai-builder.js';
+import { buildXaiV1 } from '../ai/xai/xai-builder.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const backendDir = path.join(__dirname, '../..');
-const predictPath = path.join(backendDir, 'ml', 'predict_ensemble.py');
+const predictPath = path.join(backendDir, 'ml', 'predict_explain_ensemble.py');
 const modelDir = path.join(backendDir, 'ml', 'models');
 const modelArtifacts = ['irritation_ensemble.joblib', 'acne_ensemble.joblib', 'feature_columns.json', 'model_meta.json'];
 const require = createRequire(import.meta.url);
@@ -141,6 +141,7 @@ export async function handleAiPredict(req, res) {
     const output = await runPythonPredict({
       feature_schema_version: featOut.feature_schema_version,
       features: featOut.features,
+      top_k: 10,
     });
     validateAiResponse(output);
 
@@ -153,18 +154,32 @@ export async function handleAiPredict(req, res) {
       model_version: output.model_version,
       feature_schema_version: output.feature_schema_version,
       ensemble_size: output.ensemble_size ?? null,
+      _features_for_xai: featOut.features,
+      _attrib_for_xai: featOut.attributions,
+      _model_signal_for_xai: output.xai_model_signal ?? null,
     };
 
-    const xai = buildXaiSkeleton({
+    const xai = buildXaiV1({
       ai,
       product: normalizedRequest.product,
       user_profile: normalizedRequest.user_profile,
     });
 
+    const publicAi = {
+      p_irritation: ai.p_irritation,
+      p_acne: ai.p_acne,
+      suitability_score: ai.suitability_score,
+      confidence: ai.confidence,
+      uncertainty: ai.uncertainty,
+      model_version: ai.model_version,
+      feature_schema_version: ai.feature_schema_version,
+      ensemble_size: ai.ensemble_size,
+    };
+
     sendJson(res, 200, {
       product_id: normalizedRequest.product.qr_id,
       product_type: normalizedRequest.product.type,
-      ai,
+      ai: publicAi,
       xai,
     });
   } catch (error) {

@@ -23,6 +23,23 @@ function sendJson(res, statusCode, payload) {
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(payload));
 }
+async function saveProfileWithTimeout(normalized, timeoutMs = 2000) {
+    const timeoutPromise = new Promise((resolve) => {
+        setTimeout(() => resolve({ stored: false, reason: 'mongodb_timeout' }), timeoutMs);
+    });
+    try {
+        return await Promise.race([
+            saveUserProfile(normalized),
+            timeoutPromise,
+        ]);
+    }
+    catch (error) {
+        return {
+            stored: false,
+            reason: error instanceof Error ? error.message : 'mongodb_error',
+        };
+    }
+}
 export async function handleProfile(req, res) {
     try {
         const body = (await readJson(req));
@@ -30,10 +47,7 @@ export async function handleProfile(req, res) {
             throw new Error('Invalid profile payload');
         }
         const normalized = normalizeProfile(body);
-        const storage = await saveUserProfile(normalized).catch((error) => ({
-            stored: false,
-            reason: error instanceof Error ? error.message : 'mongodb_error',
-        }));
+        const storage = await saveProfileWithTimeout(normalized);
         sendJson(res, 200, {
             userId: normalized.user_id,
             skinType: normalized.skin_type,

@@ -47,6 +47,6 @@ app-example
 backend/.env
 backend/.env.example
 backend/node_modules
+backend/ml/.venv/
 frontend/.env
 frontend/.env.example
-

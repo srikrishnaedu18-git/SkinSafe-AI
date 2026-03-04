@@ -1,0 +1,47 @@
+{
+  "roc_auc": {
+    "irritation": 1.0,
+    "acne": 1.0
+  },
+  "best_threshold_by_f1": {
+    "irritation": {
+      "threshold": 0.39999999999999997,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "confusion_matrix": [
+        [
+          4754,
+          0
+        ],
+        [
+          0,
+          1246
+        ]
+      ]
+    },
+    "acne": {
+      "threshold": 0.15,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "confusion_matrix": [
+        [
+          5654,
+          0
+        ],
+        [
+          0,
+          346
+        ]
+      ]
+    }
+  },
+  "risk_bucket_rules": {
+    "low": "risk < 0.35",
+    "medium": "0.35 <= risk <= 0.65",
+    "high": "risk > 0.65"
+  }
+}

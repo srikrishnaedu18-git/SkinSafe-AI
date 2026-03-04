@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { createServer } from 'node:http';
+import { handleAiHealth, handleAiPredict } from './routes/ai.js';
 import { handleCompatibilityCheck } from './routes/compatibility.js';
-import { handleAiPredict } from './routes/ai.js';
 import { handleFeedback, handleProductResolve, handleProductVerify, handleProfile, } from './routes/prototype.js';
 const PORT = Number(process.env.PORT ?? 8080);
 const server = createServer(async (req, res) => {
@@ -19,6 +19,10 @@ const server = createServer(async (req, res) => {
     }
     if (req.method === 'POST' && req.url === '/ai/predict') {
         await handleAiPredict(req, res);
+        return;
+    }
+    if (req.method === 'GET' && req.url === '/ai/health') {
+        await handleAiHealth(req, res);
         return;
     }
     if (req.method === 'POST' && req.url === '/profile') {

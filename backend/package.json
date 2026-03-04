@@ -8,6 +8,11 @@
     "test": "node --test tests/*.test.js",
     "ai:test:features": "node ai/test_feature_builder.js",
     "ai:dataset:generate": "node ai/dataset/generate_train_csv.js",
+    "ai:train:ensemble": "python3 ml/train_ensemble.py",
+    "ai:eval:ensemble": "python3 ml/evaluate_ensemble.py",
+    "ai:eval": "python3 ml/evaluate_models.py",
+    "ai:sanity:ensemble": "node ai/sanity_tests_ensemble.js",
+    "ai:sanity": "node ai/sanity_tests.js",
     "anchor:bulk:dry": "ANCHOR_DRY_RUN=true node scripts/anchor-bulk.js",
     "anchor:bulk": "node scripts/anchor-bulk.js"
   },

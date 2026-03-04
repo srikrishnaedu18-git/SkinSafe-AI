@@ -135,6 +135,87 @@ Expected outputs in `backend/ml/models`:
 - `feature_columns.json`
 - `model_meta.json`
 
+Node `/ai/predict` now calls Python predictor:
+
+- script: `ml/predict_ensemble.py` (A5)
+- runtime selection:
+  - `PYTHON_EXECUTABLE` if set
+  - else `python3`
+
+## A5 Ensemble Confidence
+
+Train ensemble models:
+
+```bash
+cd backend
+python3 ml/train_ensemble.py
+```
+
+Creates:
+
+- `ml/models/irritation_ensemble.joblib`
+- `ml/models/acne_ensemble.joblib`
+- updates `ml/models/model_meta.json` to `ai-v2-ensemble`
+
+`/ai/predict` returns extra uncertainty fields:
+
+- `uncertainty.std_irritation`
+- `uncertainty.std_acne`
+- `uncertainty.avg_std`
+- `ensemble_size`
+
+AI health check:
+
+```bash
+curl http://localhost:8080/ai/health
+```
+
+Returns python availability + predictor script presence + model artifact presence.
+
+## A7 Evaluation + Sanity Tests
+
+Run evaluation report (Python):
+
+```bash
+cd backend
+python3 ml/evaluate_models.py
+```
+
+Output:
+
+- `ml/models/evaluation_report.json`
+
+Run ensemble evaluation report (A5 models):
+
+```bash
+cd backend
+python3 ml/evaluate_ensemble.py
+```
+
+Output:
+
+- `ml/models/evaluation_report_ensemble.json`
+
+Run behavior sanity checks (Node -> Python predictor):
+
+```bash
+cd backend
+node ai/sanity_tests.js
+```
+
+Run ensemble sanity checks:
+
+```bash
+cd backend
+node ai/sanity_tests_ensemble.js
+```
+
+Suggested risk buckets:
+
+- `low`: `risk < 0.35`
+- `medium`: `0.35 <= risk <= 0.65`
+- `high`: `risk > 0.65`
+
 ## Run
 
 From backend directory:

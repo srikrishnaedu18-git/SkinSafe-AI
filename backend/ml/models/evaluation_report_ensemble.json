@@ -1,0 +1,56 @@
+{
+  "model_version": "ai-v2-ensemble",
+  "feature_schema_version": "fs-v1",
+  "ensemble_size": 5,
+  "roc_auc": {
+    "irritation": 1.0,
+    "acne": 0.9999999999999999
+  },
+  "best_threshold_by_f1": {
+    "irritation": {
+      "threshold": 0.3,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "confusion_matrix": [
+        [
+          4754,
+          0
+        ],
+        [
+          0,
+          1246
+        ]
+      ]
+    },
+    "acne": {
+      "threshold": 0.15,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "confusion_matrix": [
+        [
+          5654,
+          0
+        ],
+        [
+          0,
+          346
+        ]
+      ]
+    }
+  },
+  "risk_bucket_rules": {
+    "low": "fused_risk < 0.35",
+    "medium": "0.35 <= fused_risk <= 0.65",
+    "high": "fused_risk > 0.65"
+  },
+  "uncertainty_summary": {
+    "std_irritation_mean": 0.0005633432737415663,
+    "std_acne_mean": 0.0003265771777301304,
+    "fused_std_mean": 0.00044496022573584836,
+    "fused_std_p95": 0.0016782972073331778
+  }
+}

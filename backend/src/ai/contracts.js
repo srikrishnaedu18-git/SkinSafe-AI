@@ -31,7 +31,7 @@ export function validateAiResponse(response) {
   if (typeof response.p_acne === 'number') {
     assert(response.p_acne >= 0 && response.p_acne <= 1, 'p_acne out of range');
   }
-  assert(Number.isInteger(response.suitability_score), 'Invalid suitability_score');
+  assert(typeof response.suitability_score === 'number' && Number.isFinite(response.suitability_score), 'Invalid suitability_score');
   assert(response.suitability_score >= 0 && response.suitability_score <= 100, 'suitability_score out of range');
   assert(typeof response.confidence === 'number', 'Invalid confidence');
   assert(response.confidence >= 0 && response.confidence <= 1, 'confidence out of range');

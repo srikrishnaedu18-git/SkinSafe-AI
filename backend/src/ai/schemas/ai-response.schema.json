@@ -19,7 +19,7 @@
       "maximum": 1
     },
     "suitability_score": {
-      "type": "integer",
+      "type": "number",
       "minimum": 0,
       "maximum": 100
     },

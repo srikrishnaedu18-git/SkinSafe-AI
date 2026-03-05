@@ -40,6 +40,7 @@ function buildImpactLookup(modelSignal) {
 
 function attachModelImpactToReasons(reasons, impactMap) {
   for (const reason of reasons) {
+    const ruleImpact = Number(reason?.impact ?? 0);
     const features = reason?.evidence?.features || [];
     let best = null;
 
@@ -53,13 +54,44 @@ function attachModelImpactToReasons(reasons, impactMap) {
     }
 
     if (best) {
-      const scaled = Math.min(1, Math.max(0, best.abs * 2.5));
-      reason.impact = scaled;
+      const modelScaled = Math.min(1, Math.max(0, best.abs * 2.5));
+      const blended = 0.6 * ruleImpact + 0.4 * modelScaled;
+      reason.impact = Math.max(blended, ruleImpact * 0.5);
       reason.evidence.model_impact_on_risk = best.val;
     } else {
+      reason.impact = ruleImpact;
       reason.evidence.model_impact_on_risk = null;
     }
   }
+}
+
+function round2(value) {
+  return Math.round(Number(value || 0) * 100) / 100;
+}
+
+function buildCounterfactuals(modelSignal, attributions, currentScore, limit = 3) {
+  const impacts = Array.isArray(modelSignal?.feature_impacts) ? modelSignal.feature_impacts : [];
+  const positive = impacts
+    .filter((item) => typeof item?.impact_on_risk === 'number' && item.impact_on_risk > 0)
+    .sort((a, b) => b.impact_on_risk - a.impact_on_risk)
+    .slice(0, limit);
+
+  return positive.map((item) => {
+    const ingredients = attributions?.feature_to_ingredients?.[item.feature] ?? [];
+    const scoreGain = round2(item.impact_on_risk * 100);
+    const projected = Math.min(100, round2(Number(currentScore || 0) + scoreGain));
+    return {
+      feature: item.feature,
+      ingredients,
+      risk_reduction: round2(item.impact_on_risk),
+      score_gain: scoreGain,
+      projected_suitability_score: projected,
+      recommendation:
+        ingredients.length > 0
+          ? `If you avoid or replace ${ingredients.join(', ')}, suitability may improve by about ${scoreGain} points.`
+          : `If you reduce feature ${item.feature}, suitability may improve by about ${scoreGain} points.`,
+    };
+  });
 }
 
 export function buildXaiV1({ ai, product, user_profile }) {
@@ -73,18 +105,23 @@ export function buildXaiV1({ ai, product, user_profile }) {
   const impactMap = buildImpactLookup(ai._model_signal_for_xai);
   attachModelImpactToReasons(reasons, impactMap);
   const rankedReasonsRaw = rankReasons(reasons);
-  const rankedReasons = composeReasons(rankedReasonsRaw, 5);
+  const rankedReasons = composeReasons(rankedReasonsRaw, user_profile, 5);
   const grouped = groupReasons(rankedReasons);
   const precautions = buildPrecautionsV1({
     risk_level: riskLevel,
     risk_flags,
     user_profile,
   });
-  const alternativeConstraints = buildAlternativeConstraints({
-    risk_flags,
-    user_profile,
-    product,
-  });
+  const counterfactuals = buildCounterfactuals(ai._model_signal_for_xai, ai._attrib_for_xai, ai.suitability_score, 3);
+
+  const alternativeConstraints = {
+    ...buildAlternativeConstraints({
+      risk_flags,
+      user_profile,
+      product,
+    }),
+    current_suitability_score: ai.suitability_score,
+  };
 
   let alternatives = [];
   try {
@@ -111,6 +148,7 @@ export function buildXaiV1({ ai, product, user_profile }) {
     reasons: rankedReasons,
     reason_groups: grouped,
     precautions,
+    counterfactuals,
     alternatives: {
       constraints: alternativeConstraints,
       results: alternatives,

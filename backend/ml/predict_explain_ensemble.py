@@ -62,8 +62,8 @@ def main():
     p_acne0, std_acne0 = ensemble_predict(acne_models, x0)
 
     risk0 = fused_risk(p_irrit0, p_acne0)
-    suitability0 = int(round(100.0 * (1.0 - risk0)))
-    suitability0 = int(clamp(suitability0, 0, 100))
+    suitability0 = round(100.0 * (1.0 - risk0), 2)
+    suitability0 = float(clamp(suitability0, 0.0, 100.0))
 
     avg_std0 = 0.5 * (std_irrit0 + std_acne0)
     confidence0 = confidence_from_std(avg_std0, max_std=0.20)

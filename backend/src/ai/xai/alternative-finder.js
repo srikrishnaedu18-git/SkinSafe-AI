@@ -67,6 +67,8 @@ function containsAnyAvoidIngredient(ingredients, avoidList) {
 export function findAlternatives({ user_profile, base_product, constraints }) {
   if (!constraints?.same_category) return [];
 
+  const currentScore = Number(constraints?.current_suitability_score ?? 0);
+
   let candidates = loadProducts().filter((product) => !product.is_expired);
   candidates = candidates.filter((product) => product.type === constraints.same_category);
   candidates = candidates.filter((product) => !containsAnyAvoidIngredient(product.ingredients, constraints.avoid_ingredients));
@@ -78,6 +80,16 @@ export function findAlternatives({ user_profile, base_product, constraints }) {
     const featOut = buildFeatures(user_profile, candidate.ingredients);
     const pred = callPythonPredict(featOut.features);
 
+    const gain = Number(pred.suitability_score ?? 0) - currentScore;
+    const reasons = [];
+    if ((constraints?.avoid_ingredients || []).length > 0) {
+      reasons.push(`avoids ${constraints.avoid_ingredients.join(', ')}`);
+    }
+    if ((constraints?.prefer_tags || []).length > 0) {
+      reasons.push(`aligns with ${constraints.prefer_tags.join(', ')}`);
+    }
+    reasons.push(`predicted suitability ${pred.suitability_score}/100`);
+
     scored.push({
       qr_id: candidate.qr_id,
       product_name: candidate.product_name,
@@ -88,6 +100,8 @@ export function findAlternatives({ user_profile, base_product, constraints }) {
       p_irritation: pred.p_irritation,
       p_acne: pred.p_acne,
       confidence: pred.confidence,
+      score_gain_vs_current: gain,
+      why_better: reasons.join('; '),
     });
   }
 

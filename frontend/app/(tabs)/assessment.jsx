@@ -62,8 +62,8 @@ export default function AssessmentScreen() {
       {assessment ? (<>
           <FadeIn delay={140}>
             <AppCard>
-              <StatusChip label={`Suitability Score: ${assessment.suitabilityScore}/100`} tone={assessment.suitabilityScore >= 70 ? 'success' : 'warning'}/>
-              <Text style={styles.body}>Confidence: {assessment.confidence.value.toFixed(2)}</Text>
+              <StatusChip label={`Suitability Score: ${Number(assessment.suitabilityScore).toFixed(2)}/100`} tone={assessment.suitabilityScore >= 70 ? 'success' : 'warning'}/>
+              <Text style={styles.body}>Confidence: {assessment.confidence.value.toFixed(2)}%</Text>
               <Text style={styles.body}>Confidence reason: {assessment.confidence.reason}</Text>
               <Text style={styles.sectionTitle}>Risk Flags</Text>
               {assessment.riskFlags.length > 0 ? (assessment.riskFlags.map((flag, idx) => (<Text style={styles.body} key={`${flag.code}-${idx}`}>

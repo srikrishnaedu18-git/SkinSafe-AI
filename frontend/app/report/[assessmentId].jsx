@@ -77,8 +77,8 @@ export default function ReportDetailsScreen() {
           <StatusChip label={new Date(item.createdAt).toLocaleString()} tone="neutral"/>
           <Text style={styles.sectionTitle}>{item.productName}</Text>
           <Text style={styles.body}>Assessment ID: {item.assessment.assessmentId}</Text>
-          <Text style={styles.body}>Suitability Score: {item.assessment.suitabilityScore}/100</Text>
-          <Text style={styles.body}>Confidence: {item.assessment.confidence.value.toFixed(2)}</Text>
+          <Text style={styles.body}>Suitability Score: {Number(item.assessment.suitabilityScore).toFixed(2)}/100</Text>
+          <Text style={styles.body}>Confidence: {item.assessment.confidence.value.toFixed(2)}%</Text>
           <Text style={styles.body}>Reason: {item.assessment.confidence.reason}</Text>
         </AppCard>
       </FadeIn>

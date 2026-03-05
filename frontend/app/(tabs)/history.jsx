@@ -34,8 +34,8 @@ export default function HistoryScreen() {
           <AppCard>
             <StatusChip label={new Date(item.createdAt).toLocaleString()} tone="neutral"/>
             <Text style={styles.sectionTitle}>{item.productName}</Text>
-            <Text style={styles.body}>Score: {item.assessment.suitabilityScore}/100</Text>
-            <Text style={styles.body}>Confidence: {item.assessment.confidence.value.toFixed(2)}</Text>
+            <Text style={styles.body}>Score: {Number(item.assessment.suitabilityScore).toFixed(2)}/100</Text>
+            <Text style={styles.body}>Confidence: {item.assessment.confidence.value.toFixed(2)}%</Text>
             <Text style={styles.body}>Risk Level: {item.assessment?.xai?.summary?.risk_level ?? 'N/A'}</Text>
             {item.assessment?.xai?.reasons?.[0]?.title ? (<Text style={styles.body}>Top Reason: {item.assessment.xai.reasons[0].title}</Text>) : null}
             <Text style={styles.body}>

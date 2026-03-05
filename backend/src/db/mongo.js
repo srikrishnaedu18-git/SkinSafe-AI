@@ -59,6 +59,18 @@ export async function saveUserProfile(profile) {
   return { stored: true };
 }
 
+export async function getUserProfileByUserId(userId) {
+  const database = await getMongoDb();
+  if (!database) {
+    return null;
+  }
+
+  const normalized = String(userId ?? '').trim();
+  if (!normalized) return null;
+
+  return database.collection('user_profiles').findOne({ user_id: normalized });
+}
+
 export async function createUser({ username, usernameLower, passwordHash, passwordSalt }) {
   const database = await getMongoDb();
   if (!database) {

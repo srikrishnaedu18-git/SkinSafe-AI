@@ -2,7 +2,7 @@ import 'dotenv/config';
 import { createServer } from 'node:http';
 import { handleAiHealth, handleAiPredict } from './routes/ai.js';
 import { handleCompatibilityCheck } from './routes/compatibility.js';
-import { handleFeedback, handleProductResolve, handleProductVerify, handleProfile } from './routes/prototype.js';
+import { handleFeedback, handleGetProfile, handleProductResolve, handleProductVerify, handleProfile } from './routes/prototype.js';
 import { handleLogin, handleLogout, handleMe, handleRegister } from './routes/auth.js';
 
 const PORT = Number(process.env.PORT ?? 8080);
@@ -50,6 +50,11 @@ const server = createServer(async (req, res) => {
 
   if (req.method === 'GET' && req.url === '/ai/health') {
     await handleAiHealth(req, res);
+    return;
+  }
+
+  if (req.method === 'GET' && req.url === '/profile') {
+    await handleGetProfile(req, res);
     return;
   }
 

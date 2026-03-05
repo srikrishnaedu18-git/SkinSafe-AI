@@ -28,6 +28,18 @@ function buildDefaultProfile(existingUserId) {
   };
 }
 
+function mapProfilePayload(payload) {
+  if (!payload) return null;
+
+  return {
+    userId: payload.userId,
+    skinType: payload.skinType,
+    allergies: payload.allergies ?? [],
+    conditions: payload.conditions ?? [],
+    preferences: payload.preferences ?? [],
+  };
+}
+
 function mapAuthError(message, fallback) {
   const text = String(message ?? '').toLowerCase();
 
@@ -59,6 +71,19 @@ export function AppStateProvider({ children }) {
   const [error, setError] = useState(null);
   const [authMessage, setAuthMessage] = useState(null);
 
+  const loadProfileForCurrentUser = async () => {
+    try {
+      const response = await api.getProfile();
+      const mapped = mapProfilePayload(response?.profile ?? null);
+      setProfile(mapped);
+      return mapped;
+    } catch {
+      // Keep app usable if profile fetch fails.
+      setProfile(null);
+      return null;
+    }
+  };
+
   useEffect(() => {
     let active = true;
 
@@ -68,11 +93,24 @@ export function AppStateProvider({ children }) {
 
       setAuth(persisted.auth);
       setAuthToken(persisted.auth?.token ?? null);
-      setProfile(persisted.profile);
       setProduct(persisted.product);
       setVerification(persisted.verification);
       setAssessment(persisted.assessment);
       setHistory(persisted.history);
+
+      if (persisted.auth?.token) {
+        try {
+          const response = await api.getProfile();
+          if (!active) return;
+          setProfile(mapProfilePayload(response?.profile ?? null));
+        } catch {
+          if (!active) return;
+          setProfile(persisted.profile ?? null);
+        }
+      } else {
+        setProfile(persisted.profile ?? null);
+      }
+
       setHydrated(true);
     };
 
@@ -119,12 +157,8 @@ export function AppStateProvider({ children }) {
       };
       setAuth(nextAuth);
       setAuthToken(nextAuth.token);
-      setAuthMessage('Success: account created and logged in.');
-
-      if (profile?.userId && profile.userId !== nextAuth.userId) {
-        setProfile(null);
-      }
-
+      setProfile(null);
+      setAuthMessage('Success: account created. Enter your skin details to get started.');
       return true;
     } catch (e) {
       const message = e instanceof Error ? e.message : 'Could not register.';
@@ -155,10 +189,12 @@ export function AppStateProvider({ children }) {
       };
       setAuth(nextAuth);
       setAuthToken(nextAuth.token);
-      setAuthMessage('Success: logged in.');
 
-      if (profile?.userId && profile.userId !== nextAuth.userId) {
-        setProfile(null);
+      const loadedProfile = await loadProfileForCurrentUser();
+      if (loadedProfile) {
+        setAuthMessage('Success: logged in and profile loaded.');
+      } else {
+        setAuthMessage('Success: logged in. Enter your skin details to get started.');
       }
 
       return true;
@@ -209,13 +245,8 @@ export function AppStateProvider({ children }) {
       };
 
       const saved = await api.upsertProfile(payload);
-      setProfile({
-        userId: saved.userId ?? auth.userId,
-        skinType: saved.skinType,
-        allergies: saved.allergies ?? [],
-        conditions: saved.conditions ?? [],
-        preferences: saved.preferences ?? [],
-      });
+      setProfile(mapProfilePayload(saved));
+      setAuthMessage('Profile saved.');
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Could not save profile.');
     } finally {
@@ -300,6 +331,16 @@ export function AppStateProvider({ children }) {
         {
           createdAt: new Date().toISOString(),
           productName: product.name,
+          productSnapshot: {
+            category: product.category ?? null,
+            ingredients: product.inciList ?? [],
+          },
+          userProfileSnapshot: {
+            skinType: profileForAssessment.skinType,
+            allergies: profileForAssessment.allergies,
+            conditions: profileForAssessment.conditions,
+            preferences: profileForAssessment.preferences,
+          },
           assessment: result,
         },
         ...prev,

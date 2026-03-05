@@ -51,14 +51,6 @@ export default function AssessmentScreen() {
           <AppButton label={busy.runningAssessment ? 'Running Assessment...' : 'Run Assessment'} onPress={runAssessment} variant={prerequisitesReady ? 'primary' : 'secondary'} disabled={!prerequisitesReady || busy.runningAssessment}/>
         </AppCard>
       </FadeIn>
-
-      <FadeIn delay={120}>
-        <AppCard>
-          <Text style={styles.sectionTitle}>Deferred Modules</Text>
-          <Text style={styles.body}>Blockchain trust layer: deferred for next phase.</Text>
-        </AppCard>
-      </FadeIn>
-
       {assessment ? (<>
           <FadeIn delay={140}>
             <AppCard>

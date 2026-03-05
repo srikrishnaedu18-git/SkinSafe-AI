@@ -281,6 +281,11 @@ async function mockLogout() {
   return { success: true };
 }
 
+async function mockGetProfile() {
+  await wait(80);
+  return { profile: null };
+}
+
 async function mockProfile(payload) {
   await wait(250);
   return payload;
@@ -337,6 +342,11 @@ export const api = {
       () => mockLogout()
     ),
   me: () => request('/auth/me', { method: 'GET' }),
+  getProfile: () =>
+    withFallback(
+      () => request('/profile', { method: 'GET' }),
+      () => mockGetProfile()
+    ),
   upsertProfile: (payload) =>
     withFallback(
       () => request('/profile', { method: 'POST', body: JSON.stringify(payload) }),

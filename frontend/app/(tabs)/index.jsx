@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { AppButton } from '../../components/ui/app-button';
 import { AppCard } from '../../components/ui/app-card';
@@ -38,18 +38,61 @@ export default function ProfileScreen() {
     resetAllData,
   } = useAppState();
 
+  const autoRedirectDoneRef = useRef(false);
+
   const [username, setUsername] = useState(auth?.username ?? '');
   const [password, setPassword] = useState('');
+  const [isEditingProfile, setIsEditingProfile] = useState(!profile);
 
   const [skinType, setSkinType] = useState(profile?.skinType ?? 'sensitive');
   const [allergies, setAllergies] = useState(profile?.allergies.join(', ') ?? '');
   const [conditions, setConditions] = useState(profile?.conditions.join(', ') ?? '');
   const [preferences, setPreferences] = useState(profile?.preferences.join(', ') ?? '');
 
+  useEffect(() => {
+    setUsername(auth?.username ?? '');
+  }, [auth?.username]);
+
+  useEffect(() => {
+    if (profile) {
+      setSkinType(profile.skinType ?? 'sensitive');
+      setAllergies((profile.allergies ?? []).join(', '));
+      setConditions((profile.conditions ?? []).join(', '));
+      setPreferences((profile.preferences ?? []).join(', '));
+      setIsEditingProfile(false);
+      return;
+    }
+
+    if (auth) {
+      setSkinType('sensitive');
+      setAllergies('');
+      setConditions('');
+      setPreferences('');
+      setIsEditingProfile(true);
+    }
+  }, [auth, profile]);
+
+  useEffect(() => {
+    if (!auth) {
+      autoRedirectDoneRef.current = false;
+      return;
+    }
+
+    if (!hydrated || autoRedirectDoneRef.current) return;
+
+    autoRedirectDoneRef.current = true;
+    router.replace('/(tabs)/product');
+  }, [hydrated, auth]);
+
   const onRegister = async () => {
     const ok = await register({ username: username.trim(), password });
     if (ok) {
       setPassword('');
+      setSkinType('sensitive');
+      setAllergies('');
+      setConditions('');
+      setPreferences('');
+      setIsEditingProfile(true);
     }
   };
 
@@ -85,7 +128,7 @@ export default function ProfileScreen() {
   return (
     <AppScreen>
       <FadeIn>
-        <ScreenHeader title="Profile Setup" subtitle="Login with username and password, then save your skin profile." />
+        <ScreenHeader title="Profile Setup" subtitle="Register/login with username and password." />
       </FadeIn>
 
       {error ? (
@@ -139,6 +182,7 @@ export default function ProfileScreen() {
             <View style={styles.loggedInBox}>
               <StatusChip label="Logged In" tone="success" />
               <Text style={styles.body}>Username: {auth.username}</Text>
+              <Text style={styles.hint}>You will open directly on Product scan while logged in.</Text>
               <AppButton label="Logout" variant="secondary" onPress={logout} />
             </View>
           )}
@@ -151,64 +195,89 @@ export default function ProfileScreen() {
         </AppCard>
       </FadeIn>
 
-      <FadeIn delay={100}>
-        <AppCard tone="accent">
-          <Text style={styles.sectionTitle}>Skin Type</Text>
-          <View style={styles.skinRow}>
-            {skinTypes.map((type) => {
-              const active = skinType === type;
-              return (
-                <Pressable
-                  key={type}
-                  onPress={() => {
-                    if (error) clearError();
-                    setSkinType(type);
-                  }}
-                  style={[styles.skinChip, active && styles.skinChipActive]}
-                >
-                  <Text style={[styles.skinChipText, active && styles.skinChipTextActive]}>{type}</Text>
-                </Pressable>
-              );
-            })}
-          </View>
+      {auth ? (
+        <FadeIn delay={100}>
+          <AppCard tone="accent">
+            {!isEditingProfile && profile ? (
+              <>
+                <View style={styles.profileHeaderRow}>
+                  <Text style={styles.sectionTitle}>Saved Skin Profile</Text>
+                  <Pressable style={styles.settingsButton} onPress={() => setIsEditingProfile(true)}>
+                    <Text style={styles.settingsButtonText}>Settings</Text>
+                  </Pressable>
+                </View>
 
-          <AppInput
-            label="Allergies (comma separated)"
-            value={allergies}
-            onChangeText={setAllergies}
-            placeholder="fragrance, parabens"
-          />
-          <AppInput
-            label="Conditions (comma separated)"
-            value={conditions}
-            onChangeText={setConditions}
-            placeholder="acne-prone, eczema"
-          />
-          <AppInput
-            label="Preferences (comma separated)"
-            value={preferences}
-            onChangeText={setPreferences}
-            placeholder="fragrance-free, low-comedogenic"
-          />
+                <Text style={styles.body}>Skin Type: {profile.skinType}</Text>
+                <Text style={styles.body}>Allergies: {profile.allergies.join(', ') || 'None'}</Text>
+                <Text style={styles.body}>Conditions: {profile.conditions.join(', ') || 'None'}</Text>
+                <Text style={styles.body}>Preferences: {profile.preferences.join(', ') || 'None'}</Text>
 
-          <AppButton
-            label={busy.savingProfile ? 'Saving Profile...' : 'Save Profile'}
-            onPress={onSave}
-            variant="primary"
-            disabled={!auth || busy.savingProfile}
-          />
-          {!auth ? <Text style={styles.hint}>Login required before saving profile.</Text> : null}
-        </AppCard>
-      </FadeIn>
+                <AppButton label="Go To Product Scanning" onPress={() => router.push('/(tabs)/product')} />
+              </>
+            ) : (
+              <>
+                <Text style={styles.sectionTitle}>Enter Skin Details To Get Started</Text>
+                <Text style={styles.hint}>Fill these once. On next login, these will auto-load for you.</Text>
+
+                <Text style={styles.sectionLabel}>Skin Type</Text>
+                <View style={styles.skinRow}>
+                  {skinTypes.map((type) => {
+                    const active = skinType === type;
+                    return (
+                      <Pressable
+                        key={type}
+                        onPress={() => {
+                          if (error) clearError();
+                          setSkinType(type);
+                        }}
+                        style={[styles.skinChip, active && styles.skinChipActive]}
+                      >
+                        <Text style={[styles.skinChipText, active && styles.skinChipTextActive]}>{type}</Text>
+                      </Pressable>
+                    );
+                  })}
+                </View>
+
+                <AppInput
+                  label="Allergies (comma separated)"
+                  value={allergies}
+                  onChangeText={setAllergies}
+                  placeholder="fragrance, parabens"
+                />
+                <AppInput
+                  label="Conditions (comma separated)"
+                  value={conditions}
+                  onChangeText={setConditions}
+                  placeholder="acne-prone, eczema"
+                />
+                <AppInput
+                  label="Preferences (comma separated)"
+                  value={preferences}
+                  onChangeText={setPreferences}
+                  placeholder="fragrance-free, low-comedogenic"
+                />
+
+                <AppButton
+                  label={busy.savingProfile ? 'Saving Profile...' : 'Save Profile'}
+                  onPress={onSave}
+                  variant="primary"
+                  disabled={busy.savingProfile}
+                />
+
+                {profile ? (
+                  <AppButton label="Cancel Editing" variant="secondary" onPress={() => setIsEditingProfile(false)} />
+                ) : null}
+              </>
+            )}
+          </AppCard>
+        </FadeIn>
+      ) : null}
 
       {profile ? (
         <FadeIn delay={120}>
           <AppCard>
             <StatusChip label="Profile Saved" tone="success" />
-            <Text style={styles.body}>Skin Type: {profile.skinType}</Text>
-            <Text style={styles.body}>Allergies: {profile.allergies.join(', ') || 'None'}</Text>
-            <Text style={styles.body}>Conditions: {profile.conditions.join(', ') || 'None'}</Text>
-            <Text style={styles.body}>Preferences: {profile.preferences.join(', ') || 'None'}</Text>
+            <Text style={styles.body}>Your profile is linked to username `{auth?.username}`.</Text>
             <AppButton label="Continue To Product" onPress={() => router.push('/(tabs)/product')} />
             <AppButton label="Reset All Data" variant="secondary" onPress={resetAllData} />
           </AppCard>
@@ -223,6 +292,11 @@ const styles = StyleSheet.create({
     fontSize: Type.heading,
     fontWeight: '700',
     color: Palette.textPrimary,
+  },
+  sectionLabel: {
+    fontSize: Type.caption,
+    color: Palette.textSecondary,
+    fontWeight: '600',
   },
   body: {
     fontSize: Type.body,
@@ -249,6 +323,24 @@ const styles = StyleSheet.create({
   },
   authMessageError: {
     color: '#b00020',
+  },
+  profileHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  settingsButton: {
+    paddingHorizontal: Spacing.md,
+    paddingVertical: 6,
+    borderRadius: Radius.lg,
+    borderWidth: 1,
+    borderColor: Palette.border,
+    backgroundColor: Palette.surface,
+  },
+  settingsButtonText: {
+    fontSize: Type.caption,
+    color: Palette.textSecondary,
+    fontWeight: '700',
   },
   skinRow: {
     flexDirection: 'row',

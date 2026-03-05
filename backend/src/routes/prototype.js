@@ -2,7 +2,7 @@ import { isBlockchainEnabled, isZeroHash, readChainHash } from '../blockchain/cl
 import { canonicalizeRecord, sha256Hex } from '../blockchain/hashing.js';
 import { getRawLedgerRecordByQr, resolveByQr } from '../data/product-records.js';
 import { normalizeProfile } from '../ai/normalizer.js';
-import { saveUserProfile } from '../db/mongo.js';
+import { getUserProfileByUserId, saveUserProfile } from '../db/mongo.js';
 import { getAuthUserFromRequest } from './auth.js';
 
 async function readJson(req) {
@@ -25,6 +25,24 @@ function sendJson(res, statusCode, payload) {
   res.end(JSON.stringify(payload));
 }
 
+function toProfileResponse(profile, username, storage = undefined) {
+  const payload = {
+    userId: profile.user_id,
+    username,
+    skinType: profile.skin_type,
+    allergies: profile.allergies,
+    conditions: profile.conditions,
+    preferences: profile.preferences,
+    ai_profile: profile,
+  };
+
+  if (storage) {
+    payload.storage = storage;
+  }
+
+  return payload;
+}
+
 async function saveProfileWithTimeout(normalized, timeoutMs = 2000) {
   const timeoutPromise = new Promise((resolve) => {
     setTimeout(() => resolve({ stored: false, reason: 'mongodb_timeout' }), timeoutMs);
@@ -37,6 +55,31 @@ async function saveProfileWithTimeout(normalized, timeoutMs = 2000) {
       stored: false,
       reason: error instanceof Error ? error.message : 'mongodb_error',
     };
+  }
+}
+
+export async function handleGetProfile(req, res) {
+  try {
+    const auth = await getAuthUserFromRequest(req);
+    if (!auth) {
+      sendJson(res, 401, { error: 'Unauthorized' });
+      return;
+    }
+
+    const existing = await getUserProfileByUserId(auth.userId);
+    if (!existing) {
+      sendJson(res, 200, {
+        profile: null,
+        username: auth.username,
+      });
+      return;
+    }
+
+    sendJson(res, 200, {
+      profile: toProfileResponse(existing, auth.username),
+    });
+  } catch (error) {
+    sendJson(res, 400, { error: error instanceof Error ? error.message : 'Profile fetch failed' });
   }
 }
 
@@ -60,16 +103,7 @@ export async function handleProfile(req, res) {
 
     const storage = await saveProfileWithTimeout(normalized);
 
-    sendJson(res, 200, {
-      userId: normalized.user_id,
-      username: auth.username,
-      skinType: normalized.skin_type,
-      allergies: normalized.allergies,
-      conditions: normalized.conditions,
-      preferences: normalized.preferences,
-      ai_profile: normalized,
-      storage,
-    });
+    sendJson(res, 200, toProfileResponse(normalized, auth.username, storage));
   } catch (error) {
     sendJson(res, 400, { error: error instanceof Error ? error.message : 'Profile request failed' });
   }

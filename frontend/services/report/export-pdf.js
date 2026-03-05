@@ -1,25 +1,33 @@
 import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
+
 function esc(value) {
-    return value
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;');
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
 }
+
 function list(items) {
-    if (items.length === 0)
-        return '<li>None</li>';
-    return items.map((item) => `<li>${esc(item)}</li>`).join('');
+  if (items.length === 0) return '<li>None</li>';
+  return items.map((item) => `<li>${esc(item)}</li>`).join('');
 }
+
 function section(title, content) {
-    return `<h3>${esc(title)}</h3><div>${content}</div>`;
+  return `<h3>${esc(title)}</h3><div>${content}</div>`;
 }
+
 function reportHtml(item, profile) {
-    const flags = item.assessment.riskFlags.map((f) => `${f.code} [${f.severity}] ${f.ingredients.join(', ')}`.trim());
-    const negatives = item.assessment.explanations.topNegativeDrivers.map((d) => `${d.ingredient}: ${d.reason} (penalty ${d.penalty})`);
-    const positives = item.assessment.explanations.topPositiveDrivers.map((d) => `${d.ingredient}: ${d.reason} (boost ${d.boost})`);
-    return `
+  const flags = item.assessment.riskFlags.map((f) => `${f.code} [${f.severity}] ${f.ingredients.join(', ')}`.trim());
+  const negatives = item.assessment.explanations.topNegativeDrivers.map((d) => `${d.ingredient}: ${d.reason} (penalty ${d.penalty})`);
+  const positives = item.assessment.explanations.topPositiveDrivers.map((d) => `${d.ingredient}: ${d.reason} (boost ${d.boost})`);
+
+  const productIngredients = item?.productSnapshot?.ingredients ?? [];
+  const productCategory = item?.productSnapshot?.category ?? 'Unknown';
+  const effectiveProfile = item?.userProfileSnapshot ?? profile ?? null;
+
+  return `
   <html>
     <head>
       <meta charset="utf-8" />
@@ -39,6 +47,12 @@ function reportHtml(item, profile) {
 
       <div class="card">
         <p><strong>Product:</strong> ${esc(item.productName)}</p>
+        <p><strong>Category:</strong> ${esc(productCategory)}</p>
+        <p><strong>Ingredients:</strong> ${esc(productIngredients.join(', ') || 'Not available')}</p>
+        <p><strong>User Skin Type:</strong> ${esc(effectiveProfile?.skinType || 'Not available')}</p>
+      </div>
+
+      <div class="card">
         <p><strong>Assessment ID:</strong> ${esc(item.assessment.assessmentId)}</p>
         <p><strong>Score:</strong> ${item.assessment.suitabilityScore}/100</p>
         <p><strong>Confidence:</strong> ${item.assessment.confidence.value.toFixed(2)} (${esc(item.assessment.confidence.reason)})</p>
@@ -54,26 +68,32 @@ function reportHtml(item, profile) {
       <div class="card">${section('Alternatives', `<ul>${list(item.assessment.alternatives.map((a) => `${a.name}: ${a.whyBetter}`))}</ul>`)}</div>
 
       <div class="card">
-        ${section('User Profile', profile
-        ? `<p><strong>Skin Type:</strong> ${esc(profile.skinType)}</p>
-               <p><strong>Allergies:</strong> ${esc(profile.allergies.join(', ') || 'None')}</p>
-               <p><strong>Conditions:</strong> ${esc(profile.conditions.join(', ') || 'None')}</p>
-               <p><strong>Preferences:</strong> ${esc(profile.preferences.join(', ') || 'None')}</p>`
-        : '<p>Not available</p>')}
+        ${section(
+          'User Profile',
+          effectiveProfile
+            ? `<p><strong>Skin Type:</strong> ${esc(effectiveProfile.skinType)}</p>
+               <p><strong>Allergies:</strong> ${esc(effectiveProfile.allergies.join(', ') || 'None')}</p>
+               <p><strong>Conditions:</strong> ${esc(effectiveProfile.conditions.join(', ') || 'None')}</p>
+               <p><strong>Preferences:</strong> ${esc(effectiveProfile.preferences.join(', ') || 'None')}</p>`
+            : '<p>Not available</p>'
+        )}
       </div>
     </body>
   </html>`;
 }
+
 export async function exportReportAsPdf(item, profile) {
-    const html = reportHtml(item, profile);
-    const file = await Print.printToFileAsync({ html });
-    const canShare = await Sharing.isAvailableAsync();
-    if (canShare) {
-        await Sharing.shareAsync(file.uri, {
-            mimeType: 'application/pdf',
-            dialogTitle: 'Share Assessment PDF Report',
-            UTI: 'com.adobe.pdf',
-        });
-    }
-    return file.uri;
+  const html = reportHtml(item, profile);
+  const file = await Print.printToFileAsync({ html });
+
+  const canShare = await Sharing.isAvailableAsync();
+  if (canShare) {
+    await Sharing.shareAsync(file.uri, {
+      mimeType: 'application/pdf',
+      dialogTitle: 'Share Assessment PDF Report',
+      UTI: 'com.adobe.pdf',
+    });
+  }
+
+  return file.uri;
 }

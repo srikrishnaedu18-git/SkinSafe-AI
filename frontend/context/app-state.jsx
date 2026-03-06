@@ -55,6 +55,18 @@ function mapAuthError(message, fallback) {
   if (text.includes('password must be at least 6')) {
     return 'Password must be at least 6 characters.';
   }
+  if (text.includes('mongodb_not_configured')) {
+    return 'Registration is unavailable because the database is not configured.';
+  }
+  if (text.includes('could not create user')) {
+    return 'Registration failed on the server. Check backend logs and MongoDB connection.';
+  }
+  if (text.includes('fetch failed') || text.includes('network request failed')) {
+    return 'Cannot reach the backend. Start the backend and verify EXPO_PUBLIC_API_BASE_URL.';
+  }
+  if (text.includes('timed out')) {
+    return 'Backend did not respond in time. Check whether the backend server is running.';
+  }
 
   return fallback;
 }
@@ -154,6 +166,7 @@ export function AppStateProvider({ children }) {
         userId: response.user.id,
         username: response.user.username,
         expiresAt: response.expiresAt,
+        storageMode: response.storage?.backend ?? null,
       };
       setAuth(nextAuth);
       setAuthToken(nextAuth.token);
@@ -186,6 +199,7 @@ export function AppStateProvider({ children }) {
         userId: response.user.id,
         username: response.user.username,
         expiresAt: response.expiresAt,
+        storageMode: response.storage?.backend ?? null,
       };
       setAuth(nextAuth);
       setAuthToken(nextAuth.token);

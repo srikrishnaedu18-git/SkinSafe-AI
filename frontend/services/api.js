@@ -6,6 +6,7 @@ const API_BASE = runtimeConfig.apiBaseUrl;
 const USE_MOCK_FALLBACK = runtimeConfig.useMockApi;
 const REQUEST_TIMEOUT_MS = 12000;
 const MAX_RETRIES = 2;
+const AUTH_REQUEST_TIMEOUT_MS = 4000;
 
 let authToken = null;
 
@@ -195,9 +196,10 @@ function buildErrorMessage(status, body) {
   return `Request failed with status ${status}`;
 }
 
-async function requestWithTimeout(path, init) {
+async function requestWithTimeout(path, init, options = {}) {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  const timeoutMs = Number(options.timeoutMs ?? REQUEST_TIMEOUT_MS);
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
     const headers = {
@@ -223,7 +225,7 @@ async function requestWithTimeout(path, init) {
     return responseBody;
   } catch (error) {
     if (error instanceof Error && error.name === 'AbortError') {
-      throw new Error(`Request timed out after ${REQUEST_TIMEOUT_MS}ms`);
+      throw new Error(`Request timed out after ${timeoutMs}ms`);
     }
     throw error;
   } finally {
@@ -231,15 +233,16 @@ async function requestWithTimeout(path, init) {
   }
 }
 
-async function request(path, init) {
+async function request(path, init, options = {}) {
   let lastError;
+  const retries = Number(options.retries ?? MAX_RETRIES);
 
-  for (let attempt = 0; attempt <= MAX_RETRIES; attempt += 1) {
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
     try {
-      return await requestWithTimeout(path, init);
+      return await requestWithTimeout(path, init, options);
     } catch (error) {
       lastError = error;
-      const isLastAttempt = attempt === MAX_RETRIES;
+      const isLastAttempt = attempt === retries;
       if (isLastAttempt) break;
       await wait(300 * (attempt + 1));
     }
@@ -328,12 +331,12 @@ async function mockFeedback() {
 export const api = {
   register: (payload) =>
     withFallback(
-      () => request('/auth/register', { method: 'POST', body: JSON.stringify(payload) }),
+      () => request('/auth/register', { method: 'POST', body: JSON.stringify(payload) }, { timeoutMs: AUTH_REQUEST_TIMEOUT_MS, retries: 0 }),
       () => mockRegister(payload)
     ),
   login: (payload) =>
     withFallback(
-      () => request('/auth/login', { method: 'POST', body: JSON.stringify(payload) }),
+      () => request('/auth/login', { method: 'POST', body: JSON.stringify(payload) }, { timeoutMs: AUTH_REQUEST_TIMEOUT_MS, retries: 0 }),
       () => mockLogin(payload)
     ),
   logout: () =>

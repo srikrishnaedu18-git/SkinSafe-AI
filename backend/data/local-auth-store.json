@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "id": "4ccf3b29-70df-4aa7-ad83-af7f8c8654ad",
+      "username": "testuser_abc",
+      "username_lower": "testuser_abc",
+      "password_hash": "2afa51274671f403e85128da27be7f1984e2b28e28853117f0b9b264cedabb26e82764ed72f4e1b21c5f1596b68b762db03f654fa7fb2b40033d6883d94c3a0e",
+      "password_salt": "9af7fb4ecc3c6a217bd31715bc430f1e",
+      "created_at": "2026-03-06T07:59:00.280Z",
+      "updated_at": "2026-03-06T07:59:00.280Z"
+    },
+    {
+      "id": "fe2fbb73-6333-48e3-b3b5-5757f39e00ab",
+      "username": "storage_mode_check_user",
+      "username_lower": "storage_mode_check_user",
+      "password_hash": "de4ddbd585c3548154b36070bee42b968545eba1d3495c9e47484d3ea21d43d90f3c594e05936a2ff1589d710431dd417d3d335a6479696ac5e923829506d3dc",
+      "password_salt": "c4d3a7e556c336cbd960aacc9ad3de9d",
+      "created_at": "2026-03-06T08:01:52.007Z",
+      "updated_at": "2026-03-06T08:01:52.007Z"
+    },
+    {
+      "id": "1d922806-8e92-4489-8960-c70cb8a178c6",
+      "username": "mongodb_check_user",
+      "username_lower": "mongodb_check_user",
+      "password_hash": "6db900ec0be75d6ee4fb4fa20619aa677ed28a387e37cf7d4b70678dc98682778849485ba1fb230b99c26ba1d0107b9ef38e5a90096ece845ea3f3c37a02a929",
+      "password_salt": "1d8d15a0b0b255a80f610dd9d5d1a0ef",
+      "created_at": "2026-03-06T08:02:56.968Z",
+      "updated_at": "2026-03-06T08:02:56.968Z"
+    }
+  ],
+  "sessions": [
+    {
+      "token": "a869c4340b3d97a520a2f8e4d8111b2a58e8f91d5d15979fd70ccf46fefcfb2f",
+      "user_id": "4ccf3b29-70df-4aa7-ad83-af7f8c8654ad",
+      "username": "testuser_abc",
+      "created_at": "2026-03-06T07:59:00.291Z",
+      "expires_at": "2026-04-05T07:59:00.291Z"
+    },
+    {
+      "token": "2eccb8aa84bc1793ed0658b2ea51f9a6550fe95fdfd340ab484b67caf7ad5066",
+      "user_id": "fe2fbb73-6333-48e3-b3b5-5757f39e00ab",
+      "username": "storage_mode_check_user",
+      "created_at": "2026-03-06T08:01:52.011Z",
+      "expires_at": "2026-04-05T08:01:52.011Z"
+    },
+    {
+      "token": "37d725bfe33cf0d58bf47852d2c052c4398c364959ad5f7e05e1abbaec12e6fe",
+      "user_id": "1d922806-8e92-4489-8960-c70cb8a178c6",
+      "username": "mongodb_check_user",
+      "created_at": "2026-03-06T08:02:56.971Z",
+      "expires_at": "2026-04-05T08:02:56.971Z"
+    }
+  ],
+  "profiles": []
+}

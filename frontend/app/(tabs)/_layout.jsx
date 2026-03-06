@@ -1,10 +1,21 @@
 import React from 'react';
-import { Tabs } from 'expo-router';
+import { Redirect, Tabs } from 'expo-router';
 import { HapticTab } from '../../components/haptic-tab';
 import { IconSymbol } from '../../components/ui/icon-symbol';
 import { Palette } from '../../constants/design';
+import { useAppState } from '../../context/app-state';
 
 export default function TabLayout() {
+  const { hydrated, auth } = useAppState();
+
+  if (!hydrated) {
+    return null;
+  }
+
+  if (!auth) {
+    return <Redirect href="/" />;
+  }
+
   return (
     <Tabs
       initialRouteName="product"

@@ -34,13 +34,16 @@ function sendJson(res, statusCode, payload) {
   res.end(JSON.stringify(payload));
 }
 
-function toAuthResponse(user, token, expiresAt) {
+function toAuthResponse(user, token, expiresAt, storageBackend = 'mongodb') {
   return {
     token,
     expiresAt,
     user: {
       id: String(user.id ?? user._id),
       username: user.username,
+    },
+    storage: {
+      backend: storageBackend,
     },
   };
 }
@@ -91,8 +94,12 @@ export async function handleRegister(req, res) {
       token,
     });
 
-    sendJson(res, 201, toAuthResponse(created.user, token, session.expiresAt));
+    sendJson(res, 201, toAuthResponse(created.user, token, session.expiresAt, session.backend ?? created.backend ?? 'mongodb'));
   } catch (error) {
+    if (error && typeof error === 'object' && error.code === 11000) {
+      sendJson(res, 409, { error: 'Username already exists' });
+      return;
+    }
     const message = error instanceof Error ? error.message : 'Register failed';
     sendJson(res, 400, { error: message });
   }
@@ -123,7 +130,7 @@ export async function handleLogin(req, res) {
       token,
     });
 
-    sendJson(res, 200, toAuthResponse(user, token, session.expiresAt));
+    sendJson(res, 200, toAuthResponse(user, token, session.expiresAt, session.backend ?? 'mongodb'));
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Login failed';
     sendJson(res, 400, { error: message });

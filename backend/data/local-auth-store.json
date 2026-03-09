@@ -26,6 +26,33 @@
       "password_salt": "1d8d15a0b0b255a80f610dd9d5d1a0ef",
       "created_at": "2026-03-06T08:02:56.968Z",
       "updated_at": "2026-03-06T08:02:56.968Z"
+    },
+    {
+      "id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
+      "username": "krishna",
+      "username_lower": "krishna",
+      "password_hash": "6b4d3c4ab1f69c3e6239f9c1b2fa8cd7ccf4d2bc8f947100ff43a955e843f09c81bfa42c53a28f35928d4a0a7f8edb74d54aea1126a9f3661c7aac88c64ff8e2",
+      "password_salt": "1569d72df034ea542b1bb612cb65251d",
+      "created_at": "2026-03-06T09:09:20.438Z",
+      "updated_at": "2026-03-06T09:09:20.438Z"
+    },
+    {
+      "id": "4daf9608-2dcd-4896-9af0-99da053eb41d",
+      "username": "harish",
+      "username_lower": "harish",
+      "password_hash": "86552dd02f78e46ce9fb8b71fe43bf249a125f8d3ea33e2777ea8c6c408190983a83e06bd1aaf07b419ad9a0ea5332ebfa488e0ddaaa0a0868c24086c92acd70",
+      "password_salt": "3fe5fc7ee6db9861e9d3fbfd5002c8eb",
+      "created_at": "2026-03-08T13:45:18.751Z",
+      "updated_at": "2026-03-08T13:45:18.751Z"
+    },
+    {
+      "id": "02823056-2fde-4d4b-afed-fa88b3026170",
+      "username": "harish-7",
+      "username_lower": "harish-7",
+      "password_hash": "b58bb81cc4988cc6cb329249ed536ca6c92fecc5aabaa79074258da41ff9e5ab2d4b175b65609748da223b06834cc839faa167dc463369451ed5208c558e4d2d",
+      "password_salt": "14905b55056af10052c6294ce4d60450",
+      "created_at": "2026-03-08T13:50:10.764Z",
+      "updated_at": "2026-03-08T13:50:10.764Z"
     }
   ],
   "sessions": [
@@ -49,7 +76,2494 @@
       "username": "mongodb_check_user",
       "created_at": "2026-03-06T08:02:56.971Z",
       "expires_at": "2026-04-05T08:02:56.971Z"
+    },
+    {
+      "token": "b139df6483f37ca3d83b9946501bdc0f778560155f7acf41a07bf4371d82280a",
+      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
+      "username": "krishna",
+      "created_at": "2026-03-06T09:09:20.442Z",
+      "expires_at": "2026-04-05T09:09:20.442Z"
+    },
+    {
+      "token": "a76d765e7d6b64a219a8166fcf1cb95ed0927642770d54489fd24022733be190",
+      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
+      "username": "krishna",
+      "created_at": "2026-03-06T09:24:07.276Z",
+      "expires_at": "2026-04-05T09:24:07.276Z"
+    },
+    {
+      "token": "b064fbcce7d9ae0352443890255cb8a94c40507a03ce3d69fda17fbfb9401406",
+      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
+      "username": "krishna",
+      "created_at": "2026-03-06T09:28:05.222Z",
+      "expires_at": "2026-04-05T09:28:05.222Z"
+    },
+    {
+      "token": "cfc046cabe33032873e56f7a4ac2a0267ff7228d3ea0ebb8932fe61a00919944",
+      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
+      "username": "krishna",
+      "created_at": "2026-03-06T11:18:10.848Z",
+      "expires_at": "2026-04-05T11:18:10.848Z"
+    },
+    {
+      "token": "411532a580c3139088ee57513f30b30dc75c70cfeb05398122ad48776adb2476",
+      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
+      "username": "krishna",
+      "created_at": "2026-03-06T12:11:57.787Z",
+      "expires_at": "2026-04-05T12:11:57.787Z"
+    },
+    {
+      "token": "1301f7c5790617af8d421d9f68dfdd8dc660a4f2f76fa13ddd314fc5861fba4f",
+      "user_id": "02823056-2fde-4d4b-afed-fa88b3026170",
+      "username": "harish-7",
+      "created_at": "2026-03-08T13:50:10.767Z",
+      "expires_at": "2026-04-07T13:50:10.767Z"
     }
   ],
-  "profiles": []
+  "profiles": [
+    {
+      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
+      "skin_type": "sensitive",
+      "allergies": [],
+      "conditions": [
+        "eczema"
+      ],
+      "preferences": [
+        "fragrance-free"
+      ],
+      "updated_at": "2026-03-06T09:28:33.209Z"
+    }
+  ],
+  "histories": [
+    {
+      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
+      "username": "krishna",
+      "assessment_id": "asm-PROD001_BATCH01-1772795952404",
+      "created_at": "2026-03-06T11:19:12.404Z",
+      "updated_at": "2026-03-06T11:19:13.831Z",
+      "product_name": "PureCare Moisturizer 01",
+      "product_snapshot": {
+        "category": "Moisturizer",
+        "ingredients": [
+          "Aloe Vera",
+          "Glycerin",
+          "Niacinamide"
+        ]
+      },
+      "user_profile_snapshot": {
+        "skinType": "sensitive",
+        "allergies": [],
+        "conditions": [
+          "eczema"
+        ],
+        "preferences": [
+          "fragrance-free"
+        ]
+      },
+      "assessment": {
+        "assessmentId": "asm-PROD001_BATCH01-1772795952404",
+        "suitabilityScore": 100,
+        "confidence": {
+          "value": 99.9999999732677,
+          "reason": "ensemble uncertainty avg std 0.0000"
+        },
+        "riskFlags": [],
+        "explanations": {
+          "summary": "Generally low risk - still patch test",
+          "topNegativeDrivers": [],
+          "topPositiveDrivers": [],
+          "triggeredRules": [],
+          "ingredientContributions": []
+        },
+        "guidance": {
+          "patchTest": [
+            "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+          ],
+          "usage": [
+            "Even with low risk, introduce gradually and patch test before full-face use."
+          ],
+          "avoidIf": [
+            "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups."
+          ]
+        },
+        "alternatives": [
+          {
+            "productId": "PROD007_BATCH01",
+            "name": "SkinZen Moisturizer 07",
+            "whyBetter": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD025_BATCH01",
+            "name": "DermaGlow Moisturizer 25",
+            "whyBetter": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD019_BATCH01",
+            "name": "BioBloom Moisturizer 19",
+            "whyBetter": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 31.17/100"
+          }
+        ],
+        "xai": {
+          "summary": {
+            "risk_level": "LOW",
+            "headline": "Generally low risk - still patch test"
+          },
+          "risk_flags": [],
+          "reasons": [],
+          "reason_groups": {
+            "IRRITATION": [],
+            "ACNE": [],
+            "OVERALL": []
+          },
+          "precautions": [
+            {
+              "code": "PATCH_TEST_24H",
+              "priority": 1,
+              "text": "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+            },
+            {
+              "code": "INTRODUCE_GRADUALLY",
+              "priority": 2,
+              "text": "Even with low risk, introduce gradually and patch test before full-face use."
+            },
+            {
+              "code": "ECZEMA_BARRIER_SUPPORT",
+              "priority": 6,
+              "text": "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups."
+            }
+          ],
+          "counterfactuals": [
+            {
+              "feature": "u_has_eczema",
+              "ingredients": [],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 100,
+              "recommendation": "If you reduce feature u_has_eczema, suitability may improve by about 0 points."
+            }
+          ],
+          "alternatives": {
+            "constraints": {
+              "same_category": "Moisturizer",
+              "avoid_ingredients": [
+                "Fragrance"
+              ],
+              "avoid_tags": [
+                "fragrance"
+              ],
+              "prefer_tags": [
+                "barrier-support",
+                "gentle",
+                "fragrance-free"
+              ],
+              "objective": "minimize_fused_risk",
+              "max_results": 3,
+              "current_suitability_score": 100
+            },
+            "results": [
+              {
+                "qr_id": "PROD007_BATCH01",
+                "product_name": "SkinZen Moisturizer 07",
+                "type": "Moisturizer",
+                "origin": "Bengaluru",
+                "ingredients": [
+                  "Panthenol",
+                  "Vitamin C",
+                  "Hyaluronic Acid",
+                  "Zinc Oxide"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.2971444281408893e-8,
+                "p_acne": 1.5866210339631058e-10,
+                "confidence": 0.9999999922944037,
+                "score_gain_vs_current": 0,
+                "why_better": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD025_BATCH01",
+                "product_name": "DermaGlow Moisturizer 25",
+                "type": "Moisturizer",
+                "origin": "Chennai",
+                "ingredients": [
+                  "Glycerin",
+                  "Vitamin C",
+                  "Ceramides",
+                  "Hyaluronic Acid"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.2971444281408893e-8,
+                "p_acne": 1.5866210339631058e-10,
+                "confidence": 0.9999999922944037,
+                "score_gain_vs_current": 0,
+                "why_better": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD019_BATCH01",
+                "product_name": "BioBloom Moisturizer 19",
+                "type": "Moisturizer",
+                "origin": "Hyderabad",
+                "ingredients": [
+                  "Shea Butter",
+                  "Alcohol Denat",
+                  "Zinc Oxide",
+                  "Niacinamide"
+                ],
+                "suitability_score": 31.17,
+                "p_irritation": 0.9832488354853084,
+                "p_acne": 2.681077773044531e-9,
+                "confidence": 0.9935877004474621,
+                "score_gain_vs_current": -68.83,
+                "why_better": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 31.17/100"
+              }
+            ]
+          },
+          "meta": {
+            "xai_version": "xai-v1",
+            "generated_at": "2026-03-06T11:19:13.302Z",
+            "evidence": {
+              "rules_fired": [],
+              "model_signal": {
+                "method": "ablation_feature_zero",
+                "top_k": 10,
+                "feature_impacts": [
+                  {
+                    "feature": "ing_count_total",
+                    "value": 3,
+                    "impact_on_risk": -1.55462220231582e-10,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 2.7538455359989663e-10
+                  },
+                  {
+                    "feature": "u_skin_sensitive",
+                    "value": 1,
+                    "impact_on_risk": -1.1354317794703109e-10,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 2.334655113153457e-10
+                  },
+                  {
+                    "feature": "u_has_eczema",
+                    "value": 1,
+                    "impact_on_risk": 7.139568554502821e-12,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 1.1278276481381181e-10
+                  },
+                  {
+                    "feature": "u_pref_fragrance_free",
+                    "value": 1,
+                    "impact_on_risk": -6.507376924089367e-12,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 1.26429710292404e-10
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "report_payload": {
+        "generated_at": "2026-03-06T11:19:12.405Z",
+        "product": {
+          "name": "PureCare Moisturizer 01",
+          "category": "Moisturizer",
+          "ingredients": [
+            "Aloe Vera",
+            "Glycerin",
+            "Niacinamide"
+          ]
+        },
+        "user_profile": {
+          "skin_type": "sensitive",
+          "allergies": [],
+          "conditions": [
+            "eczema"
+          ],
+          "preferences": [
+            "fragrance-free"
+          ]
+        },
+        "assessment_id": "asm-PROD001_BATCH01-1772795952404",
+        "suitability_score": 100,
+        "confidence": {
+          "value": 99.9999999732677,
+          "reason": "ensemble uncertainty avg std 0.0000"
+        },
+        "risk_flags": [],
+        "explanations": {
+          "summary": "Generally low risk - still patch test",
+          "topNegativeDrivers": [],
+          "topPositiveDrivers": [],
+          "triggeredRules": [],
+          "ingredientContributions": []
+        },
+        "guidance": {
+          "patchTest": [
+            "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+          ],
+          "usage": [
+            "Even with low risk, introduce gradually and patch test before full-face use."
+          ],
+          "avoidIf": [
+            "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups."
+          ]
+        },
+        "alternatives": [
+          {
+            "productId": "PROD007_BATCH01",
+            "name": "SkinZen Moisturizer 07",
+            "whyBetter": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD025_BATCH01",
+            "name": "DermaGlow Moisturizer 25",
+            "whyBetter": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD019_BATCH01",
+            "name": "BioBloom Moisturizer 19",
+            "whyBetter": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 31.17/100"
+          }
+        ],
+        "xai": {
+          "summary": {
+            "risk_level": "LOW",
+            "headline": "Generally low risk - still patch test"
+          },
+          "risk_flags": [],
+          "reasons": [],
+          "reason_groups": {
+            "IRRITATION": [],
+            "ACNE": [],
+            "OVERALL": []
+          },
+          "precautions": [
+            {
+              "code": "PATCH_TEST_24H",
+              "priority": 1,
+              "text": "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+            },
+            {
+              "code": "INTRODUCE_GRADUALLY",
+              "priority": 2,
+              "text": "Even with low risk, introduce gradually and patch test before full-face use."
+            },
+            {
+              "code": "ECZEMA_BARRIER_SUPPORT",
+              "priority": 6,
+              "text": "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups."
+            }
+          ],
+          "counterfactuals": [
+            {
+              "feature": "u_has_eczema",
+              "ingredients": [],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 100,
+              "recommendation": "If you reduce feature u_has_eczema, suitability may improve by about 0 points."
+            }
+          ],
+          "alternatives": {
+            "constraints": {
+              "same_category": "Moisturizer",
+              "avoid_ingredients": [
+                "Fragrance"
+              ],
+              "avoid_tags": [
+                "fragrance"
+              ],
+              "prefer_tags": [
+                "barrier-support",
+                "gentle",
+                "fragrance-free"
+              ],
+              "objective": "minimize_fused_risk",
+              "max_results": 3,
+              "current_suitability_score": 100
+            },
+            "results": [
+              {
+                "qr_id": "PROD007_BATCH01",
+                "product_name": "SkinZen Moisturizer 07",
+                "type": "Moisturizer",
+                "origin": "Bengaluru",
+                "ingredients": [
+                  "Panthenol",
+                  "Vitamin C",
+                  "Hyaluronic Acid",
+                  "Zinc Oxide"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.2971444281408893e-8,
+                "p_acne": 1.5866210339631058e-10,
+                "confidence": 0.9999999922944037,
+                "score_gain_vs_current": 0,
+                "why_better": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD025_BATCH01",
+                "product_name": "DermaGlow Moisturizer 25",
+                "type": "Moisturizer",
+                "origin": "Chennai",
+                "ingredients": [
+                  "Glycerin",
+                  "Vitamin C",
+                  "Ceramides",
+                  "Hyaluronic Acid"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.2971444281408893e-8,
+                "p_acne": 1.5866210339631058e-10,
+                "confidence": 0.9999999922944037,
+                "score_gain_vs_current": 0,
+                "why_better": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD019_BATCH01",
+                "product_name": "BioBloom Moisturizer 19",
+                "type": "Moisturizer",
+                "origin": "Hyderabad",
+                "ingredients": [
+                  "Shea Butter",
+                  "Alcohol Denat",
+                  "Zinc Oxide",
+                  "Niacinamide"
+                ],
+                "suitability_score": 31.17,
+                "p_irritation": 0.9832488354853084,
+                "p_acne": 2.681077773044531e-9,
+                "confidence": 0.9935877004474621,
+                "score_gain_vs_current": -68.83,
+                "why_better": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 31.17/100"
+              }
+            ]
+          },
+          "meta": {
+            "xai_version": "xai-v1",
+            "generated_at": "2026-03-06T11:19:13.302Z",
+            "evidence": {
+              "rules_fired": [],
+              "model_signal": {
+                "method": "ablation_feature_zero",
+                "top_k": 10,
+                "feature_impacts": [
+                  {
+                    "feature": "ing_count_total",
+                    "value": 3,
+                    "impact_on_risk": -1.55462220231582e-10,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 2.7538455359989663e-10
+                  },
+                  {
+                    "feature": "u_skin_sensitive",
+                    "value": 1,
+                    "impact_on_risk": -1.1354317794703109e-10,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 2.334655113153457e-10
+                  },
+                  {
+                    "feature": "u_has_eczema",
+                    "value": 1,
+                    "impact_on_risk": 7.139568554502821e-12,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 1.1278276481381181e-10
+                  },
+                  {
+                    "feature": "u_pref_fragrance_free",
+                    "value": 1,
+                    "impact_on_risk": -6.507376924089367e-12,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 1.26429710292404e-10
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
+      "username": "krishna",
+      "assessment_id": "asm-PROD001_BATCH01-1772799313791",
+      "created_at": "2026-03-06T12:15:13.792Z",
+      "updated_at": "2026-03-06T12:15:15.145Z",
+      "product_name": "PureCare Moisturizer 01",
+      "product_snapshot": {
+        "category": "Moisturizer",
+        "ingredients": [
+          "Fragrance",
+          "alcohol denat",
+          "salicylic acid"
+        ]
+      },
+      "user_profile_snapshot": {
+        "skinType": "sensitive",
+        "allergies": [],
+        "conditions": [
+          "eczema"
+        ],
+        "preferences": [
+          "fragrance-free"
+        ]
+      },
+      "assessment": {
+        "assessmentId": "asm-PROD001_BATCH01-1772799313791",
+        "suitabilityScore": 30,
+        "confidence": {
+          "value": 99.99999997497899,
+          "reason": "ensemble uncertainty avg std 0.0000"
+        },
+        "riskFlags": [
+          {
+            "code": "FRAGRANCE_PRESENT",
+            "severity": "high",
+            "ingredients": [
+              "fragrance"
+            ]
+          },
+          {
+            "code": "PREF_FRAGRANCE_FREE_VIOLATION",
+            "severity": "high",
+            "ingredients": [
+              "fragrance"
+            ]
+          },
+          {
+            "code": "ALCOHOL_DENAT_PRESENT",
+            "severity": "medium",
+            "ingredients": [
+              "alcohol denat"
+            ]
+          },
+          {
+            "code": "ECZEMA_DRYING_IRRITANT_RISK",
+            "severity": "high",
+            "ingredients": [
+              "alcohol denat"
+            ]
+          },
+          {
+            "code": "SENSITIVE_HIGH_IRRITANT_LOAD",
+            "severity": "high",
+            "ingredients": [
+              "fragrance",
+              "alcohol denat",
+              "salicylic acid"
+            ]
+          },
+          {
+            "code": "SALICYLIC_ACID_PRESENT",
+            "severity": "medium",
+            "ingredients": [
+              "salicylic acid"
+            ]
+          }
+        ],
+        "explanations": {
+          "summary": "Higher risk for your profile - review top reasons and precautions",
+          "topNegativeDrivers": [
+            {
+              "ingredient": "Sensitive Skin + Irritant Load",
+              "reason": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk. This is personalized for your sensitive skin profile.",
+              "penalty": 28
+            },
+            {
+              "ingredient": "Eczema + Drying Irritants",
+              "reason": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 27.2
+            },
+            {
+              "ingredient": "Alcohol Denat",
+              "reason": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 18
+            },
+            {
+              "ingredient": "Fragrance",
+              "reason": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 15
+            },
+            {
+              "ingredient": "Fragrance-Free Preference",
+              "reason": "You prefer fragrance-free products, but this product contains fragrance.",
+              "penalty": 12
+            }
+          ],
+          "topPositiveDrivers": [],
+          "triggeredRules": [
+            {
+              "ruleId": "R_FRAG_1",
+              "description": "Rule R_FRAG_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_PREF_FF_1",
+              "description": "Rule R_PREF_FF_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_ALC_1",
+              "description": "Rule R_ALC_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_ECZ_1",
+              "description": "Rule R_ECZ_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_SENS_1",
+              "description": "Rule R_SENS_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_ACID_1",
+              "description": "Rule R_ACID_1 triggered by current profile and ingredients."
+            }
+          ],
+          "ingredientContributions": [
+            {
+              "ingredient": "fragrance",
+              "scoreImpact": -28,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "alcohol denat",
+              "scoreImpact": -28,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "salicylic acid",
+              "scoreImpact": -28,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "alcohol denat",
+              "scoreImpact": -27.2,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "alcohol denat",
+              "scoreImpact": -18,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "fragrance",
+              "scoreImpact": -15,
+              "tags": [
+                "IRRITATION",
+                "MEDIUM"
+              ]
+            },
+            {
+              "ingredient": "fragrance",
+              "scoreImpact": -12,
+              "tags": [
+                "OVERALL",
+                "MEDIUM"
+              ]
+            }
+          ]
+        },
+        "guidance": {
+          "patchTest": [
+            "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+          ],
+          "usage": [
+            "Start with 1-2 uses per week. Increase slowly only if there is no irritation."
+          ],
+          "avoidIf": [
+            "Avoid applying on broken/irritated skin. Stop immediately if burning persists.",
+            "Avoid sensitive zones (around eyes, corners of nose, neck) during initial trials.",
+            "Fragrance present: if you are sensitive, avoid eye/neck area and prefer fragrance-free alternatives.",
+            "Alcohol Denat present: can be drying. Use a moisturizer after application and stop if skin feels tight or flaky.",
+            "Salicylic Acid present: avoid combining initially with other strong actives (retinoids/AHAs). Start slowly.",
+            "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups.",
+            "Preference mismatch: your profile prefers fragrance-free. Consider alternatives aligned with your preference."
+          ]
+        },
+        "alternatives": [
+          {
+            "productId": "PROD007_BATCH01",
+            "name": "SkinZen Moisturizer 07",
+            "whyBetter": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD025_BATCH01",
+            "name": "DermaGlow Moisturizer 25",
+            "whyBetter": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+          }
+        ],
+        "xai": {
+          "summary": {
+            "risk_level": "HIGH",
+            "headline": "Higher risk for your profile - review top reasons and precautions"
+          },
+          "risk_flags": [
+            {
+              "code": "FRAGRANCE_PRESENT",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "ing_has_fragrance"
+                ],
+                "rules": [
+                  "R_FRAG_1"
+                ]
+              }
+            },
+            {
+              "code": "PREF_FRAGRANCE_FREE_VIOLATION",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "u_pref_fragrance_free",
+                  "ing_has_fragrance"
+                ],
+                "rules": [
+                  "R_PREF_FF_1"
+                ]
+              }
+            },
+            {
+              "code": "ALCOHOL_DENAT_PRESENT",
+              "severity": "MEDIUM",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "ing_has_alcohol_denat"
+                ],
+                "rules": [
+                  "R_ALC_1"
+                ]
+              }
+            },
+            {
+              "code": "ECZEMA_DRYING_IRRITANT_RISK",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "u_has_eczema",
+                  "ing_count_drying_irritants"
+                ],
+                "rules": [
+                  "R_ECZ_1"
+                ]
+              }
+            },
+            {
+              "code": "SENSITIVE_HIGH_IRRITANT_LOAD",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "fragrance",
+                  "alcohol denat",
+                  "salicylic acid"
+                ],
+                "features": [
+                  "u_skin_sensitive",
+                  "ing_irritant_severity_sum"
+                ],
+                "rules": [
+                  "R_SENS_1"
+                ]
+              }
+            },
+            {
+              "code": "SALICYLIC_ACID_PRESENT",
+              "severity": "MEDIUM",
+              "evidence": {
+                "ingredients": [
+                  "salicylic acid"
+                ],
+                "features": [
+                  "ing_has_salicylic_acid"
+                ],
+                "rules": [
+                  "R_ACID_1"
+                ]
+              }
+            }
+          ],
+          "reasons": [
+            {
+              "rank": 1,
+              "type": "USER_CONTEXT",
+              "risk_target": "IRRITATION",
+              "item": "Sensitive Skin + Irritant Load",
+              "impact": 0.28000000016760807,
+              "message": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk.",
+              "evidence": {
+                "ingredients": [
+                  "fragrance",
+                  "alcohol denat",
+                  "salicylic acid"
+                ],
+                "features": [
+                  "u_skin_sensitive",
+                  "ing_irritant_severity_sum"
+                ],
+                "rules": [
+                  "R_SENS_1"
+                ],
+                "model_impact_on_risk": -1.6760803855930817e-10
+              },
+              "severity": "HIGH",
+              "title": "Your profile increases sensitivity",
+              "why": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk. This is personalized for your sensitive skin profile.",
+              "action": "Patch test and start with low frequency for your skin profile."
+            },
+            {
+              "rank": 2,
+              "type": "INTERACTION",
+              "risk_target": "IRRITATION",
+              "item": "Eczema + Drying Irritants",
+              "impact": 0.27200000001522606,
+              "message": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging.",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "u_has_eczema",
+                  "ing_count_drying_irritants"
+                ],
+                "rules": [
+                  "R_ECZ_1"
+                ],
+                "model_impact_on_risk": 1.5226042648919247e-11
+              },
+              "severity": "HIGH",
+              "title": "Eczema + Drying Irritants interaction increases risk",
+              "why": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging. Your eczema condition makes barrier disruption more likely.",
+              "action": "Patch test and start with low frequency for your skin profile."
+            },
+            {
+              "rank": 3,
+              "type": "INGREDIENT",
+              "risk_target": "IRRITATION",
+              "item": "Alcohol Denat",
+              "impact": 0.18,
+              "message": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers.",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "ing_has_alcohol_denat"
+                ],
+                "rules": [
+                  "R_ALC_1"
+                ],
+                "model_impact_on_risk": null
+              },
+              "severity": "HIGH",
+              "title": "Alcohol Denat may increase risk",
+              "why": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers. Your eczema condition makes barrier disruption more likely.",
+              "action": "Use with barrier support moisturizer and avoid use on irritated skin."
+            },
+            {
+              "rank": 4,
+              "type": "INGREDIENT",
+              "risk_target": "IRRITATION",
+              "item": "Fragrance",
+              "impact": 0.15000000007310996,
+              "message": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging.",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "ing_has_fragrance"
+                ],
+                "rules": [
+                  "R_FRAG_1"
+                ],
+                "model_impact_on_risk": 7.310996252840596e-11
+              },
+              "severity": "MEDIUM",
+              "title": "Fragrance may increase risk",
+              "why": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging. Your eczema condition makes barrier disruption more likely.",
+              "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+            },
+            {
+              "rank": 5,
+              "type": "INTERACTION",
+              "risk_target": "OVERALL",
+              "item": "Fragrance-Free Preference",
+              "impact": 0.12000000007310996,
+              "message": "You prefer fragrance-free products, but this product contains fragrance.",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "u_pref_fragrance_free",
+                  "ing_has_fragrance"
+                ],
+                "rules": [
+                  "R_PREF_FF_1"
+                ],
+                "model_impact_on_risk": 7.310996252840596e-11
+              },
+              "severity": "MEDIUM",
+              "title": "Fragrance-Free Preference interaction increases risk",
+              "why": "You prefer fragrance-free products, but this product contains fragrance.",
+              "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+            }
+          ],
+          "reason_groups": {
+            "IRRITATION": [
+              {
+                "rank": 1,
+                "type": "USER_CONTEXT",
+                "risk_target": "IRRITATION",
+                "item": "Sensitive Skin + Irritant Load",
+                "impact": 0.28000000016760807,
+                "message": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk.",
+                "evidence": {
+                  "ingredients": [
+                    "fragrance",
+                    "alcohol denat",
+                    "salicylic acid"
+                  ],
+                  "features": [
+                    "u_skin_sensitive",
+                    "ing_irritant_severity_sum"
+                  ],
+                  "rules": [
+                    "R_SENS_1"
+                  ],
+                  "model_impact_on_risk": -1.6760803855930817e-10
+                },
+                "severity": "HIGH",
+                "title": "Your profile increases sensitivity",
+                "why": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk. This is personalized for your sensitive skin profile.",
+                "action": "Patch test and start with low frequency for your skin profile."
+              },
+              {
+                "rank": 2,
+                "type": "INTERACTION",
+                "risk_target": "IRRITATION",
+                "item": "Eczema + Drying Irritants",
+                "impact": 0.27200000001522606,
+                "message": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging.",
+                "evidence": {
+                  "ingredients": [
+                    "alcohol denat"
+                  ],
+                  "features": [
+                    "u_has_eczema",
+                    "ing_count_drying_irritants"
+                  ],
+                  "rules": [
+                    "R_ECZ_1"
+                  ],
+                  "model_impact_on_risk": 1.5226042648919247e-11
+                },
+                "severity": "HIGH",
+                "title": "Eczema + Drying Irritants interaction increases risk",
+                "why": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging. Your eczema condition makes barrier disruption more likely.",
+                "action": "Patch test and start with low frequency for your skin profile."
+              },
+              {
+                "rank": 3,
+                "type": "INGREDIENT",
+                "risk_target": "IRRITATION",
+                "item": "Alcohol Denat",
+                "impact": 0.18,
+                "message": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers.",
+                "evidence": {
+                  "ingredients": [
+                    "alcohol denat"
+                  ],
+                  "features": [
+                    "ing_has_alcohol_denat"
+                  ],
+                  "rules": [
+                    "R_ALC_1"
+                  ],
+                  "model_impact_on_risk": null
+                },
+                "severity": "HIGH",
+                "title": "Alcohol Denat may increase risk",
+                "why": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers. Your eczema condition makes barrier disruption more likely.",
+                "action": "Use with barrier support moisturizer and avoid use on irritated skin."
+              },
+              {
+                "rank": 4,
+                "type": "INGREDIENT",
+                "risk_target": "IRRITATION",
+                "item": "Fragrance",
+                "impact": 0.15000000007310996,
+                "message": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging.",
+                "evidence": {
+                  "ingredients": [
+                    "fragrance"
+                  ],
+                  "features": [
+                    "ing_has_fragrance"
+                  ],
+                  "rules": [
+                    "R_FRAG_1"
+                  ],
+                  "model_impact_on_risk": 7.310996252840596e-11
+                },
+                "severity": "MEDIUM",
+                "title": "Fragrance may increase risk",
+                "why": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging. Your eczema condition makes barrier disruption more likely.",
+                "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+              }
+            ],
+            "ACNE": [],
+            "OVERALL": [
+              {
+                "rank": 5,
+                "type": "INTERACTION",
+                "risk_target": "OVERALL",
+                "item": "Fragrance-Free Preference",
+                "impact": 0.12000000007310996,
+                "message": "You prefer fragrance-free products, but this product contains fragrance.",
+                "evidence": {
+                  "ingredients": [
+                    "fragrance"
+                  ],
+                  "features": [
+                    "u_pref_fragrance_free",
+                    "ing_has_fragrance"
+                  ],
+                  "rules": [
+                    "R_PREF_FF_1"
+                  ],
+                  "model_impact_on_risk": 7.310996252840596e-11
+                },
+                "severity": "MEDIUM",
+                "title": "Fragrance-Free Preference interaction increases risk",
+                "why": "You prefer fragrance-free products, but this product contains fragrance.",
+                "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+              }
+            ]
+          },
+          "precautions": [
+            {
+              "code": "PATCH_TEST_24H",
+              "priority": 1,
+              "text": "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+            },
+            {
+              "code": "START_1_2X_PER_WEEK",
+              "priority": 2,
+              "text": "Start with 1-2 uses per week. Increase slowly only if there is no irritation."
+            },
+            {
+              "code": "AVOID_BROKEN_SKIN",
+              "priority": 3,
+              "text": "Avoid applying on broken/irritated skin. Stop immediately if burning persists."
+            },
+            {
+              "code": "AVOID_EYE_NECK",
+              "priority": 4,
+              "text": "Avoid sensitive zones (around eyes, corners of nose, neck) during initial trials."
+            },
+            {
+              "code": "FRAGRANCE_CAUTION",
+              "priority": 5,
+              "text": "Fragrance present: if you are sensitive, avoid eye/neck area and prefer fragrance-free alternatives."
+            },
+            {
+              "code": "ALCOHOL_DRYNESS_CAUTION",
+              "priority": 5,
+              "text": "Alcohol Denat present: can be drying. Use a moisturizer after application and stop if skin feels tight or flaky."
+            },
+            {
+              "code": "ACID_LAYERING_CAUTION",
+              "priority": 5,
+              "text": "Salicylic Acid present: avoid combining initially with other strong actives (retinoids/AHAs). Start slowly."
+            },
+            {
+              "code": "ECZEMA_BARRIER_SUPPORT",
+              "priority": 6,
+              "text": "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups."
+            },
+            {
+              "code": "PREF_ALIGNMENT_NOTE",
+              "priority": 7,
+              "text": "Preference mismatch: your profile prefers fragrance-free. Consider alternatives aligned with your preference."
+            }
+          ],
+          "counterfactuals": [
+            {
+              "feature": "ing_count_fragrance",
+              "ingredients": [
+                "fragrance"
+              ],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 30,
+              "recommendation": "If you avoid or replace fragrance, suitability may improve by about 0 points."
+            },
+            {
+              "feature": "ing_has_fragrance",
+              "ingredients": [
+                "fragrance"
+              ],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 30,
+              "recommendation": "If you avoid or replace fragrance, suitability may improve by about 0 points."
+            },
+            {
+              "feature": "ing_comedogenic_severity_sum",
+              "ingredients": [
+                "fragrance"
+              ],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 30,
+              "recommendation": "If you avoid or replace fragrance, suitability may improve by about 0 points."
+            }
+          ],
+          "alternatives": {
+            "constraints": {
+              "same_category": "Moisturizer",
+              "avoid_ingredients": [
+                "Fragrance",
+                "Alcohol Denat"
+              ],
+              "avoid_tags": [
+                "fragrance",
+                "drying"
+              ],
+              "prefer_tags": [
+                "fragrance-free",
+                "barrier-support",
+                "gentle"
+              ],
+              "objective": "minimize_fused_risk",
+              "max_results": 3,
+              "current_suitability_score": 30
+            },
+            "results": [
+              {
+                "qr_id": "PROD007_BATCH01",
+                "product_name": "SkinZen Moisturizer 07",
+                "type": "Moisturizer",
+                "origin": "Bengaluru",
+                "ingredients": [
+                  "Panthenol",
+                  "Vitamin C",
+                  "Hyaluronic Acid",
+                  "Zinc Oxide"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.2971444281408893e-8,
+                "p_acne": 1.5866210339631058e-10,
+                "confidence": 0.9999999922944037,
+                "score_gain_vs_current": 70,
+                "why_better": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD025_BATCH01",
+                "product_name": "DermaGlow Moisturizer 25",
+                "type": "Moisturizer",
+                "origin": "Chennai",
+                "ingredients": [
+                  "Glycerin",
+                  "Vitamin C",
+                  "Ceramides",
+                  "Hyaluronic Acid"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.2971444281408893e-8,
+                "p_acne": 1.5866210339631058e-10,
+                "confidence": 0.9999999922944037,
+                "score_gain_vs_current": 70,
+                "why_better": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+              }
+            ]
+          },
+          "meta": {
+            "xai_version": "xai-v1",
+            "generated_at": "2026-03-06T12:15:14.615Z",
+            "evidence": {
+              "rules_fired": [
+                "R_FRAG_1",
+                "R_PREF_FF_1",
+                "R_ALC_1",
+                "R_ECZ_1",
+                "R_SENS_1",
+                "R_ACID_1"
+              ],
+              "model_signal": {
+                "method": "ablation_feature_zero",
+                "top_k": 10,
+                "feature_impacts": [
+                  {
+                    "feature": "ing_count_acids",
+                    "value": 1,
+                    "impact_on_risk": -2.5347395293806585e-9,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.7000000026113725
+                  },
+                  {
+                    "feature": "ing_has_salicylic_acid",
+                    "value": 1,
+                    "impact_on_risk": -2.5347395293806585e-9,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.7000000026113725
+                  },
+                  {
+                    "feature": "u_skin_sensitive",
+                    "value": 1,
+                    "impact_on_risk": -1.6760803855930817e-10,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.700000000244241
+                  },
+                  {
+                    "feature": "ing_count_total",
+                    "value": 3,
+                    "impact_on_risk": -1.646695002577303e-10,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.7000000002413025
+                  },
+                  {
+                    "feature": "ing_count_fragrance",
+                    "value": 1,
+                    "impact_on_risk": 7.310996252840596e-11,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.700000000003523
+                  },
+                  {
+                    "feature": "ing_has_fragrance",
+                    "value": 1,
+                    "impact_on_risk": 7.310996252840596e-11,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.700000000003523
+                  },
+                  {
+                    "feature": "ing_comedogenic_severity_sum",
+                    "value": 1,
+                    "impact_on_risk": 4.073041903751573e-11,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.7000000000359026
+                  },
+                  {
+                    "feature": "x_sensitive__irritant_sum",
+                    "value": 7,
+                    "impact_on_risk": -2.1030732710869415e-11,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.7000000000976637
+                  },
+                  {
+                    "feature": "u_has_eczema",
+                    "value": 1,
+                    "impact_on_risk": 1.5226042648919247e-11,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.700000000061407
+                  },
+                  {
+                    "feature": "ing_count_drying_irritants",
+                    "value": 1,
+                    "impact_on_risk": 1.0535683436785348e-11,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.7000000000660973
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "report_payload": {
+        "generated_at": "2026-03-06T12:15:13.792Z",
+        "product": {
+          "name": "PureCare Moisturizer 01",
+          "category": "Moisturizer",
+          "ingredients": [
+            "Fragrance",
+            "alcohol denat",
+            "salicylic acid"
+          ]
+        },
+        "user_profile": {
+          "skin_type": "sensitive",
+          "allergies": [],
+          "conditions": [
+            "eczema"
+          ],
+          "preferences": [
+            "fragrance-free"
+          ]
+        },
+        "assessment_id": "asm-PROD001_BATCH01-1772799313791",
+        "suitability_score": 30,
+        "confidence": {
+          "value": 99.99999997497899,
+          "reason": "ensemble uncertainty avg std 0.0000"
+        },
+        "risk_flags": [
+          {
+            "code": "FRAGRANCE_PRESENT",
+            "severity": "high",
+            "ingredients": [
+              "fragrance"
+            ]
+          },
+          {
+            "code": "PREF_FRAGRANCE_FREE_VIOLATION",
+            "severity": "high",
+            "ingredients": [
+              "fragrance"
+            ]
+          },
+          {
+            "code": "ALCOHOL_DENAT_PRESENT",
+            "severity": "medium",
+            "ingredients": [
+              "alcohol denat"
+            ]
+          },
+          {
+            "code": "ECZEMA_DRYING_IRRITANT_RISK",
+            "severity": "high",
+            "ingredients": [
+              "alcohol denat"
+            ]
+          },
+          {
+            "code": "SENSITIVE_HIGH_IRRITANT_LOAD",
+            "severity": "high",
+            "ingredients": [
+              "fragrance",
+              "alcohol denat",
+              "salicylic acid"
+            ]
+          },
+          {
+            "code": "SALICYLIC_ACID_PRESENT",
+            "severity": "medium",
+            "ingredients": [
+              "salicylic acid"
+            ]
+          }
+        ],
+        "explanations": {
+          "summary": "Higher risk for your profile - review top reasons and precautions",
+          "topNegativeDrivers": [
+            {
+              "ingredient": "Sensitive Skin + Irritant Load",
+              "reason": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk. This is personalized for your sensitive skin profile.",
+              "penalty": 28
+            },
+            {
+              "ingredient": "Eczema + Drying Irritants",
+              "reason": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 27.2
+            },
+            {
+              "ingredient": "Alcohol Denat",
+              "reason": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 18
+            },
+            {
+              "ingredient": "Fragrance",
+              "reason": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 15
+            },
+            {
+              "ingredient": "Fragrance-Free Preference",
+              "reason": "You prefer fragrance-free products, but this product contains fragrance.",
+              "penalty": 12
+            }
+          ],
+          "topPositiveDrivers": [],
+          "triggeredRules": [
+            {
+              "ruleId": "R_FRAG_1",
+              "description": "Rule R_FRAG_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_PREF_FF_1",
+              "description": "Rule R_PREF_FF_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_ALC_1",
+              "description": "Rule R_ALC_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_ECZ_1",
+              "description": "Rule R_ECZ_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_SENS_1",
+              "description": "Rule R_SENS_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_ACID_1",
+              "description": "Rule R_ACID_1 triggered by current profile and ingredients."
+            }
+          ],
+          "ingredientContributions": [
+            {
+              "ingredient": "fragrance",
+              "scoreImpact": -28,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "alcohol denat",
+              "scoreImpact": -28,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "salicylic acid",
+              "scoreImpact": -28,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "alcohol denat",
+              "scoreImpact": -27.2,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "alcohol denat",
+              "scoreImpact": -18,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "fragrance",
+              "scoreImpact": -15,
+              "tags": [
+                "IRRITATION",
+                "MEDIUM"
+              ]
+            },
+            {
+              "ingredient": "fragrance",
+              "scoreImpact": -12,
+              "tags": [
+                "OVERALL",
+                "MEDIUM"
+              ]
+            }
+          ]
+        },
+        "guidance": {
+          "patchTest": [
+            "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+          ],
+          "usage": [
+            "Start with 1-2 uses per week. Increase slowly only if there is no irritation."
+          ],
+          "avoidIf": [
+            "Avoid applying on broken/irritated skin. Stop immediately if burning persists.",
+            "Avoid sensitive zones (around eyes, corners of nose, neck) during initial trials.",
+            "Fragrance present: if you are sensitive, avoid eye/neck area and prefer fragrance-free alternatives.",
+            "Alcohol Denat present: can be drying. Use a moisturizer after application and stop if skin feels tight or flaky.",
+            "Salicylic Acid present: avoid combining initially with other strong actives (retinoids/AHAs). Start slowly.",
+            "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups.",
+            "Preference mismatch: your profile prefers fragrance-free. Consider alternatives aligned with your preference."
+          ]
+        },
+        "alternatives": [
+          {
+            "productId": "PROD007_BATCH01",
+            "name": "SkinZen Moisturizer 07",
+            "whyBetter": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD025_BATCH01",
+            "name": "DermaGlow Moisturizer 25",
+            "whyBetter": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+          }
+        ],
+        "xai": {
+          "summary": {
+            "risk_level": "HIGH",
+            "headline": "Higher risk for your profile - review top reasons and precautions"
+          },
+          "risk_flags": [
+            {
+              "code": "FRAGRANCE_PRESENT",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "ing_has_fragrance"
+                ],
+                "rules": [
+                  "R_FRAG_1"
+                ]
+              }
+            },
+            {
+              "code": "PREF_FRAGRANCE_FREE_VIOLATION",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "u_pref_fragrance_free",
+                  "ing_has_fragrance"
+                ],
+                "rules": [
+                  "R_PREF_FF_1"
+                ]
+              }
+            },
+            {
+              "code": "ALCOHOL_DENAT_PRESENT",
+              "severity": "MEDIUM",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "ing_has_alcohol_denat"
+                ],
+                "rules": [
+                  "R_ALC_1"
+                ]
+              }
+            },
+            {
+              "code": "ECZEMA_DRYING_IRRITANT_RISK",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "u_has_eczema",
+                  "ing_count_drying_irritants"
+                ],
+                "rules": [
+                  "R_ECZ_1"
+                ]
+              }
+            },
+            {
+              "code": "SENSITIVE_HIGH_IRRITANT_LOAD",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "fragrance",
+                  "alcohol denat",
+                  "salicylic acid"
+                ],
+                "features": [
+                  "u_skin_sensitive",
+                  "ing_irritant_severity_sum"
+                ],
+                "rules": [
+                  "R_SENS_1"
+                ]
+              }
+            },
+            {
+              "code": "SALICYLIC_ACID_PRESENT",
+              "severity": "MEDIUM",
+              "evidence": {
+                "ingredients": [
+                  "salicylic acid"
+                ],
+                "features": [
+                  "ing_has_salicylic_acid"
+                ],
+                "rules": [
+                  "R_ACID_1"
+                ]
+              }
+            }
+          ],
+          "reasons": [
+            {
+              "rank": 1,
+              "type": "USER_CONTEXT",
+              "risk_target": "IRRITATION",
+              "item": "Sensitive Skin + Irritant Load",
+              "impact": 0.28000000016760807,
+              "message": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk.",
+              "evidence": {
+                "ingredients": [
+                  "fragrance",
+                  "alcohol denat",
+                  "salicylic acid"
+                ],
+                "features": [
+                  "u_skin_sensitive",
+                  "ing_irritant_severity_sum"
+                ],
+                "rules": [
+                  "R_SENS_1"
+                ],
+                "model_impact_on_risk": -1.6760803855930817e-10
+              },
+              "severity": "HIGH",
+              "title": "Your profile increases sensitivity",
+              "why": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk. This is personalized for your sensitive skin profile.",
+              "action": "Patch test and start with low frequency for your skin profile."
+            },
+            {
+              "rank": 2,
+              "type": "INTERACTION",
+              "risk_target": "IRRITATION",
+              "item": "Eczema + Drying Irritants",
+              "impact": 0.27200000001522606,
+              "message": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging.",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "u_has_eczema",
+                  "ing_count_drying_irritants"
+                ],
+                "rules": [
+                  "R_ECZ_1"
+                ],
+                "model_impact_on_risk": 1.5226042648919247e-11
+              },
+              "severity": "HIGH",
+              "title": "Eczema + Drying Irritants interaction increases risk",
+              "why": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging. Your eczema condition makes barrier disruption more likely.",
+              "action": "Patch test and start with low frequency for your skin profile."
+            },
+            {
+              "rank": 3,
+              "type": "INGREDIENT",
+              "risk_target": "IRRITATION",
+              "item": "Alcohol Denat",
+              "impact": 0.18,
+              "message": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers.",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "ing_has_alcohol_denat"
+                ],
+                "rules": [
+                  "R_ALC_1"
+                ],
+                "model_impact_on_risk": null
+              },
+              "severity": "HIGH",
+              "title": "Alcohol Denat may increase risk",
+              "why": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers. Your eczema condition makes barrier disruption more likely.",
+              "action": "Use with barrier support moisturizer and avoid use on irritated skin."
+            },
+            {
+              "rank": 4,
+              "type": "INGREDIENT",
+              "risk_target": "IRRITATION",
+              "item": "Fragrance",
+              "impact": 0.15000000007310996,
+              "message": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging.",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "ing_has_fragrance"
+                ],
+                "rules": [
+                  "R_FRAG_1"
+                ],
+                "model_impact_on_risk": 7.310996252840596e-11
+              },
+              "severity": "MEDIUM",
+              "title": "Fragrance may increase risk",
+              "why": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging. Your eczema condition makes barrier disruption more likely.",
+              "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+            },
+            {
+              "rank": 5,
+              "type": "INTERACTION",
+              "risk_target": "OVERALL",
+              "item": "Fragrance-Free Preference",
+              "impact": 0.12000000007310996,
+              "message": "You prefer fragrance-free products, but this product contains fragrance.",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "u_pref_fragrance_free",
+                  "ing_has_fragrance"
+                ],
+                "rules": [
+                  "R_PREF_FF_1"
+                ],
+                "model_impact_on_risk": 7.310996252840596e-11
+              },
+              "severity": "MEDIUM",
+              "title": "Fragrance-Free Preference interaction increases risk",
+              "why": "You prefer fragrance-free products, but this product contains fragrance.",
+              "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+            }
+          ],
+          "reason_groups": {
+            "IRRITATION": [
+              {
+                "rank": 1,
+                "type": "USER_CONTEXT",
+                "risk_target": "IRRITATION",
+                "item": "Sensitive Skin + Irritant Load",
+                "impact": 0.28000000016760807,
+                "message": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk.",
+                "evidence": {
+                  "ingredients": [
+                    "fragrance",
+                    "alcohol denat",
+                    "salicylic acid"
+                  ],
+                  "features": [
+                    "u_skin_sensitive",
+                    "ing_irritant_severity_sum"
+                  ],
+                  "rules": [
+                    "R_SENS_1"
+                  ],
+                  "model_impact_on_risk": -1.6760803855930817e-10
+                },
+                "severity": "HIGH",
+                "title": "Your profile increases sensitivity",
+                "why": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk. This is personalized for your sensitive skin profile.",
+                "action": "Patch test and start with low frequency for your skin profile."
+              },
+              {
+                "rank": 2,
+                "type": "INTERACTION",
+                "risk_target": "IRRITATION",
+                "item": "Eczema + Drying Irritants",
+                "impact": 0.27200000001522606,
+                "message": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging.",
+                "evidence": {
+                  "ingredients": [
+                    "alcohol denat"
+                  ],
+                  "features": [
+                    "u_has_eczema",
+                    "ing_count_drying_irritants"
+                  ],
+                  "rules": [
+                    "R_ECZ_1"
+                  ],
+                  "model_impact_on_risk": 1.5226042648919247e-11
+                },
+                "severity": "HIGH",
+                "title": "Eczema + Drying Irritants interaction increases risk",
+                "why": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging. Your eczema condition makes barrier disruption more likely.",
+                "action": "Patch test and start with low frequency for your skin profile."
+              },
+              {
+                "rank": 3,
+                "type": "INGREDIENT",
+                "risk_target": "IRRITATION",
+                "item": "Alcohol Denat",
+                "impact": 0.18,
+                "message": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers.",
+                "evidence": {
+                  "ingredients": [
+                    "alcohol denat"
+                  ],
+                  "features": [
+                    "ing_has_alcohol_denat"
+                  ],
+                  "rules": [
+                    "R_ALC_1"
+                  ],
+                  "model_impact_on_risk": null
+                },
+                "severity": "HIGH",
+                "title": "Alcohol Denat may increase risk",
+                "why": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers. Your eczema condition makes barrier disruption more likely.",
+                "action": "Use with barrier support moisturizer and avoid use on irritated skin."
+              },
+              {
+                "rank": 4,
+                "type": "INGREDIENT",
+                "risk_target": "IRRITATION",
+                "item": "Fragrance",
+                "impact": 0.15000000007310996,
+                "message": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging.",
+                "evidence": {
+                  "ingredients": [
+                    "fragrance"
+                  ],
+                  "features": [
+                    "ing_has_fragrance"
+                  ],
+                  "rules": [
+                    "R_FRAG_1"
+                  ],
+                  "model_impact_on_risk": 7.310996252840596e-11
+                },
+                "severity": "MEDIUM",
+                "title": "Fragrance may increase risk",
+                "why": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging. Your eczema condition makes barrier disruption more likely.",
+                "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+              }
+            ],
+            "ACNE": [],
+            "OVERALL": [
+              {
+                "rank": 5,
+                "type": "INTERACTION",
+                "risk_target": "OVERALL",
+                "item": "Fragrance-Free Preference",
+                "impact": 0.12000000007310996,
+                "message": "You prefer fragrance-free products, but this product contains fragrance.",
+                "evidence": {
+                  "ingredients": [
+                    "fragrance"
+                  ],
+                  "features": [
+                    "u_pref_fragrance_free",
+                    "ing_has_fragrance"
+                  ],
+                  "rules": [
+                    "R_PREF_FF_1"
+                  ],
+                  "model_impact_on_risk": 7.310996252840596e-11
+                },
+                "severity": "MEDIUM",
+                "title": "Fragrance-Free Preference interaction increases risk",
+                "why": "You prefer fragrance-free products, but this product contains fragrance.",
+                "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+              }
+            ]
+          },
+          "precautions": [
+            {
+              "code": "PATCH_TEST_24H",
+              "priority": 1,
+              "text": "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+            },
+            {
+              "code": "START_1_2X_PER_WEEK",
+              "priority": 2,
+              "text": "Start with 1-2 uses per week. Increase slowly only if there is no irritation."
+            },
+            {
+              "code": "AVOID_BROKEN_SKIN",
+              "priority": 3,
+              "text": "Avoid applying on broken/irritated skin. Stop immediately if burning persists."
+            },
+            {
+              "code": "AVOID_EYE_NECK",
+              "priority": 4,
+              "text": "Avoid sensitive zones (around eyes, corners of nose, neck) during initial trials."
+            },
+            {
+              "code": "FRAGRANCE_CAUTION",
+              "priority": 5,
+              "text": "Fragrance present: if you are sensitive, avoid eye/neck area and prefer fragrance-free alternatives."
+            },
+            {
+              "code": "ALCOHOL_DRYNESS_CAUTION",
+              "priority": 5,
+              "text": "Alcohol Denat present: can be drying. Use a moisturizer after application and stop if skin feels tight or flaky."
+            },
+            {
+              "code": "ACID_LAYERING_CAUTION",
+              "priority": 5,
+              "text": "Salicylic Acid present: avoid combining initially with other strong actives (retinoids/AHAs). Start slowly."
+            },
+            {
+              "code": "ECZEMA_BARRIER_SUPPORT",
+              "priority": 6,
+              "text": "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups."
+            },
+            {
+              "code": "PREF_ALIGNMENT_NOTE",
+              "priority": 7,
+              "text": "Preference mismatch: your profile prefers fragrance-free. Consider alternatives aligned with your preference."
+            }
+          ],
+          "counterfactuals": [
+            {
+              "feature": "ing_count_fragrance",
+              "ingredients": [
+                "fragrance"
+              ],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 30,
+              "recommendation": "If you avoid or replace fragrance, suitability may improve by about 0 points."
+            },
+            {
+              "feature": "ing_has_fragrance",
+              "ingredients": [
+                "fragrance"
+              ],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 30,
+              "recommendation": "If you avoid or replace fragrance, suitability may improve by about 0 points."
+            },
+            {
+              "feature": "ing_comedogenic_severity_sum",
+              "ingredients": [
+                "fragrance"
+              ],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 30,
+              "recommendation": "If you avoid or replace fragrance, suitability may improve by about 0 points."
+            }
+          ],
+          "alternatives": {
+            "constraints": {
+              "same_category": "Moisturizer",
+              "avoid_ingredients": [
+                "Fragrance",
+                "Alcohol Denat"
+              ],
+              "avoid_tags": [
+                "fragrance",
+                "drying"
+              ],
+              "prefer_tags": [
+                "fragrance-free",
+                "barrier-support",
+                "gentle"
+              ],
+              "objective": "minimize_fused_risk",
+              "max_results": 3,
+              "current_suitability_score": 30
+            },
+            "results": [
+              {
+                "qr_id": "PROD007_BATCH01",
+                "product_name": "SkinZen Moisturizer 07",
+                "type": "Moisturizer",
+                "origin": "Bengaluru",
+                "ingredients": [
+                  "Panthenol",
+                  "Vitamin C",
+                  "Hyaluronic Acid",
+                  "Zinc Oxide"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.2971444281408893e-8,
+                "p_acne": 1.5866210339631058e-10,
+                "confidence": 0.9999999922944037,
+                "score_gain_vs_current": 70,
+                "why_better": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD025_BATCH01",
+                "product_name": "DermaGlow Moisturizer 25",
+                "type": "Moisturizer",
+                "origin": "Chennai",
+                "ingredients": [
+                  "Glycerin",
+                  "Vitamin C",
+                  "Ceramides",
+                  "Hyaluronic Acid"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.2971444281408893e-8,
+                "p_acne": 1.5866210339631058e-10,
+                "confidence": 0.9999999922944037,
+                "score_gain_vs_current": 70,
+                "why_better": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+              }
+            ]
+          },
+          "meta": {
+            "xai_version": "xai-v1",
+            "generated_at": "2026-03-06T12:15:14.615Z",
+            "evidence": {
+              "rules_fired": [
+                "R_FRAG_1",
+                "R_PREF_FF_1",
+                "R_ALC_1",
+                "R_ECZ_1",
+                "R_SENS_1",
+                "R_ACID_1"
+              ],
+              "model_signal": {
+                "method": "ablation_feature_zero",
+                "top_k": 10,
+                "feature_impacts": [
+                  {
+                    "feature": "ing_count_acids",
+                    "value": 1,
+                    "impact_on_risk": -2.5347395293806585e-9,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.7000000026113725
+                  },
+                  {
+                    "feature": "ing_has_salicylic_acid",
+                    "value": 1,
+                    "impact_on_risk": -2.5347395293806585e-9,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.7000000026113725
+                  },
+                  {
+                    "feature": "u_skin_sensitive",
+                    "value": 1,
+                    "impact_on_risk": -1.6760803855930817e-10,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.700000000244241
+                  },
+                  {
+                    "feature": "ing_count_total",
+                    "value": 3,
+                    "impact_on_risk": -1.646695002577303e-10,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.7000000002413025
+                  },
+                  {
+                    "feature": "ing_count_fragrance",
+                    "value": 1,
+                    "impact_on_risk": 7.310996252840596e-11,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.700000000003523
+                  },
+                  {
+                    "feature": "ing_has_fragrance",
+                    "value": 1,
+                    "impact_on_risk": 7.310996252840596e-11,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.700000000003523
+                  },
+                  {
+                    "feature": "ing_comedogenic_severity_sum",
+                    "value": 1,
+                    "impact_on_risk": 4.073041903751573e-11,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.7000000000359026
+                  },
+                  {
+                    "feature": "x_sensitive__irritant_sum",
+                    "value": 7,
+                    "impact_on_risk": -2.1030732710869415e-11,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.7000000000976637
+                  },
+                  {
+                    "feature": "u_has_eczema",
+                    "value": 1,
+                    "impact_on_risk": 1.5226042648919247e-11,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.700000000061407
+                  },
+                  {
+                    "feature": "ing_count_drying_irritants",
+                    "value": 1,
+                    "impact_on_risk": 1.0535683436785348e-11,
+                    "risk_before": 0.700000000076633,
+                    "risk_after": 0.7000000000660973
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "user_id": "02823056-2fde-4d4b-afed-fa88b3026170",
+      "username": "harish-7",
+      "assessment_id": "asm-PROD016_BATCH01-1772977914808",
+      "created_at": "2026-03-08T13:51:54.810Z",
+      "updated_at": "2026-03-08T13:51:56.098Z",
+      "product_name": "PureCare Serum 16",
+      "product_snapshot": {
+        "category": "Serum",
+        "ingredients": [
+          "Aloe Vera",
+          "Glycerin",
+          "Niacinamide"
+        ]
+      },
+      "user_profile_snapshot": {
+        "skinType": "normal",
+        "allergies": [],
+        "conditions": [],
+        "preferences": []
+      },
+      "assessment": {
+        "assessmentId": "asm-PROD016_BATCH01-1772977914808",
+        "suitabilityScore": 100,
+        "confidence": {
+          "value": 99.9999999867437,
+          "reason": "ensemble uncertainty avg std 0.0000"
+        },
+        "riskFlags": [],
+        "explanations": {
+          "summary": "Generally low risk - still patch test",
+          "topNegativeDrivers": [],
+          "topPositiveDrivers": [],
+          "triggeredRules": [],
+          "ingredientContributions": []
+        },
+        "guidance": {
+          "patchTest": [
+            "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+          ],
+          "usage": [
+            "Even with low risk, introduce gradually and patch test before full-face use."
+          ],
+          "avoidIf": []
+        },
+        "alternatives": [
+          {
+            "productId": "PROD022_BATCH01",
+            "name": "SkinZen Serum 22",
+            "whyBetter": "predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD010_BATCH01",
+            "name": "DermaGlow Serum 10",
+            "whyBetter": "predicted suitability 97.64/100"
+          },
+          {
+            "productId": "PROD004_BATCH01",
+            "name": "BioBloom Serum 04",
+            "whyBetter": "predicted suitability 30.01/100"
+          }
+        ],
+        "xai": {
+          "summary": {
+            "risk_level": "LOW",
+            "headline": "Generally low risk - still patch test"
+          },
+          "risk_flags": [],
+          "reasons": [],
+          "reason_groups": {
+            "IRRITATION": [],
+            "ACNE": [],
+            "OVERALL": []
+          },
+          "precautions": [
+            {
+              "code": "PATCH_TEST_24H",
+              "priority": 1,
+              "text": "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+            },
+            {
+              "code": "INTRODUCE_GRADUALLY",
+              "priority": 2,
+              "text": "Even with low risk, introduce gradually and patch test before full-face use."
+            }
+          ],
+          "counterfactuals": [],
+          "alternatives": {
+            "constraints": {
+              "same_category": "Serum",
+              "avoid_ingredients": [],
+              "avoid_tags": [],
+              "prefer_tags": [],
+              "objective": "minimize_fused_risk",
+              "max_results": 3,
+              "current_suitability_score": 100
+            },
+            "results": [
+              {
+                "qr_id": "PROD022_BATCH01",
+                "product_name": "SkinZen Serum 22",
+                "type": "Serum",
+                "origin": "Bengaluru",
+                "ingredients": [
+                  "Zinc Oxide",
+                  "Niacinamide",
+                  "Glycerin",
+                  "Aloe Vera"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 3.8359814901826676e-13,
+                "p_acne": 1.3256738397664877e-10,
+                "confidence": 0.9999999998760045,
+                "score_gain_vs_current": 0,
+                "why_better": "predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD010_BATCH01",
+                "product_name": "DermaGlow Serum 10",
+                "type": "Serum",
+                "origin": "Chennai",
+                "ingredients": [
+                  "Aloe Vera",
+                  "Vitamin C",
+                  "Glycerin",
+                  "Alcohol Denat"
+                ],
+                "suitability_score": 97.64,
+                "p_irritation": 0.033730437111062175,
+                "p_acne": 1.7178072427652591e-10,
+                "confidence": 0.987741158971068,
+                "score_gain_vs_current": -2.3599999999999994,
+                "why_better": "predicted suitability 97.64/100"
+              },
+              {
+                "qr_id": "PROD004_BATCH01",
+                "product_name": "BioBloom Serum 04",
+                "type": "Serum",
+                "origin": "Hyderabad",
+                "ingredients": [
+                  "Alcohol Denat",
+                  "Panthenol",
+                  "Fragrance",
+                  "Vitamin C"
+                ],
+                "suitability_score": 30.01,
+                "p_irritation": 0.9998927809467869,
+                "p_acne": 1.5911495535216051e-7,
+                "confidence": 0.9999004143472991,
+                "score_gain_vs_current": -69.99,
+                "why_better": "predicted suitability 30.01/100"
+              }
+            ]
+          },
+          "meta": {
+            "xai_version": "xai-v1",
+            "generated_at": "2026-03-08T13:51:55.854Z",
+            "evidence": {
+              "rules_fired": [],
+              "model_signal": {
+                "method": "ablation_feature_zero",
+                "top_k": 10,
+                "feature_impacts": [
+                  {
+                    "feature": "u_skin_normal",
+                    "value": 1,
+                    "impact_on_risk": -1.4141772405922884e-10,
+                    "risk_before": 5.726111212304552e-11,
+                    "risk_after": 1.9867883618227435e-10
+                  },
+                  {
+                    "feature": "ing_count_total",
+                    "value": 3,
+                    "impact_on_risk": -1.2372474339993274e-10,
+                    "risk_before": 5.726111212304552e-11,
+                    "risk_after": 1.8098585552297825e-10
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "report_payload": {
+        "generated_at": "2026-03-08T13:51:54.811Z",
+        "product": {
+          "name": "PureCare Serum 16",
+          "category": "Serum",
+          "ingredients": [
+            "Aloe Vera",
+            "Glycerin",
+            "Niacinamide"
+          ]
+        },
+        "user_profile": {
+          "skin_type": "normal",
+          "allergies": [],
+          "conditions": [],
+          "preferences": []
+        },
+        "assessment_id": "asm-PROD016_BATCH01-1772977914808",
+        "suitability_score": 100,
+        "confidence": {
+          "value": 99.9999999867437,
+          "reason": "ensemble uncertainty avg std 0.0000"
+        },
+        "risk_flags": [],
+        "explanations": {
+          "summary": "Generally low risk - still patch test",
+          "topNegativeDrivers": [],
+          "topPositiveDrivers": [],
+          "triggeredRules": [],
+          "ingredientContributions": []
+        },
+        "guidance": {
+          "patchTest": [
+            "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+          ],
+          "usage": [
+            "Even with low risk, introduce gradually and patch test before full-face use."
+          ],
+          "avoidIf": []
+        },
+        "alternatives": [
+          {
+            "productId": "PROD022_BATCH01",
+            "name": "SkinZen Serum 22",
+            "whyBetter": "predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD010_BATCH01",
+            "name": "DermaGlow Serum 10",
+            "whyBetter": "predicted suitability 97.64/100"
+          },
+          {
+            "productId": "PROD004_BATCH01",
+            "name": "BioBloom Serum 04",
+            "whyBetter": "predicted suitability 30.01/100"
+          }
+        ],
+        "xai": {
+          "summary": {
+            "risk_level": "LOW",
+            "headline": "Generally low risk - still patch test"
+          },
+          "risk_flags": [],
+          "reasons": [],
+          "reason_groups": {
+            "IRRITATION": [],
+            "ACNE": [],
+            "OVERALL": []
+          },
+          "precautions": [
+            {
+              "code": "PATCH_TEST_24H",
+              "priority": 1,
+              "text": "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+            },
+            {
+              "code": "INTRODUCE_GRADUALLY",
+              "priority": 2,
+              "text": "Even with low risk, introduce gradually and patch test before full-face use."
+            }
+          ],
+          "counterfactuals": [],
+          "alternatives": {
+            "constraints": {
+              "same_category": "Serum",
+              "avoid_ingredients": [],
+              "avoid_tags": [],
+              "prefer_tags": [],
+              "objective": "minimize_fused_risk",
+              "max_results": 3,
+              "current_suitability_score": 100
+            },
+            "results": [
+              {
+                "qr_id": "PROD022_BATCH01",
+                "product_name": "SkinZen Serum 22",
+                "type": "Serum",
+                "origin": "Bengaluru",
+                "ingredients": [
+                  "Zinc Oxide",
+                  "Niacinamide",
+                  "Glycerin",
+                  "Aloe Vera"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 3.8359814901826676e-13,
+                "p_acne": 1.3256738397664877e-10,
+                "confidence": 0.9999999998760045,
+                "score_gain_vs_current": 0,
+                "why_better": "predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD010_BATCH01",
+                "product_name": "DermaGlow Serum 10",
+                "type": "Serum",
+                "origin": "Chennai",
+                "ingredients": [
+                  "Aloe Vera",
+                  "Vitamin C",
+                  "Glycerin",
+                  "Alcohol Denat"
+                ],
+                "suitability_score": 97.64,
+                "p_irritation": 0.033730437111062175,
+                "p_acne": 1.7178072427652591e-10,
+                "confidence": 0.987741158971068,
+                "score_gain_vs_current": -2.3599999999999994,
+                "why_better": "predicted suitability 97.64/100"
+              },
+              {
+                "qr_id": "PROD004_BATCH01",
+                "product_name": "BioBloom Serum 04",
+                "type": "Serum",
+                "origin": "Hyderabad",
+                "ingredients": [
+                  "Alcohol Denat",
+                  "Panthenol",
+                  "Fragrance",
+                  "Vitamin C"
+                ],
+                "suitability_score": 30.01,
+                "p_irritation": 0.9998927809467869,
+                "p_acne": 1.5911495535216051e-7,
+                "confidence": 0.9999004143472991,
+                "score_gain_vs_current": -69.99,
+                "why_better": "predicted suitability 30.01/100"
+              }
+            ]
+          },
+          "meta": {
+            "xai_version": "xai-v1",
+            "generated_at": "2026-03-08T13:51:55.854Z",
+            "evidence": {
+              "rules_fired": [],
+              "model_signal": {
+                "method": "ablation_feature_zero",
+                "top_k": 10,
+                "feature_impacts": [
+                  {
+                    "feature": "u_skin_normal",
+                    "value": 1,
+                    "impact_on_risk": -1.4141772405922884e-10,
+                    "risk_before": 5.726111212304552e-11,
+                    "risk_after": 1.9867883618227435e-10
+                  },
+                  {
+                    "feature": "ing_count_total",
+                    "value": 3,
+                    "impact_on_risk": -1.2372474339993274e-10,
+                    "risk_before": 5.726111212304552e-11,
+                    "risk_after": 1.8098585552297825e-10
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
 }

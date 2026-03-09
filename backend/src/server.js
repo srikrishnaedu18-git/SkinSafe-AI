@@ -2,6 +2,7 @@ import 'dotenv/config';
 import { createServer } from 'node:http';
 import { handleAiHealth, handleAiPredict } from './routes/ai.js';
 import { handleCompatibilityCheck } from './routes/compatibility.js';
+import { handleClearHistory, handleGetHistory, handleSaveHistory } from './routes/history.js';
 import { handleFeedback, handleGetProfile, handleProductResolve, handleProductVerify, handleProfile } from './routes/prototype.js';
 import { handleLogin, handleLogout, handleMe, handleRegister } from './routes/auth.js';
 
@@ -9,7 +10,7 @@ const PORT = Number(process.env.PORT ?? 8080);
 
 const server = createServer(async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
   if (req.method === 'OPTIONS') {
@@ -60,6 +61,21 @@ const server = createServer(async (req, res) => {
 
   if (req.method === 'POST' && req.url === '/profile') {
     await handleProfile(req, res);
+    return;
+  }
+
+  if (req.method === 'GET' && req.url === '/history') {
+    await handleGetHistory(req, res);
+    return;
+  }
+
+  if (req.method === 'POST' && req.url === '/history') {
+    await handleSaveHistory(req, res);
+    return;
+  }
+
+  if (req.method === 'DELETE' && req.url === '/history') {
+    await handleClearHistory(req, res);
     return;
   }
 

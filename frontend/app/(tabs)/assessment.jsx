@@ -9,6 +9,7 @@ import { ScreenHeader } from '../../components/ui/screen-header';
 import { StatusChip } from '../../components/ui/status-chip';
 import { Palette, Type } from '../../constants/design';
 import { useAppState } from '../../context/app-state';
+import { formatScore } from '../../services/format/score';
 
 const reasonGroups = ['IRRITATION', 'ACNE', 'OVERALL'];
 
@@ -54,8 +55,8 @@ export default function AssessmentScreen() {
       {assessment ? (<>
           <FadeIn delay={140}>
             <AppCard>
-              <StatusChip label={`Suitability Score: ${Number(assessment.suitabilityScore).toFixed(2)}/100`} tone={assessment.suitabilityScore >= 70 ? 'success' : 'warning'}/>
-              <Text style={styles.body}>Confidence: {assessment.confidence.value.toFixed(2)}%</Text>
+              <StatusChip label={`Suitability Score: ${formatScore(assessment.suitabilityScore)}/100`} tone={assessment.suitabilityScore >= 70 ? 'success' : 'warning'}/>
+              <Text style={styles.body}>Confidence: {formatScore(assessment.confidence.value)}%</Text>
               <Text style={styles.body}>Confidence reason: {assessment.confidence.reason}</Text>
               <Text style={styles.sectionTitle}>Risk Flags</Text>
               {assessment.riskFlags.length > 0 ? (assessment.riskFlags.map((flag, idx) => (<Text style={styles.body} key={`${flag.code}-${idx}`}>

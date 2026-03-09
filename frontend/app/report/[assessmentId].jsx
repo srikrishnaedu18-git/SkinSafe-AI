@@ -9,6 +9,7 @@ import { ScreenHeader } from '../../components/ui/screen-header';
 import { StatusChip } from '../../components/ui/status-chip';
 import { Palette, Type } from '../../constants/design';
 import { useAppState } from '../../context/app-state';
+import { formatScore } from '../../services/format/score';
 import { buildReportJson } from '../../services/report/build-report';
 import { exportReportAsPdf } from '../../services/report/export-pdf';
 
@@ -91,8 +92,8 @@ export default function ReportDetailsScreen() {
           <Text style={styles.body}>Ingredients: {productIngredients.length ? productIngredients.join(', ') : 'Not available'}</Text>
           <Text style={styles.body}>User Skin Type: {userSkinType}</Text>
           <Text style={styles.body}>Assessment ID: {item.assessment.assessmentId}</Text>
-          <Text style={styles.body}>Suitability Score: {Number(item.assessment.suitabilityScore).toFixed(2)}/100</Text>
-          <Text style={styles.body}>Confidence: {item.assessment.confidence.value.toFixed(2)}%</Text>
+          <Text style={styles.body}>Suitability Score: {formatScore(item.assessment.suitabilityScore)}/100</Text>
+          <Text style={styles.body}>Confidence: {formatScore(item.assessment.confidence.value)}%</Text>
           <Text style={styles.body}>Reason: {item.assessment.confidence.reason}</Text>
         </AppCard>
       </FadeIn>

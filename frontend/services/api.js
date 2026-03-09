@@ -9,6 +9,7 @@ const MAX_RETRIES = 2;
 const AUTH_REQUEST_TIMEOUT_MS = 4000;
 
 let authToken = null;
+let mockHistoryStore = [];
 
 export function setAuthToken(token) {
   authToken = typeof token === 'string' && token.trim() ? token.trim() : null;
@@ -328,6 +329,34 @@ async function mockFeedback() {
   return { success: true };
 }
 
+async function mockGetHistory() {
+  await wait(100);
+  return { history: [...mockHistoryStore] };
+}
+
+async function mockSaveHistory(entry) {
+  await wait(120);
+  mockHistoryStore = [
+    entry,
+    ...mockHistoryStore.filter((item) => item?.assessment?.assessmentId !== entry?.assessment?.assessmentId),
+  ];
+  return {
+    stored: true,
+    storage: { backend: 'mock' },
+    entry,
+  };
+}
+
+async function mockClearHistory() {
+  await wait(100);
+  const deleted = mockHistoryStore.length;
+  mockHistoryStore = [];
+  return {
+    deleted,
+    storage: { backend: 'mock' },
+  };
+}
+
 export const api = {
   register: (payload) =>
     withFallback(
@@ -354,6 +383,25 @@ export const api = {
     withFallback(
       () => request('/profile', { method: 'POST', body: JSON.stringify(payload) }),
       () => mockProfile(payload)
+    ),
+  getHistory: () =>
+    withFallback(
+      () => request('/history', { method: 'GET' }),
+      () => mockGetHistory()
+    ),
+  saveHistoryEntry: (entry) =>
+    withFallback(
+      () =>
+        request('/history', {
+          method: 'POST',
+          body: JSON.stringify({ entry }),
+        }),
+      () => mockSaveHistory(entry)
+    ),
+  clearHistory: () =>
+    withFallback(
+      () => request('/history', { method: 'DELETE' }),
+      () => mockClearHistory()
     ),
   resolveProduct: (qrId) =>
     withFallback(

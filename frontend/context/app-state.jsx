@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { api, setAuthToken } from '../services/api';
+import { buildReportPayload } from '../services/report/build-report';
 import { clearPersistedState, loadPersistedState, savePersistedState } from '../services/storage/local-store';
 
 const AppStateContext = createContext(undefined);
@@ -96,6 +97,18 @@ export function AppStateProvider({ children }) {
     }
   };
 
+  const loadHistoryForCurrentUser = async () => {
+    try {
+      const response = await api.getHistory();
+      const nextHistory = Array.isArray(response?.history) ? response.history : [];
+      setHistory(nextHistory);
+      return nextHistory;
+    } catch {
+      setHistory([]);
+      return [];
+    }
+  };
+
   useEffect(() => {
     let active = true;
 
@@ -112,12 +125,17 @@ export function AppStateProvider({ children }) {
 
       if (persisted.auth?.token) {
         try {
-          const response = await api.getProfile();
+          const [profileResponse, historyResponse] = await Promise.all([
+            api.getProfile(),
+            api.getHistory(),
+          ]);
           if (!active) return;
-          setProfile(mapProfilePayload(response?.profile ?? null));
+          setProfile(mapProfilePayload(profileResponse?.profile ?? null));
+          setHistory(Array.isArray(historyResponse?.history) ? historyResponse.history : []);
         } catch {
           if (!active) return;
           setProfile(persisted.profile ?? null);
+          setHistory(persisted.history ?? []);
         }
       } else {
         setProfile(persisted.profile ?? null);
@@ -171,6 +189,7 @@ export function AppStateProvider({ children }) {
       setAuth(nextAuth);
       setAuthToken(nextAuth.token);
       setProfile(null);
+      setHistory([]);
       setAuthMessage('Success: account created. Enter your skin details to get started.');
       return true;
     } catch (e) {
@@ -204,11 +223,22 @@ export function AppStateProvider({ children }) {
       setAuth(nextAuth);
       setAuthToken(nextAuth.token);
 
-      const loadedProfile = await loadProfileForCurrentUser();
+      const [loadedProfile, loadedHistory] = await Promise.all([
+        loadProfileForCurrentUser(),
+        loadHistoryForCurrentUser(),
+      ]);
       if (loadedProfile) {
-        setAuthMessage('Success: logged in and profile loaded.');
+        setAuthMessage(
+          loadedHistory.length > 0
+            ? 'Success: logged in, profile loaded, and report history restored.'
+            : 'Success: logged in and profile loaded.'
+        );
       } else {
-        setAuthMessage('Success: logged in. Enter your skin details to get started.');
+        setAuthMessage(
+          loadedHistory.length > 0
+            ? 'Success: logged in and report history restored.'
+            : 'Success: logged in. Enter your skin details to get started.'
+        );
       }
 
       return true;
@@ -341,23 +371,39 @@ export function AppStateProvider({ children }) {
 
       const result = await api.assess(profileForAssessment, product);
       setAssessment(result);
-      setHistory((prev) => [
-        {
-          createdAt: new Date().toISOString(),
-          productName: product.name,
-          productSnapshot: {
-            category: product.category ?? null,
-            ingredients: product.inciList ?? [],
-          },
-          userProfileSnapshot: {
-            skinType: profileForAssessment.skinType,
-            allergies: profileForAssessment.allergies,
-            conditions: profileForAssessment.conditions,
-            preferences: profileForAssessment.preferences,
-          },
-          assessment: result,
+
+      const historyEntry = {
+        createdAt: new Date().toISOString(),
+        productName: product.name,
+        productSnapshot: {
+          category: product.category ?? null,
+          ingredients: product.inciList ?? [],
         },
-        ...prev,
+        userProfileSnapshot: {
+          skinType: profileForAssessment.skinType,
+          allergies: profileForAssessment.allergies,
+          conditions: profileForAssessment.conditions,
+          preferences: profileForAssessment.preferences,
+        },
+        assessment: result,
+      };
+      historyEntry.reportPayload = buildReportPayload(historyEntry, profileForAssessment);
+
+      let persistedEntry = historyEntry;
+      if (auth?.token) {
+        try {
+          const saved = await api.saveHistoryEntry(historyEntry);
+          if (saved?.entry) {
+            persistedEntry = saved.entry;
+          }
+        } catch {
+          // Keep history usable locally even if remote persistence fails.
+        }
+      }
+
+      setHistory((prev) => [
+        persistedEntry,
+        ...prev.filter((item) => item?.assessment?.assessmentId !== persistedEntry?.assessment?.assessmentId),
       ]);
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Assessment failed.');
@@ -386,7 +432,14 @@ export function AppStateProvider({ children }) {
     }
   };
 
-  const clearHistory = () => {
+  const clearHistory = async () => {
+    if (auth?.token) {
+      try {
+        await api.clearHistory();
+      } catch {
+        // local clear should still proceed
+      }
+    }
     setHistory([]);
   };
 

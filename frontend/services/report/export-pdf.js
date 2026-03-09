@@ -1,5 +1,6 @@
 import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
+import { formatScore } from '../format/score';
 
 function esc(value) {
   return String(value ?? '')
@@ -54,8 +55,8 @@ function reportHtml(item, profile) {
 
       <div class="card">
         <p><strong>Assessment ID:</strong> ${esc(item.assessment.assessmentId)}</p>
-        <p><strong>Score:</strong> ${item.assessment.suitabilityScore}/100</p>
-        <p><strong>Confidence:</strong> ${item.assessment.confidence.value.toFixed(2)} (${esc(item.assessment.confidence.reason)})</p>
+        <p><strong>Score:</strong> ${esc(formatScore(item.assessment.suitabilityScore))}/100</p>
+        <p><strong>Confidence:</strong> ${esc(formatScore(item.assessment.confidence.value))} (${esc(item.assessment.confidence.reason)})</p>
       </div>
 
       <div class="card">${section('Risk Flags', `<ul>${list(flags)}</ul>`)}</div>

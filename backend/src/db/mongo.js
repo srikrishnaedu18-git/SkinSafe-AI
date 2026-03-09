@@ -25,6 +25,8 @@ async function ensureIndexes(database) {
   await database.collection('users').createIndex({ username_lower: 1 }, { unique: true });
   await database.collection('sessions').createIndex({ token: 1 }, { unique: true });
   await database.collection('sessions').createIndex({ expires_at: 1 }, { expireAfterSeconds: 0 });
+  await database.collection('assessment_history').createIndex({ user_id: 1, created_at: -1 });
+  await database.collection('assessment_history').createIndex({ user_id: 1, assessment_id: 1 }, { unique: true });
   indexesReady = true;
 }
 
@@ -63,9 +65,10 @@ async function readFallbackStore() {
       users: parsed.users ?? [],
       sessions: parsed.sessions ?? [],
       profiles: parsed.profiles ?? [],
+      histories: parsed.histories ?? [],
     };
   } catch {
-    return { users: [], sessions: [], profiles: [] };
+    return { users: [], sessions: [], profiles: [], histories: [] };
   }
 }
 
@@ -94,6 +97,59 @@ function mapFallbackProfile(profile) {
     conditions: profile.conditions ?? [],
     preferences: profile.preferences ?? [],
     updated_at: profile.updated_at,
+  };
+}
+
+function mapHistoryRecord(entry) {
+  if (!entry) return null;
+
+  return {
+    createdAt: entry.created_at,
+    productName: entry.product_name,
+    productSnapshot: entry.product_snapshot ?? {
+      category: null,
+      ingredients: [],
+    },
+    userProfileSnapshot: entry.user_profile_snapshot ?? null,
+    assessment: entry.assessment ?? null,
+    reportPayload: entry.report_payload ?? null,
+    userDetails: {
+      userId: entry.user_id,
+      username: entry.username ?? null,
+    },
+  };
+}
+
+function toStoredHistoryEntry({ userId, username, entry }) {
+  const assessmentId = String(entry?.assessment?.assessmentId ?? '').trim();
+  if (!assessmentId) {
+    throw new Error('assessment.assessmentId is required');
+  }
+
+  const createdAt = String(entry?.createdAt ?? '').trim() || new Date().toISOString();
+  const updatedAt = new Date().toISOString();
+
+  return {
+    user_id: String(userId),
+    username: username ? String(username) : null,
+    assessment_id: assessmentId,
+    created_at: createdAt,
+    updated_at: updatedAt,
+    product_name: String(entry?.productName ?? '').trim() || 'Unknown Product',
+    product_snapshot: {
+      category: entry?.productSnapshot?.category ?? null,
+      ingredients: Array.isArray(entry?.productSnapshot?.ingredients) ? entry.productSnapshot.ingredients : [],
+    },
+    user_profile_snapshot: entry?.userProfileSnapshot
+      ? {
+          skinType: entry.userProfileSnapshot.skinType ?? null,
+          allergies: Array.isArray(entry.userProfileSnapshot.allergies) ? entry.userProfileSnapshot.allergies : [],
+          conditions: Array.isArray(entry.userProfileSnapshot.conditions) ? entry.userProfileSnapshot.conditions : [],
+          preferences: Array.isArray(entry.userProfileSnapshot.preferences) ? entry.userProfileSnapshot.preferences : [],
+        }
+      : null,
+    assessment: entry.assessment ?? null,
+    report_payload: entry?.reportPayload ?? null,
   };
 }
 
@@ -143,6 +199,94 @@ export async function getUserProfileByUserId(userId) {
 
   const store = await readFallbackStore();
   return mapFallbackProfile(store.profiles.find((item) => item.user_id === String(userId ?? '').trim()));
+}
+
+export async function saveUserHistoryEntry({ userId, username, entry }) {
+  const stored = toStoredHistoryEntry({ userId, username, entry });
+
+  try {
+    const database = await getMongoDb();
+    if (database) {
+      await database.collection('assessment_history').updateOne(
+        {
+          user_id: stored.user_id,
+          assessment_id: stored.assessment_id,
+        },
+        {
+          $set: stored,
+        },
+        { upsert: true }
+      );
+      return {
+        stored: true,
+        backend: 'mongodb',
+        entry: mapHistoryRecord(stored),
+      };
+    }
+  } catch {
+    // fall through to local store
+  }
+
+  const store = await readFallbackStore();
+  const idx = store.histories.findIndex(
+    (item) => item.user_id === stored.user_id && item.assessment_id === stored.assessment_id
+  );
+  if (idx >= 0) store.histories[idx] = stored;
+  else store.histories.push(stored);
+  await writeFallbackStore(store);
+
+  return {
+    stored: true,
+    backend: 'local_fallback',
+    entry: mapHistoryRecord(stored),
+  };
+}
+
+export async function getUserHistoryByUserId(userId) {
+  const normalized = String(userId ?? '').trim();
+  if (!normalized) return [];
+
+  try {
+    const database = await getMongoDb();
+    if (database) {
+      const entries = await database
+        .collection('assessment_history')
+        .find({ user_id: normalized })
+        .sort({ created_at: -1 })
+        .toArray();
+      return entries.map(mapHistoryRecord).filter(Boolean);
+    }
+  } catch {
+    // fall through to local store
+  }
+
+  const store = await readFallbackStore();
+  return store.histories
+    .filter((item) => item.user_id === normalized)
+    .sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)))
+    .map(mapHistoryRecord)
+    .filter(Boolean);
+}
+
+export async function deleteUserHistoryByUserId(userId) {
+  const normalized = String(userId ?? '').trim();
+  if (!normalized) return { deleted: 0, backend: 'local_fallback' };
+
+  try {
+    const database = await getMongoDb();
+    if (database) {
+      const result = await database.collection('assessment_history').deleteMany({ user_id: normalized });
+      return { deleted: result.deletedCount ?? 0, backend: 'mongodb' };
+    }
+  } catch {
+    // fall through to local store
+  }
+
+  const store = await readFallbackStore();
+  const before = store.histories.length;
+  store.histories = store.histories.filter((item) => item.user_id !== normalized);
+  await writeFallbackStore(store);
+  return { deleted: before - store.histories.length, backend: 'local_fallback' };
 }
 
 export async function createUser({ username, usernameLower, passwordHash, passwordSalt }) {

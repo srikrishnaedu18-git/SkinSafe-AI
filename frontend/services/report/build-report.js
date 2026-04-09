@@ -28,7 +28,3 @@ export function buildReportPayload(item, profile) {
     xai: item.assessment.xai ?? null,
   };
 }
-
-export function buildReportJson(item, profile) {
-  return JSON.stringify(buildReportPayload(item, profile), null, 2);
-}

@@ -7,6 +7,7 @@ import { handleFeedback, handleGetProfile, handleProductResolve, handleProductVe
 import { handleLogin, handleLogout, handleMe, handleRegister } from './routes/auth.js';
 
 const PORT = Number(process.env.PORT ?? 8080);
+const HOST = process.env.HOST?.trim() || '0.0.0.0';
 
 const server = createServer(async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -106,6 +107,6 @@ const server = createServer(async (req, res) => {
   res.end(JSON.stringify({ error: 'Not found' }));
 });
 
-server.listen(PORT, () => {
-  console.log(`Compatibility service listening on http://localhost:${PORT}`);
+server.listen(PORT, HOST, () => {
+  console.log(`Compatibility service listening on http://${HOST}:${PORT}`);
 });

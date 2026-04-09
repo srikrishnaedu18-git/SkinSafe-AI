@@ -159,10 +159,7 @@ export default function ProfileScreen() {
           busy={busy.savingProfile}
           onSave={handleSave}
           storageMode={auth?.storageMode ?? null}
-          onLogout={async () => {
-            await logout();
-            router.replace('/');
-          }}
+          onLogout={logout}
         />
       </FadeIn>
 

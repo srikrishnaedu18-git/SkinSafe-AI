@@ -55,7 +55,7 @@ export default function HistoryScreen() {
       <FadeIn delay={120}>
         <AppCard>
           <Text style={styles.sectionTitle}>History Controls</Text>
-          <Text style={styles.body}>Use report view for JSON/PDF export. You can clear or reset data here.</Text>
+          <Text style={styles.body}>Use report view for PDF export. You can clear or reset data here.</Text>
           <AppButton label="Clear History" variant="secondary" onPress={clearHistory} disabled={history.length === 0}/>
           <AppButton label="Reset Entire App Data" variant="secondary" onPress={resetAllData}/>
         </AppCard>

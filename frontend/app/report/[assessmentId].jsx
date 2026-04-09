@@ -1,6 +1,6 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { Share, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { AppButton } from '../../components/ui/app-button';
 import { AppCard } from '../../components/ui/app-card';
 import { FadeIn } from '../../components/ui/fade-in';
@@ -10,7 +10,6 @@ import { StatusChip } from '../../components/ui/status-chip';
 import { Palette, Type } from '../../constants/design';
 import { useAppState } from '../../context/app-state';
 import { formatScore } from '../../services/format/score';
-import { buildReportJson } from '../../services/report/build-report';
 import { exportReportAsPdf } from '../../services/report/export-pdf';
 
 const reasonGroups = ['IRRITATION', 'ACNE', 'OVERALL'];
@@ -47,14 +46,6 @@ export default function ReportDetailsScreen() {
   const userSkinType = item.userProfileSnapshot?.skinType ?? profile?.skinType ?? 'Not provided';
   const productCategory = item.productSnapshot?.category ?? 'Unknown';
 
-  const jsonReport = buildReportJson(item, profile);
-
-  const onShareReport = async () => {
-    await Share.share({
-      title: `Assessment Report - ${item.productName}`,
-      message: jsonReport,
-    });
-  };
 
   const onExportPdf = async () => {
     setExporting(true);
@@ -67,12 +58,12 @@ export default function ReportDetailsScreen() {
     } finally {
       setExporting(false);
     }
-  };
 
+  };
   return (
     <AppScreen>
       <FadeIn>
-        <ScreenHeader title="Assessment Report" subtitle="Clinician-ready structured output with JSON and PDF export." />
+        <ScreenHeader title="Assessment Report" subtitle="Clinician-ready structured output with PDF preview and export." />
       </FadeIn>
 
       {message ? (
@@ -177,9 +168,8 @@ export default function ReportDetailsScreen() {
 
       <FadeIn delay={200}>
         <AppCard>
-          <Text style={styles.sectionTitle}>JSON Preview</Text>
-          <Text style={styles.mono}>{jsonReport}</Text>
-          <AppButton label="Share JSON Report" onPress={onShareReport} />
+          <Text style={styles.sectionTitle}>PDF Export</Text>
+          <Text style={styles.body}>Generate and share the PDF version of this assessment report.</Text>
           <AppButton label={exporting ? 'Exporting PDF...' : 'Export PDF Report'} onPress={onExportPdf} disabled={exporting} />
           <AppButton label="Back To History" variant="secondary" onPress={() => router.back()} />
         </AppCard>
@@ -198,12 +188,6 @@ const styles = StyleSheet.create({
     fontSize: Type.body,
     color: Palette.textSecondary,
     lineHeight: 22,
-  },
-  mono: {
-    fontSize: 12,
-    color: Palette.textPrimary,
-    lineHeight: 18,
-    fontFamily: 'monospace',
   },
   groupWrap: {
     marginTop: 8,

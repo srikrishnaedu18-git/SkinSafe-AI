@@ -50,3 +50,11 @@ backend/node_modules
 backend/ml/.venv/
 frontend/.env
 frontend/.env.example
+
+
+Blockchain Assessment-gowtham.docx
+IDF 2 - v3 - final draft.docx
+Mark Splitup for CBPL.docx
+.vscode
+# generated scratch dumps
+**/scraped_code_*.txt

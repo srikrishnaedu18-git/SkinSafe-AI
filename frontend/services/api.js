@@ -3,6 +3,7 @@ import { runtimeConfig } from '../constants/runtime-config';
 import { assessCompatibility } from './ai/compatibility-engine';
 
 const API_BASE = runtimeConfig.apiBaseUrl;
+const API_BASE_CANDIDATES = runtimeConfig.apiBaseUrls ?? [API_BASE];
 const USE_MOCK_FALLBACK = runtimeConfig.useMockApi;
 const REQUEST_TIMEOUT_MS = 12000;
 const MAX_RETRIES = 2;
@@ -198,40 +199,55 @@ function buildErrorMessage(status, body) {
 }
 
 async function requestWithTimeout(path, init, options = {}) {
-  const controller = new AbortController();
   const timeoutMs = Number(options.timeoutMs ?? REQUEST_TIMEOUT_MS);
-  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+  let lastError = null;
 
-  try {
-    const headers = {
-      'Content-Type': 'application/json',
-      ...(init.headers ?? {}),
-    };
-    if (authToken) {
-      headers.Authorization = `Bearer ${authToken}`;
+  for (const baseUrl of API_BASE_CANDIDATES) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
+      const headers = {
+        'Content-Type': 'application/json',
+        ...(init.headers ?? {}),
+      };
+      if (authToken) {
+        headers.Authorization = `Bearer ${authToken}`;
+      }
+
+      const response = await fetch(`${baseUrl}${path}`, {
+        ...init,
+        signal: controller.signal,
+        headers,
+      });
+
+      const responseBody = await parseResponseBody(response);
+
+      if (!response.ok) {
+        throw new Error(buildErrorMessage(response.status, responseBody));
+      }
+
+      return responseBody;
+    } catch (error) {
+      lastError = error;
+      const isTimeout = error instanceof Error && error.name === 'AbortError';
+      const isNetworkFailure =
+        isTimeout ||
+        (error instanceof Error &&
+          /fetch failed|network request failed|networkerror|load failed/i.test(error.message));
+
+      if (!isNetworkFailure) {
+        throw error;
+      }
+    } finally {
+      clearTimeout(timeoutId);
     }
-
-    const response = await fetch(`${API_BASE}${path}`, {
-      ...init,
-      signal: controller.signal,
-      headers,
-    });
-
-    const responseBody = await parseResponseBody(response);
-
-    if (!response.ok) {
-      throw new Error(buildErrorMessage(response.status, responseBody));
-    }
-
-    return responseBody;
-  } catch (error) {
-    if (error instanceof Error && error.name === 'AbortError') {
-      throw new Error(`Request timed out after ${timeoutMs}ms`);
-    }
-    throw error;
-  } finally {
-    clearTimeout(timeoutId);
   }
+
+  if (lastError instanceof Error && lastError.name === 'AbortError') {
+    throw new Error(`Request timed out after ${timeoutMs}ms`);
+  }
+  throw lastError instanceof Error ? lastError : new Error(`Could not reach backend at ${API_BASE}`);
 }
 
 async function request(path, init, options = {}) {

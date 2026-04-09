@@ -57,67 +57,25 @@
   ],
   "sessions": [
     {
-      "token": "a869c4340b3d97a520a2f8e4d8111b2a58e8f91d5d15979fd70ccf46fefcfb2f",
-      "user_id": "4ccf3b29-70df-4aa7-ad83-af7f8c8654ad",
-      "username": "testuser_abc",
-      "created_at": "2026-03-06T07:59:00.291Z",
-      "expires_at": "2026-04-05T07:59:00.291Z"
-    },
-    {
-      "token": "2eccb8aa84bc1793ed0658b2ea51f9a6550fe95fdfd340ab484b67caf7ad5066",
-      "user_id": "fe2fbb73-6333-48e3-b3b5-5757f39e00ab",
-      "username": "storage_mode_check_user",
-      "created_at": "2026-03-06T08:01:52.011Z",
-      "expires_at": "2026-04-05T08:01:52.011Z"
-    },
-    {
-      "token": "37d725bfe33cf0d58bf47852d2c052c4398c364959ad5f7e05e1abbaec12e6fe",
-      "user_id": "1d922806-8e92-4489-8960-c70cb8a178c6",
-      "username": "mongodb_check_user",
-      "created_at": "2026-03-06T08:02:56.971Z",
-      "expires_at": "2026-04-05T08:02:56.971Z"
-    },
-    {
-      "token": "b139df6483f37ca3d83b9946501bdc0f778560155f7acf41a07bf4371d82280a",
+      "token": "5aa722325f85354178e84e7a17bfd400966d970fffb7af5a0e6d2a42210f5e85",
       "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
       "username": "krishna",
-      "created_at": "2026-03-06T09:09:20.442Z",
-      "expires_at": "2026-04-05T09:09:20.442Z"
+      "created_at": "2026-03-11T08:05:43.954Z",
+      "expires_at": "2026-04-10T08:05:43.954Z"
     },
     {
-      "token": "a76d765e7d6b64a219a8166fcf1cb95ed0927642770d54489fd24022733be190",
+      "token": "e83a35b8ea7c68090feaa445faa20fdc8771d0907cafce815768157f4af3d90c",
       "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
       "username": "krishna",
-      "created_at": "2026-03-06T09:24:07.276Z",
-      "expires_at": "2026-04-05T09:24:07.276Z"
+      "created_at": "2026-04-03T10:42:16.549Z",
+      "expires_at": "2026-05-03T10:42:16.549Z"
     },
     {
-      "token": "b064fbcce7d9ae0352443890255cb8a94c40507a03ce3d69fda17fbfb9401406",
+      "token": "1bf421b69d83524d2cbd752becd5e9494cc3a5ecf731db49c6236ae0e5162bc6",
       "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
       "username": "krishna",
-      "created_at": "2026-03-06T09:28:05.222Z",
-      "expires_at": "2026-04-05T09:28:05.222Z"
-    },
-    {
-      "token": "cfc046cabe33032873e56f7a4ac2a0267ff7228d3ea0ebb8932fe61a00919944",
-      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
-      "username": "krishna",
-      "created_at": "2026-03-06T11:18:10.848Z",
-      "expires_at": "2026-04-05T11:18:10.848Z"
-    },
-    {
-      "token": "411532a580c3139088ee57513f30b30dc75c70cfeb05398122ad48776adb2476",
-      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
-      "username": "krishna",
-      "created_at": "2026-03-06T12:11:57.787Z",
-      "expires_at": "2026-04-05T12:11:57.787Z"
-    },
-    {
-      "token": "1301f7c5790617af8d421d9f68dfdd8dc660a4f2f76fa13ddd314fc5861fba4f",
-      "user_id": "02823056-2fde-4d4b-afed-fa88b3026170",
-      "username": "harish-7",
-      "created_at": "2026-03-08T13:50:10.767Z",
-      "expires_at": "2026-04-07T13:50:10.767Z"
+      "created_at": "2026-04-09T08:52:10.332Z",
+      "expires_at": "2026-05-09T08:52:10.332Z"
     }
   ],
   "profiles": [
@@ -2557,6 +2515,452 @@
                     "impact_on_risk": -1.2372474339993274e-10,
                     "risk_before": 5.726111212304552e-11,
                     "risk_after": 1.8098585552297825e-10
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
+      "username": "krishna",
+      "assessment_id": "asm-PROD001_BATCH01-1773216379946",
+      "created_at": "2026-03-11T08:06:19.947Z",
+      "updated_at": "2026-03-11T08:06:21.685Z",
+      "product_name": "PureCare Moisturizer 01",
+      "product_snapshot": {
+        "category": "Moisturizer",
+        "ingredients": [
+          "Aloe Vera",
+          "Glycerin",
+          "Niacinamide"
+        ]
+      },
+      "user_profile_snapshot": {
+        "skinType": "sensitive",
+        "allergies": [],
+        "conditions": [
+          "eczema"
+        ],
+        "preferences": [
+          "fragrance-free"
+        ]
+      },
+      "assessment": {
+        "assessmentId": "asm-PROD001_BATCH01-1773216379946",
+        "suitabilityScore": 100,
+        "confidence": {
+          "value": 99.9999999732677,
+          "reason": "ensemble uncertainty avg std 0.0000"
+        },
+        "riskFlags": [],
+        "explanations": {
+          "summary": "Generally low risk - still patch test",
+          "topNegativeDrivers": [],
+          "topPositiveDrivers": [],
+          "triggeredRules": [],
+          "ingredientContributions": []
+        },
+        "guidance": {
+          "patchTest": [
+            "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+          ],
+          "usage": [
+            "Even with low risk, introduce gradually and patch test before full-face use."
+          ],
+          "avoidIf": [
+            "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups."
+          ]
+        },
+        "alternatives": [
+          {
+            "productId": "PROD007_BATCH01",
+            "name": "SkinZen Moisturizer 07",
+            "whyBetter": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD025_BATCH01",
+            "name": "DermaGlow Moisturizer 25",
+            "whyBetter": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD019_BATCH01",
+            "name": "BioBloom Moisturizer 19",
+            "whyBetter": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 31.17/100"
+          }
+        ],
+        "xai": {
+          "summary": {
+            "risk_level": "LOW",
+            "headline": "Generally low risk - still patch test"
+          },
+          "risk_flags": [],
+          "reasons": [],
+          "reason_groups": {
+            "IRRITATION": [],
+            "ACNE": [],
+            "OVERALL": []
+          },
+          "precautions": [
+            {
+              "code": "PATCH_TEST_24H",
+              "priority": 1,
+              "text": "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+            },
+            {
+              "code": "INTRODUCE_GRADUALLY",
+              "priority": 2,
+              "text": "Even with low risk, introduce gradually and patch test before full-face use."
+            },
+            {
+              "code": "ECZEMA_BARRIER_SUPPORT",
+              "priority": 6,
+              "text": "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups."
+            }
+          ],
+          "counterfactuals": [
+            {
+              "feature": "u_has_eczema",
+              "ingredients": [],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 100,
+              "recommendation": "If you reduce feature u_has_eczema, suitability may improve by about 0 points."
+            }
+          ],
+          "alternatives": {
+            "constraints": {
+              "same_category": "Moisturizer",
+              "avoid_ingredients": [
+                "Fragrance"
+              ],
+              "avoid_tags": [
+                "fragrance"
+              ],
+              "prefer_tags": [
+                "barrier-support",
+                "gentle",
+                "fragrance-free"
+              ],
+              "objective": "minimize_fused_risk",
+              "max_results": 3,
+              "current_suitability_score": 100
+            },
+            "results": [
+              {
+                "qr_id": "PROD007_BATCH01",
+                "product_name": "SkinZen Moisturizer 07",
+                "type": "Moisturizer",
+                "origin": "Bengaluru",
+                "ingredients": [
+                  "Panthenol",
+                  "Vitamin C",
+                  "Hyaluronic Acid",
+                  "Zinc Oxide"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.2971444281408893e-8,
+                "p_acne": 1.5866210339631058e-10,
+                "confidence": 0.9999999922944037,
+                "score_gain_vs_current": 0,
+                "why_better": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD025_BATCH01",
+                "product_name": "DermaGlow Moisturizer 25",
+                "type": "Moisturizer",
+                "origin": "Chennai",
+                "ingredients": [
+                  "Glycerin",
+                  "Vitamin C",
+                  "Ceramides",
+                  "Hyaluronic Acid"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.2971444281408893e-8,
+                "p_acne": 1.5866210339631058e-10,
+                "confidence": 0.9999999922944037,
+                "score_gain_vs_current": 0,
+                "why_better": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD019_BATCH01",
+                "product_name": "BioBloom Moisturizer 19",
+                "type": "Moisturizer",
+                "origin": "Hyderabad",
+                "ingredients": [
+                  "Shea Butter",
+                  "Alcohol Denat",
+                  "Zinc Oxide",
+                  "Niacinamide"
+                ],
+                "suitability_score": 31.17,
+                "p_irritation": 0.9832488354853084,
+                "p_acne": 2.681077773044531e-9,
+                "confidence": 0.9935877004474621,
+                "score_gain_vs_current": -68.83,
+                "why_better": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 31.17/100"
+              }
+            ]
+          },
+          "meta": {
+            "xai_version": "xai-v1",
+            "generated_at": "2026-03-11T08:06:21.623Z",
+            "evidence": {
+              "rules_fired": [],
+              "model_signal": {
+                "method": "ablation_feature_zero",
+                "top_k": 10,
+                "feature_impacts": [
+                  {
+                    "feature": "ing_count_total",
+                    "value": 3,
+                    "impact_on_risk": -1.55462220231582e-10,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 2.7538455359989663e-10
+                  },
+                  {
+                    "feature": "u_skin_sensitive",
+                    "value": 1,
+                    "impact_on_risk": -1.1354317794703109e-10,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 2.334655113153457e-10
+                  },
+                  {
+                    "feature": "u_has_eczema",
+                    "value": 1,
+                    "impact_on_risk": 7.139568554502821e-12,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 1.1278276481381181e-10
+                  },
+                  {
+                    "feature": "u_pref_fragrance_free",
+                    "value": 1,
+                    "impact_on_risk": -6.507376924089367e-12,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 1.26429710292404e-10
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "report_payload": {
+        "generated_at": "2026-03-11T08:06:19.948Z",
+        "product": {
+          "name": "PureCare Moisturizer 01",
+          "category": "Moisturizer",
+          "ingredients": [
+            "Aloe Vera",
+            "Glycerin",
+            "Niacinamide"
+          ]
+        },
+        "user_profile": {
+          "skin_type": "sensitive",
+          "allergies": [],
+          "conditions": [
+            "eczema"
+          ],
+          "preferences": [
+            "fragrance-free"
+          ]
+        },
+        "assessment_id": "asm-PROD001_BATCH01-1773216379946",
+        "suitability_score": 100,
+        "confidence": {
+          "value": 99.9999999732677,
+          "reason": "ensemble uncertainty avg std 0.0000"
+        },
+        "risk_flags": [],
+        "explanations": {
+          "summary": "Generally low risk - still patch test",
+          "topNegativeDrivers": [],
+          "topPositiveDrivers": [],
+          "triggeredRules": [],
+          "ingredientContributions": []
+        },
+        "guidance": {
+          "patchTest": [
+            "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+          ],
+          "usage": [
+            "Even with low risk, introduce gradually and patch test before full-face use."
+          ],
+          "avoidIf": [
+            "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups."
+          ]
+        },
+        "alternatives": [
+          {
+            "productId": "PROD007_BATCH01",
+            "name": "SkinZen Moisturizer 07",
+            "whyBetter": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD025_BATCH01",
+            "name": "DermaGlow Moisturizer 25",
+            "whyBetter": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD019_BATCH01",
+            "name": "BioBloom Moisturizer 19",
+            "whyBetter": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 31.17/100"
+          }
+        ],
+        "xai": {
+          "summary": {
+            "risk_level": "LOW",
+            "headline": "Generally low risk - still patch test"
+          },
+          "risk_flags": [],
+          "reasons": [],
+          "reason_groups": {
+            "IRRITATION": [],
+            "ACNE": [],
+            "OVERALL": []
+          },
+          "precautions": [
+            {
+              "code": "PATCH_TEST_24H",
+              "priority": 1,
+              "text": "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+            },
+            {
+              "code": "INTRODUCE_GRADUALLY",
+              "priority": 2,
+              "text": "Even with low risk, introduce gradually and patch test before full-face use."
+            },
+            {
+              "code": "ECZEMA_BARRIER_SUPPORT",
+              "priority": 6,
+              "text": "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups."
+            }
+          ],
+          "counterfactuals": [
+            {
+              "feature": "u_has_eczema",
+              "ingredients": [],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 100,
+              "recommendation": "If you reduce feature u_has_eczema, suitability may improve by about 0 points."
+            }
+          ],
+          "alternatives": {
+            "constraints": {
+              "same_category": "Moisturizer",
+              "avoid_ingredients": [
+                "Fragrance"
+              ],
+              "avoid_tags": [
+                "fragrance"
+              ],
+              "prefer_tags": [
+                "barrier-support",
+                "gentle",
+                "fragrance-free"
+              ],
+              "objective": "minimize_fused_risk",
+              "max_results": 3,
+              "current_suitability_score": 100
+            },
+            "results": [
+              {
+                "qr_id": "PROD007_BATCH01",
+                "product_name": "SkinZen Moisturizer 07",
+                "type": "Moisturizer",
+                "origin": "Bengaluru",
+                "ingredients": [
+                  "Panthenol",
+                  "Vitamin C",
+                  "Hyaluronic Acid",
+                  "Zinc Oxide"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.2971444281408893e-8,
+                "p_acne": 1.5866210339631058e-10,
+                "confidence": 0.9999999922944037,
+                "score_gain_vs_current": 0,
+                "why_better": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD025_BATCH01",
+                "product_name": "DermaGlow Moisturizer 25",
+                "type": "Moisturizer",
+                "origin": "Chennai",
+                "ingredients": [
+                  "Glycerin",
+                  "Vitamin C",
+                  "Ceramides",
+                  "Hyaluronic Acid"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.2971444281408893e-8,
+                "p_acne": 1.5866210339631058e-10,
+                "confidence": 0.9999999922944037,
+                "score_gain_vs_current": 0,
+                "why_better": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD019_BATCH01",
+                "product_name": "BioBloom Moisturizer 19",
+                "type": "Moisturizer",
+                "origin": "Hyderabad",
+                "ingredients": [
+                  "Shea Butter",
+                  "Alcohol Denat",
+                  "Zinc Oxide",
+                  "Niacinamide"
+                ],
+                "suitability_score": 31.17,
+                "p_irritation": 0.9832488354853084,
+                "p_acne": 2.681077773044531e-9,
+                "confidence": 0.9935877004474621,
+                "score_gain_vs_current": -68.83,
+                "why_better": "avoids Fragrance; aligns with barrier-support, gentle, fragrance-free; predicted suitability 31.17/100"
+              }
+            ]
+          },
+          "meta": {
+            "xai_version": "xai-v1",
+            "generated_at": "2026-03-11T08:06:21.623Z",
+            "evidence": {
+              "rules_fired": [],
+              "model_signal": {
+                "method": "ablation_feature_zero",
+                "top_k": 10,
+                "feature_impacts": [
+                  {
+                    "feature": "ing_count_total",
+                    "value": 3,
+                    "impact_on_risk": -1.55462220231582e-10,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 2.7538455359989663e-10
+                  },
+                  {
+                    "feature": "u_skin_sensitive",
+                    "value": 1,
+                    "impact_on_risk": -1.1354317794703109e-10,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 2.334655113153457e-10
+                  },
+                  {
+                    "feature": "u_has_eczema",
+                    "value": 1,
+                    "impact_on_risk": 7.139568554502821e-12,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 1.1278276481381181e-10
+                  },
+                  {
+                    "feature": "u_pref_fragrance_free",
+                    "value": 1,
+                    "impact_on_risk": -6.507376924089367e-12,
+                    "risk_before": 1.1992233336831463e-10,
+                    "risk_after": 1.26429710292404e-10
                   }
                 ]
               }

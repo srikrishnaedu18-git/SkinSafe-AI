@@ -1,26 +1,10 @@
 import React from 'react';
-import { Tabs, router } from 'expo-router';
+import { Tabs } from 'expo-router';
 import { HapticTab } from '../../components/haptic-tab';
 import { IconSymbol } from '../../components/ui/icon-symbol';
 import { Palette } from '../../constants/design';
-import { useAppState } from '../../context/app-state';
 
 export default function TabLayout() {
-  const { hydrated, auth } = useAppState();
-
-  React.useEffect(() => {
-    if (!hydrated || auth) return;
-    router.replace('/');
-  }, [hydrated, auth]);
-
-  if (!hydrated) {
-    return null;
-  }
-
-  if (!auth) {
-    return null;
-  }
-
   return (
     <Tabs
       initialRouteName="product"

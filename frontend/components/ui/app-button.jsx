@@ -1,12 +1,14 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { Palette, Radius, Spacing, Type } from '../../constants/design';
 export function AppButton({ label, onPress, variant = 'primary', disabled = false }) {
+    const isPrimary = variant === 'primary';
+    const isDanger = variant === 'danger';
     return (<Pressable disabled={disabled} onPress={onPress} style={({ pressed }) => [
             styles.base,
-            variant === 'primary' ? styles.primary : styles.secondary,
+            isPrimary ? styles.primary : isDanger ? styles.danger : styles.secondary,
             (pressed || disabled) && styles.pressed,
         ]}>
-      <Text style={[styles.text, variant === 'primary' ? styles.primaryText : styles.secondaryText]}>
+      <Text style={[styles.text, isPrimary || isDanger ? styles.primaryText : styles.secondaryText]}>
         {label}
       </Text>
     </Pressable>);
@@ -26,6 +28,9 @@ const styles = StyleSheet.create({
         backgroundColor: Palette.surface,
         borderColor: Palette.border,
         borderWidth: 1,
+    },
+    danger: {
+        backgroundColor: '#B91C1C',
     },
     text: {
         fontSize: Type.body,

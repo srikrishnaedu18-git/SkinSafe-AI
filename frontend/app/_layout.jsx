@@ -1,8 +1,9 @@
 import { ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import 'react-native-reanimated';
-import { AppStateProvider } from '../context/app-state';
+import { AppStateProvider, useAppState } from '../context/app-state';
 
 const APP_THEME = {
   dark: false,
@@ -22,17 +23,34 @@ const APP_THEME = {
   },
 };
 
+function RootNavigator() {
+  const { hydrated, auth } = useAppState();
+
+  if (!hydrated) {
+    return null;
+  }
+
+  return (
+    <Stack>
+      <Stack.Protected guard={!auth}>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+      </Stack.Protected>
+
+      <Stack.Protected guard={Boolean(auth)}>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="feedback" options={{ title: 'Feedback' }} />
+        <Stack.Screen name="scan" options={{ title: 'Scan Product' }} />
+        <Stack.Screen name="report/[assessmentId]" options={{ title: 'Report' }} />
+      </Stack.Protected>
+    </Stack>
+  );
+}
+
 export default function RootLayout() {
   return (
     <ThemeProvider value={APP_THEME}>
       <AppStateProvider>
-        <Stack>
-          <Stack.Screen name="index" options={{ headerShown: false }} />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="feedback" options={{ title: 'Feedback' }} />
-          <Stack.Screen name="scan" options={{ title: 'Scan Product' }} />
-          <Stack.Screen name="report/[assessmentId]" options={{ title: 'Report' }} />
-        </Stack>
+        <RootNavigator />
       </AppStateProvider>
       <StatusBar style="dark" />
     </ThemeProvider>

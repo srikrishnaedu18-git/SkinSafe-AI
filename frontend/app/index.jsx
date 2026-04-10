@@ -1,6 +1,5 @@
-import { Redirect, router } from 'expo-router';
-import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import { Animated, StyleSheet, Text, View } from 'react-native';
 import { AppButton } from '../components/ui/app-button';
 import { AppCard } from '../components/ui/app-card';
 import { FadeIn } from '../components/ui/fade-in';
@@ -33,7 +32,37 @@ export default function AuthEntryScreen() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showLogoutFlash, setShowLogoutFlash] = useState(false);
+  const logoutOpacity = useRef(new Animated.Value(1)).current;
   const storageModeLabel = auth?.storageMode ? describeStorageMode(auth.storageMode) : null;
+
+  useEffect(() => {
+    if (!hydrated || authMessage !== 'Logged out.') {
+      return undefined;
+    }
+
+    setShowLogoutFlash(true);
+    logoutOpacity.setValue(1);
+
+    const fadeTimer = setTimeout(() => {
+      Animated.timing(logoutOpacity, {
+        toValue: 0,
+        duration: 250,
+        useNativeDriver: false,
+      }).start();
+    }, 1750);
+
+    const resetTimer = setTimeout(() => {
+      setShowLogoutFlash(false);
+      logoutOpacity.setValue(1);
+      clearAuthMessage();
+    }, 2000);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(resetTimer);
+    };
+  }, [hydrated, authMessage, clearAuthMessage, logoutOpacity]);
 
   if (!hydrated) {
     return (
@@ -46,17 +75,12 @@ export default function AuthEntryScreen() {
     );
   }
 
-  if (auth) {
-    return <Redirect href="/(tabs)/product" />;
-  }
-
   const authMessageIsSuccess = authMessage?.toLowerCase().startsWith('success');
 
   const onRegister = async () => {
     const ok = await register({ username: username.trim(), password });
     if (ok) {
       setPassword('');
-      router.replace('/(tabs)/product');
     }
   };
 
@@ -64,7 +88,6 @@ export default function AuthEntryScreen() {
     const ok = await login({ username: username.trim(), password });
     if (ok) {
       setPassword('');
-      router.replace('/(tabs)/product');
     }
   };
 
@@ -85,7 +108,6 @@ export default function AuthEntryScreen() {
 
       <FadeIn delay={80}>
         <AppCard tone="accent">
-          <Text style={styles.sectionTitle}>Access</Text>
           <AppInput
             label="Username"
             value={username}
@@ -117,14 +139,17 @@ export default function AuthEntryScreen() {
               variant="secondary"
               disabled={busy.registering || busy.loggingIn}
             />
-            <AppButton
-              label={busy.loggingIn ? 'Signing In...' : 'Login'}
-              onPress={onLogin}
-              disabled={busy.loggingIn || busy.registering}
-            />
+            <Animated.View style={{ opacity: logoutOpacity }}>
+              <AppButton
+                label={showLogoutFlash ? 'Logged out' : busy.loggingIn ? 'Signing In...' : 'Login'}
+                onPress={onLogin}
+                variant={showLogoutFlash ? 'danger' : 'primary'}
+                disabled={showLogoutFlash || busy.loggingIn || busy.registering}
+              />
+            </Animated.View>
           </View>
 
-          {authMessage ? (
+          {authMessage && authMessage !== 'Logged out.' ? (
             <Text style={[styles.authMessage, authMessageIsSuccess ? styles.authMessageSuccess : styles.authMessageError]}>
               {authMessage}
             </Text>
@@ -138,11 +163,6 @@ export default function AuthEntryScreen() {
 }
 
 const styles = StyleSheet.create({
-  sectionTitle: {
-    fontSize: Type.heading,
-    fontWeight: '700',
-    color: Palette.textPrimary,
-  },
   body: {
     fontSize: Type.body,
     color: Palette.textSecondary,

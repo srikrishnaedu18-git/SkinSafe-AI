@@ -55,7 +55,11 @@ function ProfileEditor({
       <Text style={styles.sectionTitle}>Account</Text>
       <Text style={styles.body}>Logged in as `{username}`</Text>
       <Text style={styles.meta}>Storage mode: {describeStorageMode(storageMode)}</Text>
-      <AppButton label="Logout" variant="secondary" onPress={onLogout} />
+      <AppButton
+        label="Logout"
+        variant="secondary"
+        onPress={onLogout}
+      />
 
       <Text style={styles.sectionTitle}>Skin Type</Text>
       <View style={styles.skinRow}>
@@ -126,6 +130,10 @@ export default function ProfileScreen() {
     });
   };
 
+  const handleLogout = async () => {
+    await logout();
+  };
+
   if (!hydrated) {
     return (
       <AppScreen>
@@ -159,7 +167,7 @@ export default function ProfileScreen() {
           busy={busy.savingProfile}
           onSave={handleSave}
           storageMode={auth?.storageMode ?? null}
-          onLogout={logout}
+          onLogout={handleLogout}
         />
       </FadeIn>
 

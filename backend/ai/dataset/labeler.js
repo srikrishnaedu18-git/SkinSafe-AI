@@ -1,6 +1,7 @@
 // Label rules: simple + consistent
 // irritation risk driven by irritant severity + sensitive skin + drying irritants
 // acne risk driven by comedogenic severity + oily/acne-prone
+// [fs-v2] allergy-match interactions add strong irritation boost
 
 function clamp01(x) {
   if (x < 0) return 0;
@@ -20,6 +21,10 @@ function labelIrritation(features) {
 
   // Acid presence adds small risk
   risk += 0.08 * features.ing_count_acids;
+
+  // [fs-v2] Allergy match: direct allergen exposure is a strong irritation signal
+  if (features.x_allergy_fragrance__has_fragrance === 1) risk += 0.30;
+  if (features.x_allergy_parabens__has_parabens === 1) risk += 0.25;
 
   // Convert to probability-like score
   const p = clamp01(risk);

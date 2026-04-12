@@ -76,12 +76,12 @@ def main():
 
     meta = {
         "model_version": "ai-v2-ensemble",
-        "feature_schema_version": "fs-v1",
+        "feature_schema_version": "fs-v2",
         "rows": int(len(df)),
         "num_features": int(len(feature_cols)),
         "ensemble_size": K,
         "targets": ["y_irritation", "y_acne"],
-        "notes": "Bootstrap ensemble of LogisticRegression pipelines"
+        "notes": "Bootstrap ensemble of LogisticRegression pipelines — fs-v2 (allergy-aware)"
     }
 
     with open(OUT_DIR / "model_meta.json", "w", encoding="utf-8") as f:

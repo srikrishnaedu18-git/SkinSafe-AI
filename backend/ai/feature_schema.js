@@ -1,7 +1,7 @@
 // Do NOT change ordering once you start training.
-// This is your fs-v1 contract.
+// This is your fs-v2 contract (adds allergy features on top of fs-v1).
 
-const FEATURE_SCHEMA_VERSION = "fs-v1";
+const FEATURE_SCHEMA_VERSION = "fs-v2";
 
 const FEATURE_COLUMNS = [
   // (A) User features - one hot
@@ -41,7 +41,14 @@ const FEATURE_COLUMNS = [
   "x_oily__comedogenic_sum",
   "x_acneprone__comedogenic_sum",
   "x_eczema__drying_count",
-  "x_pref_ff__has_fragrance"
+  "x_pref_ff__has_fragrance",
+
+  // (F) Allergy features [fs-v2 additions]
+  "u_allergy_fragrance",
+  "u_allergy_parabens",
+  "ing_has_parabens",
+  "x_allergy_fragrance__has_fragrance",
+  "x_allergy_parabens__has_parabens"
 ];
 
 module.exports = {

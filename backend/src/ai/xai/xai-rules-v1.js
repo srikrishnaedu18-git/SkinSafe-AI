@@ -28,6 +28,12 @@ function normalizeIngredients(ingredients) {
   return (Array.isArray(ingredients) ? ingredients : []).map(normalizeText).filter(Boolean);
 }
 
+function normalizeAllergies(allergies) {
+  return new Set(
+    (Array.isArray(allergies) ? allergies : []).map(normalizeText)
+  );
+}
+
 function makeFlag(code, severity, ingredients = [], features = [], rules = []) {
   return {
     code,
@@ -64,12 +70,14 @@ export function runXaiRules({ user_profile, product, features, attributions }) {
   const skinType = normalizeText(user_profile?.skin_type);
   const conditions = normalizeConditions(user_profile?.conditions);
   const preferences = normalizePreferences(user_profile?.preferences);
+  const allergies = normalizeAllergies(user_profile?.allergies);
   const ingredients = normalizeIngredients(product?.ingredients);
 
   const hasFragrance = ingredients.includes('fragrance') || features.ing_has_fragrance === 1;
   const hasAlcoholDenat = ingredients.includes('alcohol denat') || features.ing_has_alcohol_denat === 1;
   const hasSalicylic = ingredients.includes('salicylic acid') || features.ing_has_salicylic_acid === 1;
   const hasShea = ingredients.includes('shea butter') || features.ing_has_shea_butter === 1;
+  const hasParabens = ingredients.includes('parabens') || features.ing_has_parabens === 1;
 
   function ingFromFeature(featureName, fallback = []) {
     const found = attributions?.feature_to_ingredients?.[featureName];
@@ -237,6 +245,61 @@ export function runXaiRules({ user_profile, product, features, attributions }) {
         'Shea Butter can be heavy/occlusive and may increase clogging risk for oily or acne-prone skin.',
         comedogenicIngredients,
         ['ing_has_shea_butter'],
+        [rule]
+      )
+    );
+  }
+
+  // [fs-v2] Allergy rules — highest severity, override soft risk signals
+  if (allergies.has('fragrance') && hasFragrance) {
+    const rule = 'R_ALLERGY_FRAG_1';
+    rules_fired.push(rule);
+    const fragIngredients = ingFromFeature('ing_has_fragrance', ['Fragrance']);
+    risk_flags.push(
+      makeFlag(
+        'ALLERGY_FRAGRANCE_MATCH',
+        'HIGH',
+        fragIngredients,
+        ['u_allergy_fragrance', 'ing_has_fragrance', 'x_allergy_fragrance__has_fragrance'],
+        [rule]
+      )
+    );
+    reasons.push(
+      makeReason(
+        'ALLERGY',
+        'IRRITATION',
+        'Fragrance (Known Allergen)',
+        0.35,
+        'You have a stated fragrance allergy and this product contains fragrance. This is a direct allergen match — do not use.',
+        fragIngredients,
+        ['u_allergy_fragrance', 'ing_has_fragrance', 'x_allergy_fragrance__has_fragrance'],
+        [rule]
+      )
+    );
+  }
+
+  if (allergies.has('parabens') && hasParabens) {
+    const rule = 'R_ALLERGY_PAR_1';
+    rules_fired.push(rule);
+    const parabensIngredients = ingFromFeature('ing_has_parabens', ['Parabens']);
+    risk_flags.push(
+      makeFlag(
+        'ALLERGY_PARABENS_MATCH',
+        'HIGH',
+        parabensIngredients,
+        ['u_allergy_parabens', 'ing_has_parabens', 'x_allergy_parabens__has_parabens'],
+        [rule]
+      )
+    );
+    reasons.push(
+      makeReason(
+        'ALLERGY',
+        'IRRITATION',
+        'Parabens (Known Allergen)',
+        0.30,
+        'You have a stated parabens allergy and this product contains parabens. This is a direct allergen match — do not use.',
+        parabensIngredients,
+        ['u_allergy_parabens', 'ing_has_parabens', 'x_allergy_parabens__has_parabens'],
         [rule]
       )
     );

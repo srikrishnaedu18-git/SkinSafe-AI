@@ -23,5 +23,10 @@
   "x_oily__comedogenic_sum",
   "x_acneprone__comedogenic_sum",
   "x_eczema__drying_count",
-  "x_pref_ff__has_fragrance"
+  "x_pref_ff__has_fragrance",
+  "u_allergy_fragrance",
+  "u_allergy_parabens",
+  "ing_has_parabens",
+  "x_allergy_fragrance__has_fragrance",
+  "x_allergy_parabens__has_parabens"
 ]

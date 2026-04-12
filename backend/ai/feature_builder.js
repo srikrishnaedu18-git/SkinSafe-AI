@@ -62,6 +62,7 @@ function buildFeatures(userProfile, ingredients) {
   const skin_type = normalizeText(userProfile?.skin_type);
   const conditions = normalizeList(userProfile?.conditions);
   const preferences = normalizeList(userProfile?.preferences);
+  const allergies = normalizeList(userProfile?.allergies);
 
   // --- User features ---
   oneHotSkinType(f, skin_type);
@@ -87,6 +88,11 @@ function buildFeatures(userProfile, ingredients) {
   );
   f.u_pref_fragrance_free = prefSet.has("fragrance-free") ? 1 : 0;
   f.u_pref_low_comedogenic = prefSet.has("low-comedogenic") ? 1 : 0;
+
+  // Allergies
+  const allergySet = new Set(allergies.map(normalizeText));
+  f.u_allergy_fragrance = allergySet.has("fragrance") ? 1 : 0;
+  f.u_allergy_parabens = allergySet.has("parabens") ? 1 : 0;
 
   // --- Ingredient aggregation ---
   const ingList = Array.isArray(ingredients) ? ingredients : [];
@@ -145,6 +151,10 @@ function buildFeatures(userProfile, ingredients) {
       f.ing_has_shea_butter = 1;
       addAttr("ing_has_shea_butter", display);
     }
+    if (ing === "parabens") {
+      f.ing_has_parabens = 1;
+      addAttr("ing_has_parabens", display);
+    }
   }
 
   f.ing_irritant_severity_sum = irritSum;
@@ -169,8 +179,9 @@ function buildFeatures(userProfile, ingredients) {
   f.x_eczema__drying_count = f.u_has_eczema * f.ing_count_drying_irritants;
   f.x_pref_ff__has_fragrance = f.u_pref_fragrance_free * f.ing_has_fragrance;
 
-  // NOTE: allergies list is not used in A1 features yet (we can add in A2/A3).
-  // For now AI layer is "soft risk". Hard allergy matching stays in rules layer later.
+  // Allergy interaction features [fs-v2]
+  f.x_allergy_fragrance__has_fragrance = f.u_allergy_fragrance * f.ing_has_fragrance;
+  f.x_allergy_parabens__has_parabens = f.u_allergy_parabens * f.ing_has_parabens;
 
   // Create ordered vector
   const vector = FEATURE_COLUMNS.map((col) => f[col]);

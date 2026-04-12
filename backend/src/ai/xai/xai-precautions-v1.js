@@ -13,6 +13,25 @@ function uniqByCode(list) {
 export function buildPrecautionsV1({ risk_level, risk_flags, user_profile }) {
   const precautions = [];
 
+  // [fs-v2] Allergy stop-use warnings — highest priority (0), shown before everything else
+  const hasFlag = (code) => risk_flags?.some((flag) => flag.code === code);
+
+  if (hasFlag('ALLERGY_FRAGRANCE_MATCH')) {
+    precautions.push({
+      code: 'ALLERGY_FRAGRANCE_STOP',
+      priority: 0,
+      text: '⚠️ ALLERGY ALERT: You have a stated fragrance allergy and this product contains Fragrance. Do NOT use this product — seek a fragrance-free alternative.',
+    });
+  }
+
+  if (hasFlag('ALLERGY_PARABENS_MATCH')) {
+    precautions.push({
+      code: 'ALLERGY_PARABENS_STOP',
+      priority: 0,
+      text: '⚠️ ALLERGY ALERT: You have a stated parabens allergy and this product contains Parabens. Do NOT use this product — seek a paraben-free alternative.',
+    });
+  }
+
   precautions.push({
     code: 'PATCH_TEST_24H',
     priority: 1,
@@ -53,8 +72,6 @@ export function buildPrecautionsV1({ risk_level, risk_flags, user_profile }) {
       text: 'Even with low risk, introduce gradually and patch test before full-face use.',
     });
   }
-
-  const hasFlag = (code) => risk_flags?.some((flag) => flag.code === code);
 
   if (hasFlag('FRAGRANCE_PRESENT')) {
     precautions.push({

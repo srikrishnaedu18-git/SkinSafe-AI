@@ -10,5 +10,6 @@
   "panthenol": { "tags": ["soothing", "barrier"], "irritant_severity": 0, "comedogenic_severity": 0 },
   "aloe vera": { "tags": ["soothing"], "irritant_severity": 0, "comedogenic_severity": 0 },
   "shea butter": { "tags": ["emollient"], "irritant_severity": 0, "comedogenic_severity": 2 },
-  "ceramides": { "tags": ["barrier"], "irritant_severity": 0, "comedogenic_severity": 0 }
+  "ceramides": { "tags": ["barrier"], "irritant_severity": 0, "comedogenic_severity": 0 },
+  "parabens": { "tags": ["preservative", "allergen"], "irritant_severity": 2, "comedogenic_severity": 0 }
 }

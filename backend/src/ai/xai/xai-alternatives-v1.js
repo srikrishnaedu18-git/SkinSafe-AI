@@ -23,6 +23,18 @@ export function buildAlternativeConstraints({ risk_flags, user_profile, product 
     preferTags.add('fragrance-free');
   }
 
+  // [fs-v2] Hard block allergens from alternatives
+  if (hasFlag('ALLERGY_FRAGRANCE_MATCH')) {
+    avoidIngredients.add('Fragrance');
+    avoidTags.add('fragrance');
+    preferTags.add('fragrance-free');
+  }
+
+  if (hasFlag('ALLERGY_PARABENS_MATCH')) {
+    avoidIngredients.add('Parabens');
+    preferTags.add('paraben-free');
+  }
+
   if (hasFlag('ALCOHOL_DENAT_PRESENT')) {
     avoidIngredients.add('Alcohol Denat');
     avoidTags.add('drying');

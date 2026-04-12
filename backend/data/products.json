@@ -9,7 +9,8 @@
       "Ceramides",
       "Salicylic Acid",
       "Zinc Oxide",
-      "Glycerin"
+      "Glycerin",
+      "Parabens"
     ],
     "batch_number": "PU-2026-01",
     "origin": "Mumbai",
@@ -105,7 +106,8 @@
       "Panthenol",
       "Vitamin C",
       "Hyaluronic Acid",
-      "Zinc Oxide"
+      "Zinc Oxide",
+      "Parabens"
     ],
     "batch_number": "SK-2026-07",
     "origin": "Bengaluru",
@@ -137,7 +139,8 @@
     "ingredients": [
       "Aloe Vera",
       "Niacinamide",
-      "Zinc Oxide"
+      "Zinc Oxide",
+      "Parabens"
     ],
     "batch_number": "BI-2026-09",
     "origin": "Hyderabad",
@@ -185,7 +188,8 @@
     "ingredients": [
       "Niacinamide",
       "Ceramides",
-      "Hyaluronic Acid"
+      "Hyaluronic Acid",
+      "Parabens"
     ],
     "batch_number": "SK-2026-12",
     "origin": "Bengaluru",
@@ -249,7 +253,8 @@
       "Ceramides",
       "Shea Butter",
       "Panthenol",
-      "Hyaluronic Acid"
+      "Hyaluronic Acid",
+      "Parabens"
     ],
     "batch_number": "PU-2026-16",
     "origin": "Mumbai",
@@ -329,7 +334,8 @@
     "ingredients": [
       "Vitamin C",
       "Glycerin",
-      "Aloe Vera"
+      "Aloe Vera",
+      "Parabens"
     ],
     "batch_number": "PU-2026-21",
     "origin": "Mumbai",
@@ -393,7 +399,8 @@
       "Glycerin",
       "Vitamin C",
       "Ceramides",
-      "Hyaluronic Acid"
+      "Hyaluronic Acid",
+      "Parabens"
     ],
     "batch_number": "DE-2026-25",
     "origin": "Chennai",
@@ -425,7 +432,8 @@
     "ingredients": [
       "Vitamin C",
       "Aloe Vera",
-      "Ceramides"
+      "Ceramides",
+      "Parabens"
     ],
     "batch_number": "SK-2026-27",
     "origin": "Bengaluru",

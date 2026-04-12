@@ -53,16 +53,18 @@
       "password_salt": "14905b55056af10052c6294ce4d60450",
       "created_at": "2026-03-08T13:50:10.764Z",
       "updated_at": "2026-03-08T13:50:10.764Z"
+    },
+    {
+      "id": "53121a3b-d5d3-493d-abe2-a3ac423a40c6",
+      "username": "Sri",
+      "username_lower": "sri",
+      "password_hash": "b2b6aad0e53233458095d2d354932c6783c83039aefdae0ea60f234e65c1e7e419916cce6bb1a937ce4c5c909a926cb7a3ddaf84c186564bb392867c4824e300",
+      "password_salt": "90bce32ab441adc0f89f8c06d67c9e85",
+      "created_at": "2026-04-12T06:45:53.297Z",
+      "updated_at": "2026-04-12T06:45:53.297Z"
     }
   ],
   "sessions": [
-    {
-      "token": "5aa722325f85354178e84e7a17bfd400966d970fffb7af5a0e6d2a42210f5e85",
-      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
-      "username": "krishna",
-      "created_at": "2026-03-11T08:05:43.954Z",
-      "expires_at": "2026-04-10T08:05:43.954Z"
-    },
     {
       "token": "e83a35b8ea7c68090feaa445faa20fdc8771d0907cafce815768157f4af3d90c",
       "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
@@ -76,6 +78,27 @@
       "username": "krishna",
       "created_at": "2026-04-09T08:52:10.332Z",
       "expires_at": "2026-05-09T08:52:10.332Z"
+    },
+    {
+      "token": "d1f521fbf13b0771af1aee0b7f4816ba6ea7b44b4568836b0b652f71e0b4cced",
+      "user_id": "6b0348b4-c408-4e4c-aad8-2936146c90e5",
+      "username": "krishna",
+      "created_at": "2026-04-12T06:44:20.689Z",
+      "expires_at": "2026-05-12T06:44:20.689Z"
+    },
+    {
+      "token": "f4b31fd8d9e68dbe75fdb3fc7d1def4805645afd433b4e340813217ab39b723f",
+      "user_id": "53121a3b-d5d3-493d-abe2-a3ac423a40c6",
+      "username": "Sri",
+      "created_at": "2026-04-12T06:45:53.300Z",
+      "expires_at": "2026-05-12T06:45:53.300Z"
+    },
+    {
+      "token": "3ffade27f1a03f77b21ae552673fce80257069e26dbdedaef9b7f34eee133550",
+      "user_id": "53121a3b-d5d3-493d-abe2-a3ac423a40c6",
+      "username": "Sri",
+      "created_at": "2026-04-12T07:03:44.501Z",
+      "expires_at": "2026-05-12T07:03:44.501Z"
     }
   ],
   "profiles": [
@@ -90,6 +113,18 @@
         "fragrance-free"
       ],
       "updated_at": "2026-03-06T09:28:33.209Z"
+    },
+    {
+      "user_id": "53121a3b-d5d3-493d-abe2-a3ac423a40c6",
+      "skin_type": "sensitive",
+      "allergies": [
+        "fragrance"
+      ],
+      "conditions": [
+        "eczema"
+      ],
+      "preferences": [],
+      "updated_at": "2026-04-12T06:46:14.913Z"
     }
   ],
   "histories": [
@@ -2961,6 +2996,1570 @@
                     "impact_on_risk": -6.507376924089367e-12,
                     "risk_before": 1.1992233336831463e-10,
                     "risk_after": 1.26429710292404e-10
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "user_id": "53121a3b-d5d3-493d-abe2-a3ac423a40c6",
+      "username": "Sri",
+      "assessment_id": "asm-PROD004_BATCH01-1775977593799",
+      "created_at": "2026-04-12T07:06:33.801Z",
+      "updated_at": "2026-04-12T07:06:35.100Z",
+      "product_name": "BioBloom Serum 04",
+      "product_snapshot": {
+        "category": "Serum",
+        "ingredients": [
+          "Alcohol Denat",
+          "Pathenol",
+          "Fragrance",
+          "Vitamin C"
+        ]
+      },
+      "user_profile_snapshot": {
+        "skinType": "sensitive",
+        "allergies": [
+          "fragrance"
+        ],
+        "conditions": [
+          "eczema"
+        ],
+        "preferences": []
+      },
+      "assessment": {
+        "assessmentId": "asm-PROD004_BATCH01-1775977593799",
+        "suitabilityScore": 30,
+        "confidence": {
+          "value": 99.99999029137155,
+          "reason": "ensemble uncertainty avg std 0.0000"
+        },
+        "riskFlags": [
+          {
+            "code": "FRAGRANCE_PRESENT",
+            "severity": "high",
+            "ingredients": [
+              "fragrance"
+            ]
+          },
+          {
+            "code": "ALCOHOL_DENAT_PRESENT",
+            "severity": "medium",
+            "ingredients": [
+              "alcohol denat"
+            ]
+          },
+          {
+            "code": "ECZEMA_DRYING_IRRITANT_RISK",
+            "severity": "high",
+            "ingredients": [
+              "alcohol denat"
+            ]
+          },
+          {
+            "code": "SENSITIVE_HIGH_IRRITANT_LOAD",
+            "severity": "high",
+            "ingredients": [
+              "fragrance",
+              "alcohol denat",
+              "vitamin c"
+            ]
+          },
+          {
+            "code": "ALLERGY_FRAGRANCE_MATCH",
+            "severity": "high",
+            "ingredients": [
+              "fragrance"
+            ]
+          }
+        ],
+        "explanations": {
+          "summary": "Higher risk for your profile - review top reasons and precautions",
+          "topNegativeDrivers": [
+            {
+              "ingredient": "Fragrance (Known Allergen)",
+              "reason": "You have a stated fragrance allergy and this product contains fragrance. This is a direct allergen match — do not use. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 29
+            },
+            {
+              "ingredient": "Sensitive Skin + Irritant Load",
+              "reason": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk. This is personalized for your sensitive skin profile.",
+              "penalty": 28
+            },
+            {
+              "ingredient": "Eczema + Drying Irritants",
+              "reason": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 27.2
+            },
+            {
+              "ingredient": "Fragrance",
+              "reason": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 15
+            },
+            {
+              "ingredient": "Alcohol Denat",
+              "reason": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 10.8
+            }
+          ],
+          "topPositiveDrivers": [],
+          "triggeredRules": [
+            {
+              "ruleId": "R_FRAG_1",
+              "description": "Rule R_FRAG_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_ALC_1",
+              "description": "Rule R_ALC_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_ECZ_1",
+              "description": "Rule R_ECZ_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_SENS_1",
+              "description": "Rule R_SENS_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_ALLERGY_FRAG_1",
+              "description": "Rule R_ALLERGY_FRAG_1 triggered by current profile and ingredients."
+            }
+          ],
+          "ingredientContributions": [
+            {
+              "ingredient": "fragrance",
+              "scoreImpact": -29,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "fragrance",
+              "scoreImpact": -28,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "alcohol denat",
+              "scoreImpact": -28,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "vitamin c",
+              "scoreImpact": -28,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "alcohol denat",
+              "scoreImpact": -27.2,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "fragrance",
+              "scoreImpact": -15,
+              "tags": [
+                "IRRITATION",
+                "MEDIUM"
+              ]
+            },
+            {
+              "ingredient": "alcohol denat",
+              "scoreImpact": -10.8,
+              "tags": [
+                "IRRITATION",
+                "MEDIUM"
+              ]
+            }
+          ]
+        },
+        "guidance": {
+          "patchTest": [
+            "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+          ],
+          "usage": [
+            "Start with 1-2 uses per week. Increase slowly only if there is no irritation."
+          ],
+          "avoidIf": [
+            "Avoid applying on broken/irritated skin. Stop immediately if burning persists.",
+            "Avoid sensitive zones (around eyes, corners of nose, neck) during initial trials.",
+            "Fragrance present: if you are sensitive, avoid eye/neck area and prefer fragrance-free alternatives.",
+            "Alcohol Denat present: can be drying. Use a moisturizer after application and stop if skin feels tight or flaky.",
+            "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups.",
+            "⚠️ ALLERGY ALERT: You have a stated fragrance allergy and this product contains Fragrance. Do NOT use this product — seek a fragrance-free alternative."
+          ]
+        },
+        "alternatives": [
+          {
+            "productId": "PROD022_BATCH01",
+            "name": "SkinZen Serum 22",
+            "whyBetter": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD016_BATCH01",
+            "name": "PureCare Serum 16",
+            "whyBetter": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+          }
+        ],
+        "xai": {
+          "summary": {
+            "risk_level": "HIGH",
+            "headline": "Higher risk for your profile - review top reasons and precautions"
+          },
+          "risk_flags": [
+            {
+              "code": "FRAGRANCE_PRESENT",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "ing_has_fragrance"
+                ],
+                "rules": [
+                  "R_FRAG_1"
+                ]
+              }
+            },
+            {
+              "code": "ALCOHOL_DENAT_PRESENT",
+              "severity": "MEDIUM",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "ing_has_alcohol_denat"
+                ],
+                "rules": [
+                  "R_ALC_1"
+                ]
+              }
+            },
+            {
+              "code": "ECZEMA_DRYING_IRRITANT_RISK",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "u_has_eczema",
+                  "ing_count_drying_irritants"
+                ],
+                "rules": [
+                  "R_ECZ_1"
+                ]
+              }
+            },
+            {
+              "code": "SENSITIVE_HIGH_IRRITANT_LOAD",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "fragrance",
+                  "alcohol denat",
+                  "vitamin c"
+                ],
+                "features": [
+                  "u_skin_sensitive",
+                  "ing_irritant_severity_sum"
+                ],
+                "rules": [
+                  "R_SENS_1"
+                ]
+              }
+            },
+            {
+              "code": "ALLERGY_FRAGRANCE_MATCH",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "u_allergy_fragrance",
+                  "ing_has_fragrance",
+                  "x_allergy_fragrance__has_fragrance"
+                ],
+                "rules": [
+                  "R_ALLERGY_FRAG_1"
+                ]
+              }
+            }
+          ],
+          "reasons": [
+            {
+              "rank": 1,
+              "type": "ALLERGY",
+              "risk_target": "IRRITATION",
+              "item": "Fragrance (Known Allergen)",
+              "impact": 0.2900000371928257,
+              "message": "You have a stated fragrance allergy and this product contains fragrance. This is a direct allergen match — do not use.",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "u_allergy_fragrance",
+                  "ing_has_fragrance",
+                  "x_allergy_fragrance__has_fragrance"
+                ],
+                "rules": [
+                  "R_ALLERGY_FRAG_1"
+                ],
+                "model_impact_on_risk": 3.7192825708132204e-8
+              },
+              "severity": "HIGH",
+              "title": "Fragrance (Known Allergen) contributes to the score",
+              "why": "You have a stated fragrance allergy and this product contains fragrance. This is a direct allergen match — do not use. Your eczema condition makes barrier disruption more likely.",
+              "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+            },
+            {
+              "rank": 2,
+              "type": "USER_CONTEXT",
+              "risk_target": "IRRITATION",
+              "item": "Sensitive Skin + Irritant Load",
+              "impact": 0.2800000971746668,
+              "message": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk.",
+              "evidence": {
+                "ingredients": [
+                  "fragrance",
+                  "alcohol denat",
+                  "vitamin c"
+                ],
+                "features": [
+                  "u_skin_sensitive",
+                  "ing_irritant_severity_sum"
+                ],
+                "rules": [
+                  "R_SENS_1"
+                ],
+                "model_impact_on_risk": -9.717466675773778e-8
+              },
+              "severity": "HIGH",
+              "title": "Your profile increases sensitivity",
+              "why": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk. This is personalized for your sensitive skin profile.",
+              "action": "Patch test and start with low frequency for your skin profile."
+            },
+            {
+              "rank": 3,
+              "type": "INTERACTION",
+              "risk_target": "IRRITATION",
+              "item": "Eczema + Drying Irritants",
+              "impact": 0.2720000072313762,
+              "message": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging.",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "u_has_eczema",
+                  "ing_count_drying_irritants"
+                ],
+                "rules": [
+                  "R_ECZ_1"
+                ],
+                "model_impact_on_risk": 7.231376164540393e-9
+              },
+              "severity": "HIGH",
+              "title": "Eczema + Drying Irritants interaction increases risk",
+              "why": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging. Your eczema condition makes barrier disruption more likely.",
+              "action": "Patch test and start with low frequency for your skin profile."
+            },
+            {
+              "rank": 4,
+              "type": "INGREDIENT",
+              "risk_target": "IRRITATION",
+              "item": "Fragrance",
+              "impact": 0.1500000371928257,
+              "message": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging.",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "ing_has_fragrance"
+                ],
+                "rules": [
+                  "R_FRAG_1"
+                ],
+                "model_impact_on_risk": 3.7192825708132204e-8
+              },
+              "severity": "MEDIUM",
+              "title": "Fragrance may increase risk",
+              "why": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging. Your eczema condition makes barrier disruption more likely.",
+              "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+            },
+            {
+              "rank": 5,
+              "type": "INGREDIENT",
+              "risk_target": "IRRITATION",
+              "item": "Alcohol Denat",
+              "impact": 0.10800000723137616,
+              "message": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers.",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "ing_has_alcohol_denat"
+                ],
+                "rules": [
+                  "R_ALC_1"
+                ],
+                "model_impact_on_risk": 7.231376164540393e-9
+              },
+              "severity": "MEDIUM",
+              "title": "Alcohol Denat may increase risk",
+              "why": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers. Your eczema condition makes barrier disruption more likely.",
+              "action": "Use with barrier support moisturizer and avoid use on irritated skin."
+            }
+          ],
+          "reason_groups": {
+            "IRRITATION": [
+              {
+                "rank": 1,
+                "type": "ALLERGY",
+                "risk_target": "IRRITATION",
+                "item": "Fragrance (Known Allergen)",
+                "impact": 0.2900000371928257,
+                "message": "You have a stated fragrance allergy and this product contains fragrance. This is a direct allergen match — do not use.",
+                "evidence": {
+                  "ingredients": [
+                    "fragrance"
+                  ],
+                  "features": [
+                    "u_allergy_fragrance",
+                    "ing_has_fragrance",
+                    "x_allergy_fragrance__has_fragrance"
+                  ],
+                  "rules": [
+                    "R_ALLERGY_FRAG_1"
+                  ],
+                  "model_impact_on_risk": 3.7192825708132204e-8
+                },
+                "severity": "HIGH",
+                "title": "Fragrance (Known Allergen) contributes to the score",
+                "why": "You have a stated fragrance allergy and this product contains fragrance. This is a direct allergen match — do not use. Your eczema condition makes barrier disruption more likely.",
+                "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+              },
+              {
+                "rank": 2,
+                "type": "USER_CONTEXT",
+                "risk_target": "IRRITATION",
+                "item": "Sensitive Skin + Irritant Load",
+                "impact": 0.2800000971746668,
+                "message": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk.",
+                "evidence": {
+                  "ingredients": [
+                    "fragrance",
+                    "alcohol denat",
+                    "vitamin c"
+                  ],
+                  "features": [
+                    "u_skin_sensitive",
+                    "ing_irritant_severity_sum"
+                  ],
+                  "rules": [
+                    "R_SENS_1"
+                  ],
+                  "model_impact_on_risk": -9.717466675773778e-8
+                },
+                "severity": "HIGH",
+                "title": "Your profile increases sensitivity",
+                "why": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk. This is personalized for your sensitive skin profile.",
+                "action": "Patch test and start with low frequency for your skin profile."
+              },
+              {
+                "rank": 3,
+                "type": "INTERACTION",
+                "risk_target": "IRRITATION",
+                "item": "Eczema + Drying Irritants",
+                "impact": 0.2720000072313762,
+                "message": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging.",
+                "evidence": {
+                  "ingredients": [
+                    "alcohol denat"
+                  ],
+                  "features": [
+                    "u_has_eczema",
+                    "ing_count_drying_irritants"
+                  ],
+                  "rules": [
+                    "R_ECZ_1"
+                  ],
+                  "model_impact_on_risk": 7.231376164540393e-9
+                },
+                "severity": "HIGH",
+                "title": "Eczema + Drying Irritants interaction increases risk",
+                "why": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging. Your eczema condition makes barrier disruption more likely.",
+                "action": "Patch test and start with low frequency for your skin profile."
+              },
+              {
+                "rank": 4,
+                "type": "INGREDIENT",
+                "risk_target": "IRRITATION",
+                "item": "Fragrance",
+                "impact": 0.1500000371928257,
+                "message": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging.",
+                "evidence": {
+                  "ingredients": [
+                    "fragrance"
+                  ],
+                  "features": [
+                    "ing_has_fragrance"
+                  ],
+                  "rules": [
+                    "R_FRAG_1"
+                  ],
+                  "model_impact_on_risk": 3.7192825708132204e-8
+                },
+                "severity": "MEDIUM",
+                "title": "Fragrance may increase risk",
+                "why": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging. Your eczema condition makes barrier disruption more likely.",
+                "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+              },
+              {
+                "rank": 5,
+                "type": "INGREDIENT",
+                "risk_target": "IRRITATION",
+                "item": "Alcohol Denat",
+                "impact": 0.10800000723137616,
+                "message": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers.",
+                "evidence": {
+                  "ingredients": [
+                    "alcohol denat"
+                  ],
+                  "features": [
+                    "ing_has_alcohol_denat"
+                  ],
+                  "rules": [
+                    "R_ALC_1"
+                  ],
+                  "model_impact_on_risk": 7.231376164540393e-9
+                },
+                "severity": "MEDIUM",
+                "title": "Alcohol Denat may increase risk",
+                "why": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers. Your eczema condition makes barrier disruption more likely.",
+                "action": "Use with barrier support moisturizer and avoid use on irritated skin."
+              }
+            ],
+            "ACNE": [],
+            "OVERALL": []
+          },
+          "precautions": [
+            {
+              "code": "PATCH_TEST_24H",
+              "priority": 1,
+              "text": "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+            },
+            {
+              "code": "START_1_2X_PER_WEEK",
+              "priority": 2,
+              "text": "Start with 1-2 uses per week. Increase slowly only if there is no irritation."
+            },
+            {
+              "code": "AVOID_BROKEN_SKIN",
+              "priority": 3,
+              "text": "Avoid applying on broken/irritated skin. Stop immediately if burning persists."
+            },
+            {
+              "code": "AVOID_EYE_NECK",
+              "priority": 4,
+              "text": "Avoid sensitive zones (around eyes, corners of nose, neck) during initial trials."
+            },
+            {
+              "code": "FRAGRANCE_CAUTION",
+              "priority": 5,
+              "text": "Fragrance present: if you are sensitive, avoid eye/neck area and prefer fragrance-free alternatives."
+            },
+            {
+              "code": "ALCOHOL_DRYNESS_CAUTION",
+              "priority": 5,
+              "text": "Alcohol Denat present: can be drying. Use a moisturizer after application and stop if skin feels tight or flaky."
+            },
+            {
+              "code": "ECZEMA_BARRIER_SUPPORT",
+              "priority": 6,
+              "text": "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups."
+            },
+            {
+              "code": "ALLERGY_FRAGRANCE_STOP",
+              "priority": 0,
+              "text": "⚠️ ALLERGY ALERT: You have a stated fragrance allergy and this product contains Fragrance. Do NOT use this product — seek a fragrance-free alternative."
+            }
+          ],
+          "counterfactuals": [
+            {
+              "feature": "ing_count_fragrance",
+              "ingredients": [
+                "fragrance"
+              ],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 30,
+              "recommendation": "If you avoid or replace fragrance, suitability may improve by about 0 points."
+            },
+            {
+              "feature": "ing_has_fragrance",
+              "ingredients": [
+                "fragrance"
+              ],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 30,
+              "recommendation": "If you avoid or replace fragrance, suitability may improve by about 0 points."
+            },
+            {
+              "feature": "ing_comedogenic_severity_sum",
+              "ingredients": [
+                "fragrance"
+              ],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 30,
+              "recommendation": "If you avoid or replace fragrance, suitability may improve by about 0 points."
+            }
+          ],
+          "alternatives": {
+            "constraints": {
+              "same_category": "Serum",
+              "avoid_ingredients": [
+                "Fragrance",
+                "Alcohol Denat"
+              ],
+              "avoid_tags": [
+                "fragrance",
+                "drying"
+              ],
+              "prefer_tags": [
+                "fragrance-free",
+                "barrier-support",
+                "gentle"
+              ],
+              "objective": "minimize_fused_risk",
+              "max_results": 3,
+              "current_suitability_score": 30
+            },
+            "results": [
+              {
+                "qr_id": "PROD022_BATCH01",
+                "product_name": "SkinZen Serum 22",
+                "type": "Serum",
+                "origin": "Bengaluru",
+                "ingredients": [
+                  "Zinc Oxide",
+                  "Niacinamide",
+                  "Glycerin",
+                  "Aloe Vera"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.9746083054717306e-7,
+                "p_acne": 1.799047504864099e-10,
+                "confidence": 0.9999998258154866,
+                "score_gain_vs_current": 70,
+                "why_better": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD016_BATCH01",
+                "product_name": "PureCare Serum 16",
+                "type": "Serum",
+                "origin": "Mumbai",
+                "ingredients": [
+                  "Ceramides",
+                  "Shea Butter",
+                  "Panthenol",
+                  "Hyaluronic Acid",
+                  "Parabens"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 0.000006935660168389515,
+                "p_acne": 5.273606333515142e-10,
+                "confidence": 0.999997908151379,
+                "score_gain_vs_current": 70,
+                "why_better": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+              }
+            ]
+          },
+          "meta": {
+            "xai_version": "xai-v1",
+            "generated_at": "2026-04-12T07:06:34.761Z",
+            "evidence": {
+              "rules_fired": [
+                "R_FRAG_1",
+                "R_ALC_1",
+                "R_ECZ_1",
+                "R_SENS_1",
+                "R_ALLERGY_FRAG_1"
+              ],
+              "model_signal": {
+                "method": "ablation_feature_zero",
+                "top_k": 10,
+                "feature_impacts": [
+                  {
+                    "feature": "ing_count_total",
+                    "value": 4,
+                    "impact_on_risk": -1.8577945160025422e-7,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000002247798042
+                  },
+                  {
+                    "feature": "u_skin_sensitive",
+                    "value": 1,
+                    "impact_on_risk": -9.717466675773778e-8,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000001361750193
+                  },
+                  {
+                    "feature": "ing_count_fragrance",
+                    "value": 1,
+                    "impact_on_risk": 3.7192825708132204e-8,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000000018075269
+                  },
+                  {
+                    "feature": "ing_has_fragrance",
+                    "value": 1,
+                    "impact_on_risk": 3.7192825708132204e-8,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000000018075269
+                  },
+                  {
+                    "feature": "ing_irritant_severity_sum",
+                    "value": 6,
+                    "impact_on_risk": -3.5442473400593144e-8,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.700000074442826
+                  },
+                  {
+                    "feature": "ing_comedogenic_severity_sum",
+                    "value": 1,
+                    "impact_on_risk": 2.1238138137036344e-8,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000000177622144
+                  },
+                  {
+                    "feature": "ing_count_drying_irritants",
+                    "value": 1,
+                    "impact_on_risk": 7.231376164540393e-9,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000000317689764
+                  },
+                  {
+                    "feature": "ing_has_alcohol_denat",
+                    "value": 1,
+                    "impact_on_risk": 7.231376164540393e-9,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000000317689764
+                  },
+                  {
+                    "feature": "x_sensitive__irritant_sum",
+                    "value": 6,
+                    "impact_on_risk": -6.456083889716524e-9,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000000454564365
+                  },
+                  {
+                    "feature": "u_has_eczema",
+                    "value": 1,
+                    "impact_on_risk": -4.693688437917842e-9,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.700000043694041
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "report_payload": {
+        "generated_at": "2026-04-12T07:06:33.802Z",
+        "product": {
+          "name": "BioBloom Serum 04",
+          "category": "Serum",
+          "ingredients": [
+            "Alcohol Denat",
+            "Pathenol",
+            "Fragrance",
+            "Vitamin C"
+          ]
+        },
+        "user_profile": {
+          "skin_type": "sensitive",
+          "allergies": [
+            "fragrance"
+          ],
+          "conditions": [
+            "eczema"
+          ],
+          "preferences": []
+        },
+        "assessment_id": "asm-PROD004_BATCH01-1775977593799",
+        "suitability_score": 30,
+        "confidence": {
+          "value": 99.99999029137155,
+          "reason": "ensemble uncertainty avg std 0.0000"
+        },
+        "risk_flags": [
+          {
+            "code": "FRAGRANCE_PRESENT",
+            "severity": "high",
+            "ingredients": [
+              "fragrance"
+            ]
+          },
+          {
+            "code": "ALCOHOL_DENAT_PRESENT",
+            "severity": "medium",
+            "ingredients": [
+              "alcohol denat"
+            ]
+          },
+          {
+            "code": "ECZEMA_DRYING_IRRITANT_RISK",
+            "severity": "high",
+            "ingredients": [
+              "alcohol denat"
+            ]
+          },
+          {
+            "code": "SENSITIVE_HIGH_IRRITANT_LOAD",
+            "severity": "high",
+            "ingredients": [
+              "fragrance",
+              "alcohol denat",
+              "vitamin c"
+            ]
+          },
+          {
+            "code": "ALLERGY_FRAGRANCE_MATCH",
+            "severity": "high",
+            "ingredients": [
+              "fragrance"
+            ]
+          }
+        ],
+        "explanations": {
+          "summary": "Higher risk for your profile - review top reasons and precautions",
+          "topNegativeDrivers": [
+            {
+              "ingredient": "Fragrance (Known Allergen)",
+              "reason": "You have a stated fragrance allergy and this product contains fragrance. This is a direct allergen match — do not use. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 29
+            },
+            {
+              "ingredient": "Sensitive Skin + Irritant Load",
+              "reason": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk. This is personalized for your sensitive skin profile.",
+              "penalty": 28
+            },
+            {
+              "ingredient": "Eczema + Drying Irritants",
+              "reason": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 27.2
+            },
+            {
+              "ingredient": "Fragrance",
+              "reason": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 15
+            },
+            {
+              "ingredient": "Alcohol Denat",
+              "reason": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers. Your eczema condition makes barrier disruption more likely.",
+              "penalty": 10.8
+            }
+          ],
+          "topPositiveDrivers": [],
+          "triggeredRules": [
+            {
+              "ruleId": "R_FRAG_1",
+              "description": "Rule R_FRAG_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_ALC_1",
+              "description": "Rule R_ALC_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_ECZ_1",
+              "description": "Rule R_ECZ_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_SENS_1",
+              "description": "Rule R_SENS_1 triggered by current profile and ingredients."
+            },
+            {
+              "ruleId": "R_ALLERGY_FRAG_1",
+              "description": "Rule R_ALLERGY_FRAG_1 triggered by current profile and ingredients."
+            }
+          ],
+          "ingredientContributions": [
+            {
+              "ingredient": "fragrance",
+              "scoreImpact": -29,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "fragrance",
+              "scoreImpact": -28,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "alcohol denat",
+              "scoreImpact": -28,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "vitamin c",
+              "scoreImpact": -28,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "alcohol denat",
+              "scoreImpact": -27.2,
+              "tags": [
+                "IRRITATION",
+                "HIGH"
+              ]
+            },
+            {
+              "ingredient": "fragrance",
+              "scoreImpact": -15,
+              "tags": [
+                "IRRITATION",
+                "MEDIUM"
+              ]
+            },
+            {
+              "ingredient": "alcohol denat",
+              "scoreImpact": -10.8,
+              "tags": [
+                "IRRITATION",
+                "MEDIUM"
+              ]
+            }
+          ]
+        },
+        "guidance": {
+          "patchTest": [
+            "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+          ],
+          "usage": [
+            "Start with 1-2 uses per week. Increase slowly only if there is no irritation."
+          ],
+          "avoidIf": [
+            "Avoid applying on broken/irritated skin. Stop immediately if burning persists.",
+            "Avoid sensitive zones (around eyes, corners of nose, neck) during initial trials.",
+            "Fragrance present: if you are sensitive, avoid eye/neck area and prefer fragrance-free alternatives.",
+            "Alcohol Denat present: can be drying. Use a moisturizer after application and stop if skin feels tight or flaky.",
+            "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups.",
+            "⚠️ ALLERGY ALERT: You have a stated fragrance allergy and this product contains Fragrance. Do NOT use this product — seek a fragrance-free alternative."
+          ]
+        },
+        "alternatives": [
+          {
+            "productId": "PROD022_BATCH01",
+            "name": "SkinZen Serum 22",
+            "whyBetter": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+          },
+          {
+            "productId": "PROD016_BATCH01",
+            "name": "PureCare Serum 16",
+            "whyBetter": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+          }
+        ],
+        "xai": {
+          "summary": {
+            "risk_level": "HIGH",
+            "headline": "Higher risk for your profile - review top reasons and precautions"
+          },
+          "risk_flags": [
+            {
+              "code": "FRAGRANCE_PRESENT",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "ing_has_fragrance"
+                ],
+                "rules": [
+                  "R_FRAG_1"
+                ]
+              }
+            },
+            {
+              "code": "ALCOHOL_DENAT_PRESENT",
+              "severity": "MEDIUM",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "ing_has_alcohol_denat"
+                ],
+                "rules": [
+                  "R_ALC_1"
+                ]
+              }
+            },
+            {
+              "code": "ECZEMA_DRYING_IRRITANT_RISK",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "u_has_eczema",
+                  "ing_count_drying_irritants"
+                ],
+                "rules": [
+                  "R_ECZ_1"
+                ]
+              }
+            },
+            {
+              "code": "SENSITIVE_HIGH_IRRITANT_LOAD",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "fragrance",
+                  "alcohol denat",
+                  "vitamin c"
+                ],
+                "features": [
+                  "u_skin_sensitive",
+                  "ing_irritant_severity_sum"
+                ],
+                "rules": [
+                  "R_SENS_1"
+                ]
+              }
+            },
+            {
+              "code": "ALLERGY_FRAGRANCE_MATCH",
+              "severity": "HIGH",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "u_allergy_fragrance",
+                  "ing_has_fragrance",
+                  "x_allergy_fragrance__has_fragrance"
+                ],
+                "rules": [
+                  "R_ALLERGY_FRAG_1"
+                ]
+              }
+            }
+          ],
+          "reasons": [
+            {
+              "rank": 1,
+              "type": "ALLERGY",
+              "risk_target": "IRRITATION",
+              "item": "Fragrance (Known Allergen)",
+              "impact": 0.2900000371928257,
+              "message": "You have a stated fragrance allergy and this product contains fragrance. This is a direct allergen match — do not use.",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "u_allergy_fragrance",
+                  "ing_has_fragrance",
+                  "x_allergy_fragrance__has_fragrance"
+                ],
+                "rules": [
+                  "R_ALLERGY_FRAG_1"
+                ],
+                "model_impact_on_risk": 3.7192825708132204e-8
+              },
+              "severity": "HIGH",
+              "title": "Fragrance (Known Allergen) contributes to the score",
+              "why": "You have a stated fragrance allergy and this product contains fragrance. This is a direct allergen match — do not use. Your eczema condition makes barrier disruption more likely.",
+              "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+            },
+            {
+              "rank": 2,
+              "type": "USER_CONTEXT",
+              "risk_target": "IRRITATION",
+              "item": "Sensitive Skin + Irritant Load",
+              "impact": 0.2800000971746668,
+              "message": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk.",
+              "evidence": {
+                "ingredients": [
+                  "fragrance",
+                  "alcohol denat",
+                  "vitamin c"
+                ],
+                "features": [
+                  "u_skin_sensitive",
+                  "ing_irritant_severity_sum"
+                ],
+                "rules": [
+                  "R_SENS_1"
+                ],
+                "model_impact_on_risk": -9.717466675773778e-8
+              },
+              "severity": "HIGH",
+              "title": "Your profile increases sensitivity",
+              "why": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk. This is personalized for your sensitive skin profile.",
+              "action": "Patch test and start with low frequency for your skin profile."
+            },
+            {
+              "rank": 3,
+              "type": "INTERACTION",
+              "risk_target": "IRRITATION",
+              "item": "Eczema + Drying Irritants",
+              "impact": 0.2720000072313762,
+              "message": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging.",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "u_has_eczema",
+                  "ing_count_drying_irritants"
+                ],
+                "rules": [
+                  "R_ECZ_1"
+                ],
+                "model_impact_on_risk": 7.231376164540393e-9
+              },
+              "severity": "HIGH",
+              "title": "Eczema + Drying Irritants interaction increases risk",
+              "why": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging. Your eczema condition makes barrier disruption more likely.",
+              "action": "Patch test and start with low frequency for your skin profile."
+            },
+            {
+              "rank": 4,
+              "type": "INGREDIENT",
+              "risk_target": "IRRITATION",
+              "item": "Fragrance",
+              "impact": 0.1500000371928257,
+              "message": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging.",
+              "evidence": {
+                "ingredients": [
+                  "fragrance"
+                ],
+                "features": [
+                  "ing_has_fragrance"
+                ],
+                "rules": [
+                  "R_FRAG_1"
+                ],
+                "model_impact_on_risk": 3.7192825708132204e-8
+              },
+              "severity": "MEDIUM",
+              "title": "Fragrance may increase risk",
+              "why": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging. Your eczema condition makes barrier disruption more likely.",
+              "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+            },
+            {
+              "rank": 5,
+              "type": "INGREDIENT",
+              "risk_target": "IRRITATION",
+              "item": "Alcohol Denat",
+              "impact": 0.10800000723137616,
+              "message": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers.",
+              "evidence": {
+                "ingredients": [
+                  "alcohol denat"
+                ],
+                "features": [
+                  "ing_has_alcohol_denat"
+                ],
+                "rules": [
+                  "R_ALC_1"
+                ],
+                "model_impact_on_risk": 7.231376164540393e-9
+              },
+              "severity": "MEDIUM",
+              "title": "Alcohol Denat may increase risk",
+              "why": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers. Your eczema condition makes barrier disruption more likely.",
+              "action": "Use with barrier support moisturizer and avoid use on irritated skin."
+            }
+          ],
+          "reason_groups": {
+            "IRRITATION": [
+              {
+                "rank": 1,
+                "type": "ALLERGY",
+                "risk_target": "IRRITATION",
+                "item": "Fragrance (Known Allergen)",
+                "impact": 0.2900000371928257,
+                "message": "You have a stated fragrance allergy and this product contains fragrance. This is a direct allergen match — do not use.",
+                "evidence": {
+                  "ingredients": [
+                    "fragrance"
+                  ],
+                  "features": [
+                    "u_allergy_fragrance",
+                    "ing_has_fragrance",
+                    "x_allergy_fragrance__has_fragrance"
+                  ],
+                  "rules": [
+                    "R_ALLERGY_FRAG_1"
+                  ],
+                  "model_impact_on_risk": 3.7192825708132204e-8
+                },
+                "severity": "HIGH",
+                "title": "Fragrance (Known Allergen) contributes to the score",
+                "why": "You have a stated fragrance allergy and this product contains fragrance. This is a direct allergen match — do not use. Your eczema condition makes barrier disruption more likely.",
+                "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+              },
+              {
+                "rank": 2,
+                "type": "USER_CONTEXT",
+                "risk_target": "IRRITATION",
+                "item": "Sensitive Skin + Irritant Load",
+                "impact": 0.2800000971746668,
+                "message": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk.",
+                "evidence": {
+                  "ingredients": [
+                    "fragrance",
+                    "alcohol denat",
+                    "vitamin c"
+                  ],
+                  "features": [
+                    "u_skin_sensitive",
+                    "ing_irritant_severity_sum"
+                  ],
+                  "rules": [
+                    "R_SENS_1"
+                  ],
+                  "model_impact_on_risk": -9.717466675773778e-8
+                },
+                "severity": "HIGH",
+                "title": "Your profile increases sensitivity",
+                "why": "Your sensitive skin combined with multiple potentially irritating actives increases irritation risk. This is personalized for your sensitive skin profile.",
+                "action": "Patch test and start with low frequency for your skin profile."
+              },
+              {
+                "rank": 3,
+                "type": "INTERACTION",
+                "risk_target": "IRRITATION",
+                "item": "Eczema + Drying Irritants",
+                "impact": 0.2720000072313762,
+                "message": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging.",
+                "evidence": {
+                  "ingredients": [
+                    "alcohol denat"
+                  ],
+                  "features": [
+                    "u_has_eczema",
+                    "ing_count_drying_irritants"
+                  ],
+                  "rules": [
+                    "R_ECZ_1"
+                  ],
+                  "model_impact_on_risk": 7.231376164540393e-9
+                },
+                "severity": "HIGH",
+                "title": "Eczema + Drying Irritants interaction increases risk",
+                "why": "With eczema-prone skin, drying ingredients can increase the chance of flare-ups or stinging. Your eczema condition makes barrier disruption more likely.",
+                "action": "Patch test and start with low frequency for your skin profile."
+              },
+              {
+                "rank": 4,
+                "type": "INGREDIENT",
+                "risk_target": "IRRITATION",
+                "item": "Fragrance",
+                "impact": 0.1500000371928257,
+                "message": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging.",
+                "evidence": {
+                  "ingredients": [
+                    "fragrance"
+                  ],
+                  "features": [
+                    "ing_has_fragrance"
+                  ],
+                  "rules": [
+                    "R_FRAG_1"
+                  ],
+                  "model_impact_on_risk": 3.7192825708132204e-8
+                },
+                "severity": "MEDIUM",
+                "title": "Fragrance may increase risk",
+                "why": "Fragrance is a common sensitizer/irritant and may trigger redness or stinging. Your eczema condition makes barrier disruption more likely.",
+                "action": "Prefer fragrance-free options; avoid eye/neck area and patch test."
+              },
+              {
+                "rank": 5,
+                "type": "INGREDIENT",
+                "risk_target": "IRRITATION",
+                "item": "Alcohol Denat",
+                "impact": 0.10800000723137616,
+                "message": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers.",
+                "evidence": {
+                  "ingredients": [
+                    "alcohol denat"
+                  ],
+                  "features": [
+                    "ing_has_alcohol_denat"
+                  ],
+                  "rules": [
+                    "R_ALC_1"
+                  ],
+                  "model_impact_on_risk": 7.231376164540393e-9
+                },
+                "severity": "MEDIUM",
+                "title": "Alcohol Denat may increase risk",
+                "why": "Alcohol Denat can be drying and may worsen irritation for sensitive or compromised skin barriers. Your eczema condition makes barrier disruption more likely.",
+                "action": "Use with barrier support moisturizer and avoid use on irritated skin."
+              }
+            ],
+            "ACNE": [],
+            "OVERALL": []
+          },
+          "precautions": [
+            {
+              "code": "PATCH_TEST_24H",
+              "priority": 1,
+              "text": "Patch test: apply a small amount on inner arm, leave for 24 hours, and check for redness/itching/burning."
+            },
+            {
+              "code": "START_1_2X_PER_WEEK",
+              "priority": 2,
+              "text": "Start with 1-2 uses per week. Increase slowly only if there is no irritation."
+            },
+            {
+              "code": "AVOID_BROKEN_SKIN",
+              "priority": 3,
+              "text": "Avoid applying on broken/irritated skin. Stop immediately if burning persists."
+            },
+            {
+              "code": "AVOID_EYE_NECK",
+              "priority": 4,
+              "text": "Avoid sensitive zones (around eyes, corners of nose, neck) during initial trials."
+            },
+            {
+              "code": "FRAGRANCE_CAUTION",
+              "priority": 5,
+              "text": "Fragrance present: if you are sensitive, avoid eye/neck area and prefer fragrance-free alternatives."
+            },
+            {
+              "code": "ALCOHOL_DRYNESS_CAUTION",
+              "priority": 5,
+              "text": "Alcohol Denat present: can be drying. Use a moisturizer after application and stop if skin feels tight or flaky."
+            },
+            {
+              "code": "ECZEMA_BARRIER_SUPPORT",
+              "priority": 6,
+              "text": "Eczema-prone: prioritize barrier support (ceramides/moisturizer). Avoid applying during active flare-ups."
+            },
+            {
+              "code": "ALLERGY_FRAGRANCE_STOP",
+              "priority": 0,
+              "text": "⚠️ ALLERGY ALERT: You have a stated fragrance allergy and this product contains Fragrance. Do NOT use this product — seek a fragrance-free alternative."
+            }
+          ],
+          "counterfactuals": [
+            {
+              "feature": "ing_count_fragrance",
+              "ingredients": [
+                "fragrance"
+              ],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 30,
+              "recommendation": "If you avoid or replace fragrance, suitability may improve by about 0 points."
+            },
+            {
+              "feature": "ing_has_fragrance",
+              "ingredients": [
+                "fragrance"
+              ],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 30,
+              "recommendation": "If you avoid or replace fragrance, suitability may improve by about 0 points."
+            },
+            {
+              "feature": "ing_comedogenic_severity_sum",
+              "ingredients": [
+                "fragrance"
+              ],
+              "risk_reduction": 0,
+              "score_gain": 0,
+              "projected_suitability_score": 30,
+              "recommendation": "If you avoid or replace fragrance, suitability may improve by about 0 points."
+            }
+          ],
+          "alternatives": {
+            "constraints": {
+              "same_category": "Serum",
+              "avoid_ingredients": [
+                "Fragrance",
+                "Alcohol Denat"
+              ],
+              "avoid_tags": [
+                "fragrance",
+                "drying"
+              ],
+              "prefer_tags": [
+                "fragrance-free",
+                "barrier-support",
+                "gentle"
+              ],
+              "objective": "minimize_fused_risk",
+              "max_results": 3,
+              "current_suitability_score": 30
+            },
+            "results": [
+              {
+                "qr_id": "PROD022_BATCH01",
+                "product_name": "SkinZen Serum 22",
+                "type": "Serum",
+                "origin": "Bengaluru",
+                "ingredients": [
+                  "Zinc Oxide",
+                  "Niacinamide",
+                  "Glycerin",
+                  "Aloe Vera"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 1.9746083054717306e-7,
+                "p_acne": 1.799047504864099e-10,
+                "confidence": 0.9999998258154866,
+                "score_gain_vs_current": 70,
+                "why_better": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+              },
+              {
+                "qr_id": "PROD016_BATCH01",
+                "product_name": "PureCare Serum 16",
+                "type": "Serum",
+                "origin": "Mumbai",
+                "ingredients": [
+                  "Ceramides",
+                  "Shea Butter",
+                  "Panthenol",
+                  "Hyaluronic Acid",
+                  "Parabens"
+                ],
+                "suitability_score": 100,
+                "p_irritation": 0.000006935660168389515,
+                "p_acne": 5.273606333515142e-10,
+                "confidence": 0.999997908151379,
+                "score_gain_vs_current": 70,
+                "why_better": "avoids Fragrance, Alcohol Denat; aligns with fragrance-free, barrier-support, gentle; predicted suitability 100/100"
+              }
+            ]
+          },
+          "meta": {
+            "xai_version": "xai-v1",
+            "generated_at": "2026-04-12T07:06:34.761Z",
+            "evidence": {
+              "rules_fired": [
+                "R_FRAG_1",
+                "R_ALC_1",
+                "R_ECZ_1",
+                "R_SENS_1",
+                "R_ALLERGY_FRAG_1"
+              ],
+              "model_signal": {
+                "method": "ablation_feature_zero",
+                "top_k": 10,
+                "feature_impacts": [
+                  {
+                    "feature": "ing_count_total",
+                    "value": 4,
+                    "impact_on_risk": -1.8577945160025422e-7,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000002247798042
+                  },
+                  {
+                    "feature": "u_skin_sensitive",
+                    "value": 1,
+                    "impact_on_risk": -9.717466675773778e-8,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000001361750193
+                  },
+                  {
+                    "feature": "ing_count_fragrance",
+                    "value": 1,
+                    "impact_on_risk": 3.7192825708132204e-8,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000000018075269
+                  },
+                  {
+                    "feature": "ing_has_fragrance",
+                    "value": 1,
+                    "impact_on_risk": 3.7192825708132204e-8,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000000018075269
+                  },
+                  {
+                    "feature": "ing_irritant_severity_sum",
+                    "value": 6,
+                    "impact_on_risk": -3.5442473400593144e-8,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.700000074442826
+                  },
+                  {
+                    "feature": "ing_comedogenic_severity_sum",
+                    "value": 1,
+                    "impact_on_risk": 2.1238138137036344e-8,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000000177622144
+                  },
+                  {
+                    "feature": "ing_count_drying_irritants",
+                    "value": 1,
+                    "impact_on_risk": 7.231376164540393e-9,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000000317689764
+                  },
+                  {
+                    "feature": "ing_has_alcohol_denat",
+                    "value": 1,
+                    "impact_on_risk": 7.231376164540393e-9,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000000317689764
+                  },
+                  {
+                    "feature": "x_sensitive__irritant_sum",
+                    "value": 6,
+                    "impact_on_risk": -6.456083889716524e-9,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.7000000454564365
+                  },
+                  {
+                    "feature": "u_has_eczema",
+                    "value": 1,
+                    "impact_on_risk": -4.693688437917842e-9,
+                    "risk_before": 0.7000000390003526,
+                    "risk_after": 0.700000043694041
                   }
                 ]
               }
